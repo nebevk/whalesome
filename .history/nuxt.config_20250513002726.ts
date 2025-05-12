@@ -8,11 +8,7 @@ export default defineNuxtConfig({
   },
   content: {
     // Content module options
-    documentDriven: {
-      navigation: true,
-      page: true,
-      surround: true,
-    },
+    documentDriven: true,
     navigation: {
       fields: ["title", "description", "icon"],
     },
@@ -21,9 +17,6 @@ export default defineNuxtConfig({
       theme: "github-dark",
       // MDC component support
       mdc: true,
-      // Markdown options
-      remarkPlugins: [],
-      rehypePlugins: [],
     },
   },
 });

@@ -27,12 +27,9 @@
             :key="link.path"
             :to="link.path"
             class="p-4 bg-ocean-light rounded-lg hover:bg-ocean hover:text-white transition-colors"
-            :class="{ 'bg-ocean text-white': isCurrentPage(link.path) }"
           >
             <h3 class="font-semibold">{{ link.title }}</h3>
-            <p class="text-sm" :class="{ 'text-white': isCurrentPage(link.path), 'text-whale-gray': !isCurrentPage(link.path) }">
-              {{ link.description }}
-            </p>
+            <p class="text-sm text-whale-gray">{{ link.description }}</p>
           </NuxtLink>
         </nav>
       </div>
@@ -56,10 +53,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
 const wikiLinks = [
   {
     title: 'Core Framework',
@@ -83,15 +76,10 @@ const wikiLinks = [
   },
   {
     title: 'Future Plans',
-    description: "See what's coming next",
+    description: 'See what's coming next',
     path: '/wiki/future'
   }
 ]
-
-// Add navigation function
-const isCurrentPage = (path: string) => {
-  return route.path === path
-}
 </script>
 
 <style scoped>

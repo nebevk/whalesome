@@ -1,23 +1,6 @@
 <template>
   <div class="min-h-screen bg-ocean-light text-whale-blue p-8">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-5xl font-whale mb-6 text-center">🐳 About Whalesome</h1>
-      
-      <!-- Introduction -->
-      <div class="mb-12 text-center">
-        <p class="text-lg text-whale-gray mb-4">
-          Whalesome is dedicated to raising awareness about these magnificent
-          marine mammals and their conservation.
-        </p>
-        <p class="text-lg text-whale-gray mb-4">
-          Our mission is to educate and inspire people about the importance of
-          whale conservation and marine ecosystem protection.
-        </p>
-        <p class="text-lg text-whale-gray italic">
-          This project also serves as a playground for experimenting with modern web technologies and integrations.
-        </p>
-      </div>
-
       <!-- Wiki Navigation -->
       <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
         <h2 class="text-2xl font-whale mb-4">Wiki Navigation</h2>
@@ -39,11 +22,20 @@
 
       <!-- Content -->
       <div class="bg-white rounded-lg shadow-lg p-6">
-        <ContentDoc />
+        <ContentRenderer v-if="data" :value="data" />
+        <div v-else class="text-center py-8">
+          <p class="text-whale-gray">Loading content...</p>
+        </div>
       </div>
 
       <!-- Navigation -->
-      <div class="text-center mt-8">
+      <div class="text-center mt-8 space-x-4">
+        <NuxtLink
+          to="/about"
+          class="inline-block px-6 py-3 bg-ocean-dark text-white rounded-lg hover:bg-ocean transition-colors"
+        >
+          Back to About
+        </NuxtLink>
         <NuxtLink
           to="/"
           class="inline-block px-6 py-3 bg-ocean-dark text-white rounded-lg hover:bg-ocean transition-colors"
@@ -57,8 +49,19 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { useAsyncData } from '#app'
+import { queryContent } from '#imports'
 
 const route = useRoute()
+const contentPath = computed(() => {
+  const slug = route.params.slug as string[]
+  return `/wiki/${slug.join('/')}`
+})
+
+// Fetch content
+const { data } = await useAsyncData(`content-${contentPath.value}`, () => 
+  queryContent(contentPath.value).findOne()
+)
 
 const wikiLinks = [
   {
@@ -88,7 +91,6 @@ const wikiLinks = [
   }
 ]
 
-// Add navigation function
 const isCurrentPage = (path: string) => {
   return route.path === path
 }
@@ -151,4 +153,4 @@ const isCurrentPage = (path: string) => {
 :deep(pre code) {
   @apply bg-transparent p-0;
 }
-</style>
+</style> 
