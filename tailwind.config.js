@@ -12,13 +12,13 @@ export default {
     extend: {
       colors: {
         ocean: {
-          light: '#a3d5ff',
-          DEFAULT: '#0077b6',
-          dark: '#023e8a',
+          light: '#22304a',
+          DEFAULT: '#0a223a',
+          dark: '#061624',
         },
         whale: {
-          blue: '#03045e',
-          gray: '#6c757d',
+          blue: '#0b1a2f',
+          gray: '#3a4250',
         },
         'neon-pink': '#ff3ec8',
         'neon-blue': '#00f0ff',
