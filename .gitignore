@@ -7,7 +7,11 @@
 dist
 
 # Node dependencies
-node_modules
+node_modules/
+/.pnp
+.pnp.js
+yarn.lock
+package-lock.json
 
 # Logs
 logs
@@ -22,3 +26,52 @@ logs
 .env
 .env.*
 !.env.example
+
+# Testing
+/coverage
+.nyc_output
+
+# Production
+/build
+/dist
+/.next/
+/out/
+
+# Environment files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+
+# History files
+.history/
+*.history
+.history.json
+.history.yaml
+.history.yml
+
+# Cache directories
+.npm/
+.eslintcache
+.stylelintcache
+
+# Optional: TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Optional: Misc
+*.bak
+*.tmp
+*.temp
