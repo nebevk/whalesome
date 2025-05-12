@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Spirit mode trippy neon styles */
+.spirit {
+  background: linear-gradient(135deg, #1a0033 0%, #0fffc1 100%) fixed;
+  min-height: 100vh;
+}
+.spirit main {
+  background: transparent;
+}
+.spirit header, .spirit footer {
+  background: rgba(255, 62, 200, 0.7) !important;
+  color: #39ff14 !important;
+  box-shadow: 0 0 16px #ff3ec8, 0 0 32px #00f0ff;
+}
+.spirit a, .spirit .font-whale {
+  color: #fff700 !important;
+  text-shadow: 0 0 8px #00f0ff, 0 0 16px #ff3ec8;
+}
+.spirit button {
+  background: rgba(0, 240, 255, 0.7) !important;
+  color: #ff3ec8 !important;
+  border: 2px solid #39ff14;
+  box-shadow: 0 0 8px #ff3ec8, 0 0 16px #39ff14;
+} 
