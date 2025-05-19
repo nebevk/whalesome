@@ -10,9 +10,8 @@ export default defineNuxtConfig({
     compatibilityDate: "2025-05-16",
   },
   content: {
-    markdown: {
-      theme: "github-dark",
-      mdc: true,
+    experimental: {
+      nativeSqlite: true,
     },
   },
 });
