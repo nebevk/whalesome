@@ -25,7 +25,7 @@ export default {
         'neon-yellow': '#fff700',
       },
       fontFamily: {
-        whale: ['"Merriweather Sans"', 'sans-serif'],
+        whale: ['"Merriweather"', 'sans-serif'],
       },
       boxShadow: {
         neon: '0 0 8px #ff3ec8, 0 0 16px #00f0ff, 0 0 24px #fff700',

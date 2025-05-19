@@ -1,17 +1,28 @@
 <template>
   <div class="bg-ocean-dark text-whale-blue min-h-screen">
     <!-- Hero Section -->
-    <section class="flex flex-col items-center justify-center min-h-[60vh] bg-ocean-dark text-white">
-      <h1 class="text-5xl font-whale mb-4">🐋 Welcome to Whalesome!</h1>
-      <p class="text-lg text-whale-gray max-w-xl text-center">
-        Dive into the world of whales—species, fun facts, and conservation efforts.
-      </p>
-      <NuxtLink
-        to="/species"
-        class="mt-6 px-4 py-2 bg-ocean text-white rounded-lg hover:bg-ocean-light"
-      >
-        Explore Whale Species
-      </NuxtLink>
+    <section class="relative flex flex-col items-center justify-center min-h-[90vh] text-white overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img 
+          v-motion="'zoom-bg'"
+          src="/assets/img/karl-heinz-muller-bMieozQvHeU-unsplash.jpg" 
+          alt="Ocean background" 
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
+      <div class="relative z-10 text-center">
+        <h1 class="text-5xl font-whale mb-4">🐋 Welcome to Whalesome!</h1>
+        <p class="text-lg text-white max-w-xl text-center">
+          Dive into the world of whales—species, fun facts, and conservation efforts.
+        </p>
+        <NuxtLink
+          to="/species"
+          class="mt-6 px-4 py-2 bg-ocean text-white rounded-lg hover:bg-ocean-light inline-block"
+        >
+          Explore Whale Species
+        </NuxtLink>
+      </div>
     </section>
 
     <!-- About Whales Section (Animated) -->
@@ -54,4 +65,5 @@
 </template>
 
 <script setup>
+// No imports needed as v-motion directive is globally available
 </script>
