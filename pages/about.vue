@@ -3,43 +3,30 @@
     <div class="max-w-4xl mx-auto">
       <h1 class="text-5xl font-whale mb-6 text-center">🐳 About Whalesome</h1>
       
-      <!-- Introduction -->
-      <div class="mb-12 text-center">
-        <p class="text-lg text-whale-gray mb-4">
-          Whalesome is dedicated to raising awareness about these magnificent
-          marine mammals and their conservation.
-        </p>
-        <p class="text-lg text-whale-gray mb-4">
-          Our mission is to educate and inspire people about the importance of
-          whale conservation and marine ecosystem protection.
-        </p>
-        <p class="text-lg text-whale-gray italic">
-          This project also serves as a playground for experimenting with modern web technologies and integrations.
-        </p>
-      </div>
-
-      <!-- Wiki Navigation -->
+      <!-- Project Description -->
       <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-        <h2 class="text-2xl font-whale mb-4">Wiki Navigation</h2>
-        <nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <NuxtLink 
-            v-for="link in wikiLinks" 
-            :key="link.path"
-            :to="link.path"
-            class="p-4 bg-ocean-light rounded-lg hover:bg-ocean hover:text-white transition-colors"
-            :class="{ 'bg-ocean text-white': isCurrentPage(link.path) }"
-          >
-            <h3 class="font-semibold">{{ link.title }}</h3>
-            <p class="text-sm" :class="{ 'text-white': isCurrentPage(link.path), 'text-whale-gray': !isCurrentPage(link.path) }">
-              {{ link.description }}
-            </p>
-          </NuxtLink>
-        </nav>
+        <h2 class="text-2xl font-whale mb-4">The Project</h2>
+        <div class="prose max-w-none">
+          <p class="text-lg text-whale-gray mb-4">
+            Whalesome is dedicated to raising awareness about these magnificent
+            marine mammals and their conservation.
+          </p>
+          <p class="text-lg text-whale-gray mb-4">
+            Our mission is to educate and inspire people about the importance of
+            whale conservation and marine ecosystem protection.
+          </p>
+          <p class="text-lg text-whale-gray italic">
+            This project also serves as a playground for experimenting with modern web technologies and integrations.
+          </p>
+        </div>
       </div>
 
-      <!-- Content -->
+      <!-- About Me -->
       <div class="bg-white rounded-lg shadow-lg p-6">
-        <ContentDoc />
+        <h2 class="text-2xl font-whale mb-4">About Me</h2>
+        <div class="prose max-w-none">
+          <ContentDoc />
+        </div>
       </div>
 
       <!-- Navigation -->
@@ -59,39 +46,6 @@
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-
-const wikiLinks = [
-  {
-    title: 'Core Framework',
-    description: 'Learn about Nuxt 3 and its features',
-    path: '/wiki/framework'
-  },
-  {
-    title: 'UI & Styling',
-    description: 'Explore Tailwind CSS and Headless UI',
-    path: '/wiki/styling'
-  },
-  {
-    title: 'Animations',
-    description: 'Discover VueUse Motion animations',
-    path: '/wiki/animations'
-  },
-  {
-    title: 'Deployment',
-    description: 'Understand our Netlify setup',
-    path: '/wiki/deployment'
-  },
-  {
-    title: 'Future Plans',
-    description: "See what's coming next",
-    path: '/wiki/future'
-  }
-]
-
-// Add navigation function
-const isCurrentPage = (path: string) => {
-  return route.path === path
-}
 </script>
 
 <style scoped>

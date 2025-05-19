@@ -6,24 +6,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ["@vueuse/motion"],
   },
+  nitro: {
+    compatibilityDate: "2025-05-16",
+  },
   content: {
-    // Content module options
-    documentDriven: {
-      navigation: true,
-      page: true,
-      surround: true,
-    },
-    navigation: {
-      fields: ["title", "description", "icon"],
-    },
     markdown: {
-      // Shiki syntax highlighting
       theme: "github-dark",
-      // MDC component support
       mdc: true,
-      // Markdown options
-      remarkPlugins: [],
-      rehypePlugins: [],
     },
   },
 });

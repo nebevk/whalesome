@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="min-h-screen bg-ocean-light">
+    <!-- Header -->
     <header
       class="bg-ocean-dark text-white p-4 flex justify-between items-center"
     >
@@ -66,20 +67,45 @@
         </div>
       </Menu>
     </header>
-    <main>
-      <slot />
-    </main>
-    <footer :class="spiritMode ? 'bg-neon-pink/80 text-neon-blue/90' : 'bg-ocean-dark text-white'" class="p-4 text-center mt-10">
-      © 2025 Whalesome. Swim with care. 🐳
-    </footer>
+
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside class="w-64 min-h-screen bg-white shadow-lg fixed left-0 top-16 p-6">
+        <nav class="space-y-2">
+          <NuxtLink 
+            v-for="link in wikiLinks" 
+            :key="link.path"
+            :to="link.path"
+            class="block p-3 rounded-lg transition-colors"
+            :class="[
+              isCurrentPage(link.path) 
+                ? 'bg-ocean text-white' 
+                : 'hover:bg-ocean-light text-whale-gray'
+            ]"
+          >
+            <h3 class="font-semibold">{{ link.title }}</h3>
+            <p class="text-sm" :class="{ 'text-white/80': isCurrentPage(link.path) }">
+              {{ link.description }}
+            </p>
+          </NuxtLink>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 ml-64 p-8">
+        <slot />
+      </main>
+    </div>
   </div>
 </template>
 
-<script setup>
-import { ref, watch } from 'vue'
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
 import WhaleLogo from '~/components/WhaleLogo.vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import { ref, watch } from 'vue'
 
+const route = useRoute()
 const spiritMode = ref(false)
 
 function toggleSpiritMode() {
@@ -91,10 +117,58 @@ watch(spiritMode, (val) => {
     document.body.classList.toggle('spirit', val)
   }
 }, { immediate: true })
+
+const wikiLinks = [
+  {
+    title: 'Core Framework',
+    description: 'Learn about Nuxt 3 and its features',
+    path: '/wiki/framework'
+  },
+  {
+    title: 'UI & Styling',
+    description: 'Explore Tailwind CSS and Headless UI',
+    path: '/wiki/styling'
+  },
+  {
+    title: 'Animations',
+    description: 'Discover VueUse Motion animations',
+    path: '/wiki/animations'
+  },
+  {
+    title: 'Deployment',
+    description: 'Understand our Netlify setup',
+    path: '/wiki/deployment'
+  },
+  {
+    title: 'Future Plans',
+    description: "See what's coming next",
+    path: '/wiki/future'
+  }
+]
+
+const isCurrentPage = (path: string) => {
+  return route.path === path
+}
 </script>
 
 <style scoped>
+.font-whale {
+  font-family: 'Whale', sans-serif;
+}
+
 .bg-ocean-light {
   background-color: #f0f7ff;
 }
-</style>
+
+.bg-ocean {
+  background-color: #2c5282;
+}
+
+.text-whale-blue {
+  color: #1a365d;
+}
+
+.text-whale-gray {
+  color: #4a5568;
+}
+</style> 
