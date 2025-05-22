@@ -69,8 +69,25 @@
     <main>
       <slot />
     </main>
-    <footer :class="spiritMode ? 'bg-neon-pink/80 text-neon-blue/90' : 'bg-ocean-dark text-white'" class="p-4 text-center mt-10">
-      © 2025 Whalesome. Swim with care. 🐳
+    <footer :class="spiritMode ? 'bg-neon-pink/80 text-neon-blue/90' : 'bg-ocean-dark text-white'" class="py-8">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-4">
+          © {{ new Date().getFullYear() }} Whalesome, from <a href="https://nejcbevk.com" class="hover:text-neon-blue transition-colors">Nejc Bevk</a>. Swim with care. 🐳
+        </div>
+        <div class="text-sm text-whale-gray">
+          <h3 class="text-lg font-semibold mb-2">Attributions</h3>
+          <ul class="space-y-1">
+            <li>
+              <a href="https://www.vectorstock.com/royalty-free-vector/abstract-whale-tattoo-silhouette-with-wave-accent-vector-47585302" 
+                 class="hover:text-white transition-colors"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Vector image by VectorStock / SeptionDigital
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </div>
 </template>
