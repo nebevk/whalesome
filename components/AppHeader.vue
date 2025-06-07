@@ -4,7 +4,7 @@
       <div class="flex justify-between h-16">
         <div class="flex">
           <NuxtLink to="/" class="flex items-center">
-            <span class="text-2xl font-whale text-whale-blue">Whalesome</span>
+            <span class="text-2xl font-whale text-whale-blue">Whaalesome</span>
           </NuxtLink>
         </div>
         
