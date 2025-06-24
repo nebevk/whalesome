@@ -25,7 +25,7 @@
       <div class="bg-white rounded-lg shadow-lg p-6">
         <h2 class="text-2xl font-whale mb-4">About Me</h2>
         <div class="prose max-w-none">
-          <ContentDoc />
+          <!-- ContentDoc removed -->
         </div>
       </div>
 
@@ -43,66 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
 
-const route = useRoute()
 </script>
 
-<style scoped>
-.font-whale {
-  font-family: 'Whale', sans-serif;
-}
 
-.bg-ocean-light {
-  background-color: #f0f7ff;
-}
-
-.bg-ocean-dark {
-  background-color: #1a365d;
-}
-
-.bg-ocean {
-  background-color: #2c5282;
-}
-
-.text-whale-blue {
-  color: #1a365d;
-}
-
-.text-whale-gray {
-  color: #4a5568;
-}
-
-/* Content styling */
-:deep(h1) {
-  @apply text-3xl font-whale mb-6;
-}
-
-:deep(h2) {
-  @apply text-2xl font-whale mb-4;
-}
-
-:deep(h3) {
-  @apply text-xl font-semibold mb-3;
-}
-
-:deep(p) {
-  @apply mb-4 text-whale-gray;
-}
-
-:deep(ul) {
-  @apply list-disc list-inside mb-4 text-whale-gray;
-}
-
-:deep(code) {
-  @apply bg-gray-100 px-2 py-1 rounded;
-}
-
-:deep(pre) {
-  @apply bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto;
-}
-
-:deep(pre code) {
-  @apply bg-transparent p-0;
-}
-</style>

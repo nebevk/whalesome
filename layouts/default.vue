@@ -13,7 +13,6 @@
           <div class="hidden md:flex space-x-4 items-center">
             <NuxtLink to="/about">About</NuxtLink>
             <NuxtLink to="/species">Species</NuxtLink>
-            <NuxtLink to="/wiki/framework">Wiki</NuxtLink>
             <div class="ml-4 flex items-center gap-2">
               <span class="text-sm">Spirit mode</span>
               <button

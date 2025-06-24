@@ -8,10 +8,9 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxt/content",
     "@vueuse/motion/nuxt",
     "@nuxt/fonts",
+    "@nuxt/ui",
   ],
   css: ["~/assets/css/tailwind.css"],
   build: {
@@ -37,11 +36,12 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    compatibilityDate: "2025-05-16",
+    compatibilityDate: '2025-06-24',
   },
-  content: {
-    experimental: {
-      nativeSqlite: true,
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+      autoprefixer: {},
     },
   },
 });

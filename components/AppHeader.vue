@@ -23,13 +23,6 @@
           >
             About
           </NuxtLink>
-          <NuxtLink 
-            to="/wiki/framework" 
-            class="text-whale-gray hover:text-whale-blue px-3 py-2 rounded-md text-sm font-medium"
-            :class="{ 'text-whale-blue': isCurrentPage('/wiki') }"
-          >
-            Wiki
-          </NuxtLink>
         </div>
       </div>
     </nav>
