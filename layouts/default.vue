@@ -3,89 +3,104 @@
     <transition name="fade">
       <header
         v-show="showHeader"
-        class="sticky top-4 z-50 mx-4 md:mx-8 rounded-2xl bg-ocean-dark/80 backdrop-blur-md border border-white/10 text-white p-4 flex justify-between items-center header-glow"
+        class="navbar sticky top-0 z-50 bg-base-200 shadow-lg px-4 md:px-8"
       >
-        <NuxtLink to="/" class="text-2xl font-whale flex items-center gap-2">
-          <WhaleLogo />
-          Whalesome
-        </NuxtLink>
-        <Menu as="nav" class="relative">
-          <div class="hidden md:flex space-x-4 items-center">
-            <NuxtLink to="/about">About</NuxtLink>
-            <NuxtLink to="/species">Species</NuxtLink>
-            <div class="ml-4">
-              <ThemeSwitcher />
-            </div>
+        <div class="navbar-start">
+          <NuxtLink to="/" class="btn btn-ghost gap-2 px-2 text-xl font-whale">
+            <WhaleLogo />
+            Whalesome
+          </NuxtLink>
+        </div>
+
+        <div class="navbar-end gap-2">
+          <!-- Desktop: links + theme -->
+          <div class="hidden md:flex items-center gap-2">
+            <NuxtLink to="/" class="btn btn-ghost btn-sm">Home</NuxtLink>
+            <NuxtLink to="/about" class="btn btn-ghost btn-sm">About</NuxtLink>
+            <NuxtLink to="/species" class="btn btn-ghost btn-sm">Species</NuxtLink>
+            <div class="divider divider-horizontal mx-1"></div>
+            <ThemeSwitcher />
           </div>
-          <div class="md:hidden flex items-center">
-            <MenuButton class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-              <span class="sr-only">Open main menu</span>
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+
+          <!-- Mobile: dropdown menu -->
+          <div class="dropdown dropdown-end md:hidden">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-square" aria-label="Open menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-            </MenuButton>
-            <MenuItems class="absolute right-0 mt-2 w-48 origin-top-right bg-white text-whale-blue rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
-              <div class="py-1">
-                <MenuItem v-slot="{ active }">
-                  <NuxtLink :class="[active ? 'bg-ocean-light' : '', 'block px-4 py-2']" to="/about">About</NuxtLink>
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
-                  <NuxtLink :class="[active ? 'bg-ocean-light' : '', 'block px-4 py-2']" to="/species">Species</NuxtLink>
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
-                  <NuxtLink :class="[active ? 'bg-ocean-light' : '', 'block px-4 py-2']" to="/wiki/framework">Wiki</NuxtLink>
-                </MenuItem>
-                <MenuItem v-slot>
-                  <div class="px-4 py-2">
-                    <ThemeSwitcher />
-                  </div>
-                </MenuItem>
-              </div>
-            </MenuItems>
+            </div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-200 rounded-box z-50 mt-2 w-56 p-2 shadow-xl border border-base-300">
+              <li><NuxtLink to="/" @click="closeDropdown">Home</NuxtLink></li>
+              <li><NuxtLink to="/about" @click="closeDropdown">About</NuxtLink></li>
+              <li><NuxtLink to="/species" @click="closeDropdown">Species</NuxtLink></li>
+              <li><div class="pt-2 mt-2 border-t border-base-300"><ThemeSwitcher /></div></li>
+            </ul>
           </div>
-        </Menu>
+        </div>
       </header>
     </transition>
+
     <main>
       <slot />
     </main>
-    <footer :class="theme === 'spirit' ? 'bg-primary/80 text-accent' : 'bg-ocean-dark text-white'" class="py-8">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-4">
-          © {{ new Date().getFullYear() }} Whalesome, from <a href="https://nejcbevk.com" class="hover:text-neon-blue transition-colors">Nejc Bevk</a>. Swim with care. 🐳
-        </div>
-        <div class="text-sm text-whale-gray">
-          <h3 class="text-lg font-semibold mb-2">Attributions</h3>
+
+    <footer class="footer p-10 bg-black text-gray-300">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mx-auto md:gap-12">
+        <aside class="text-center md:text-left md:pr-8 md:border-r md:border-gray-700">
+          <h6 class="footer-title text-gray-300">Copyright</h6>
+          <p>
+            © {{ new Date().getFullYear() }} Whalesome, from
+            <a href="https://nejcbevk.com" class="link link-hover text-info hover:text-info/90" target="_blank" rel="noopener noreferrer">Nejc Bevk</a>.
+            Swim with care. 🐳
+          </p>
+        </aside>
+        <nav class="text-center md:text-left md:pl-8">
+          <h6 class="footer-title text-gray-300">Attributions</h6>
           <ul class="space-y-1">
             <li>
-              <a href="https://www.vectorstock.com/royalty-free-vector/abstract-whale-tattoo-silhouette-with-wave-accent-vector-47585302" 
-                 class="hover:text-white transition-colors"
-                 target="_blank"
-                 rel="noopener noreferrer">
+              <a
+                href="https://unsplash.com"
+                class="link link-hover text-gray-400 hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Photos via Unsplash
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.vectorstock.com/royalty-free-vector/abstract-whale-tattoo-silhouette-with-wave-accent-vector-47585302"
+                class="link link-hover text-gray-400 hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Vector image by VectorStock / SeptionDigital
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
 import WhaleLogo from '~/components/WhaleLogo.vue'
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
-const { theme } = useTheme()
 const showHeader = ref(true)
 
 function handleScroll() {
   const scrollY = window.scrollY
   const windowHeight = window.innerHeight
   const bodyHeight = document.body.offsetHeight
-  // Hide header if within 100px of bottom
-  showHeader.value = (windowHeight + scrollY) < (bodyHeight - 100)
+  showHeader.value = windowHeight + scrollY < bodyHeight - 100
+}
+
+function closeDropdown() {
+  if (process.client) {
+    const active = document.activeElement as HTMLElement
+    active?.blur()
+  }
 }
 
 onMounted(() => {
@@ -98,21 +113,12 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.bg-ocean-light {
-  background-color: #f0f7ff;
-}
-
-header {
-      margin-top: -4.5rem;
-}
-
-.header-glow {
-  box-shadow: 0 5px 8px 0 rgba(184, 221, 250, 0.089);
-}
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

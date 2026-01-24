@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-// Component uses VueUse Motion directives
+import { unsplash } from '~/data/unsplash'
 </script>
 
 <style scoped>

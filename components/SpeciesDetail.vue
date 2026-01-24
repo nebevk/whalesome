@@ -12,26 +12,30 @@
         <!-- DaisyUI Diff Component for Adult vs Baby -->
         <div class="diff aspect-[16/9] mb-6">
           <div class="diff-item-1">
-            <div class="bg-gradient-to-br from-blue-400/30 to-blue-900/50 flex items-center justify-center h-full">
-              <div class="text-center p-8">
-                <div class="text-6xl mb-4">🐋</div>
-                <h3 class="text-2xl font-bold mb-4">Adult {{ species.name }}</h3>
-                <div class="space-y-2 text-left">
-                  <p><strong>Size:</strong> {{ species.adult.size }}</p>
-                  <p><strong>Weight:</strong> {{ species.adult.weight }}</p>
-                </div>
+            <div class="relative flex flex-col items-center justify-end h-full min-h-[200px]">
+              <img
+                :src="species.adult.image"
+                :alt="'Adult ' + species.name"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="relative z-10 w-full bg-base-300/90 backdrop-blur-sm p-4 text-left">
+                <h3 class="text-lg font-bold mb-2">Adult {{ species.name }}</h3>
+                <p class="text-sm"><strong>Size:</strong> {{ species.adult.size }}</p>
+                <p class="text-sm"><strong>Weight:</strong> {{ species.adult.weight }}</p>
               </div>
             </div>
           </div>
           <div class="diff-item-2">
-            <div class="bg-gradient-to-br from-pink-400/30 to-purple-900/50 flex items-center justify-center h-full">
-              <div class="text-center p-8">
-                <div class="text-6xl mb-4">🐋</div>
-                <h3 class="text-2xl font-bold mb-4">Baby {{ species.name }}</h3>
-                <div class="space-y-2 text-left">
-                  <p><strong>Size:</strong> {{ species.baby.size }}</p>
-                  <p><strong>Weight:</strong> {{ species.baby.weight }}</p>
-                </div>
+            <div class="relative flex flex-col items-center justify-end h-full min-h-[200px]">
+              <img
+                :src="species.baby.image"
+                :alt="'Baby ' + species.name"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div class="relative z-10 w-full bg-base-300/90 backdrop-blur-sm p-4 text-left">
+                <h3 class="text-lg font-bold mb-2">Baby {{ species.name }}</h3>
+                <p class="text-sm"><strong>Size:</strong> {{ species.baby.size }}</p>
+                <p class="text-sm"><strong>Weight:</strong> {{ species.baby.weight }}</p>
               </div>
             </div>
           </div>

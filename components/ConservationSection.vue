@@ -1,6 +1,12 @@
 <template>
-  <section class="py-20 px-6 ocean-depth-deepest">
-    <div class="max-w-6xl mx-auto">
+  <section class="relative py-20 px-6 ocean-depth-deepest overflow-hidden">
+    <img
+      :src="unsplash.ocean"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+      aria-hidden="true"
+    />
+    <div class="relative z-10 max-w-6xl mx-auto">
       <h2 
         v-motion
         :initial="{ opacity: 0, y: 20 }"
@@ -99,6 +105,8 @@
 </template>
 
 <script setup lang="ts">
+import { unsplash } from '~/data/unsplash'
+
 const organizations = [
   {
     name: 'Whale and Dolphin Conservation',

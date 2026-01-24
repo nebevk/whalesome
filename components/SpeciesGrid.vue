@@ -29,9 +29,12 @@
           <NuxtLink :to="`/species#${species.id}`" class="block h-full">
             <div class="card bg-base-100/10 backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 h-full">
               <figure class="px-6 pt-6">
-                <div class="w-full h-48 bg-gradient-to-br from-blue-400/30 to-blue-900/50 rounded-lg flex items-center justify-center">
-                  <span class="text-6xl">🐋</span>
-                </div>
+                <img
+                  :src="species.adult.image"
+                  :alt="species.name"
+                  class="w-full h-48 object-cover rounded-lg"
+                  loading="lazy"
+                />
               </figure>
               <div class="card-body">
                 <h3 class="card-title text-white text-xl">{{ species.name }}</h3>
