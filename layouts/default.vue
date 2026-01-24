@@ -13,19 +13,8 @@
           <div class="hidden md:flex space-x-4 items-center">
             <NuxtLink to="/about">About</NuxtLink>
             <NuxtLink to="/species">Species</NuxtLink>
-            <div class="ml-4 flex items-center gap-2">
-              <span class="text-sm">Spirit mode</span>
-              <button
-                @click="toggleSpiritMode"
-                class="relative w-12 h-6 rounded-full transition focus:outline-none"
-                :class="spiritMode ? 'bg-neon-pink/80 shadow-neon' : 'bg-gray-700'"
-                aria-label="Toggle Spirit mode"
-              >
-                <span
-                  class="absolute left-1 top-1 w-4 h-4 rounded-full transition-transform duration-300"
-                  :class="spiritMode ? 'translate-x-6 bg-neon-blue/90' : 'bg-white'"
-                ></span>
-              </button>
+            <div class="ml-4">
+              <ThemeSwitcher />
             </div>
           </div>
           <div class="md:hidden flex items-center">
@@ -47,19 +36,8 @@
                   <NuxtLink :class="[active ? 'bg-ocean-light' : '', 'block px-4 py-2']" to="/wiki/framework">Wiki</NuxtLink>
                 </MenuItem>
                 <MenuItem v-slot>
-                  <div class="flex items-center gap-2 px-4 py-2">
-                    <span class="text-sm">Spirit mode</span>
-                    <button
-                      @click="toggleSpiritMode"
-                      class="relative w-12 h-6 rounded-full transition focus:outline-none"
-                      :class="spiritMode ? 'bg-neon-pink/80 shadow-neon' : 'bg-gray-700'"
-                      aria-label="Toggle Spirit mode"
-                    >
-                      <span
-                        class="absolute left-1 top-1 w-4 h-4 rounded-full transition-transform duration-300"
-                        :class="spiritMode ? 'translate-x-6 bg-neon-blue/90' : 'bg-white'"
-                      ></span>
-                    </button>
+                  <div class="px-4 py-2">
+                    <ThemeSwitcher />
                   </div>
                 </MenuItem>
               </div>
@@ -71,7 +49,7 @@
     <main>
       <slot />
     </main>
-    <footer :class="spiritMode ? 'bg-neon-pink/80 text-neon-blue/90' : 'bg-ocean-dark text-white'" class="py-8">
+    <footer :class="theme === 'spirit' ? 'bg-primary/80 text-accent' : 'bg-ocean-dark text-white'" class="py-8">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-4">
           © {{ new Date().getFullYear() }} Whalesome, from <a href="https://nejcbevk.com" class="hover:text-neon-blue transition-colors">Nejc Bevk</a>. Swim with care. 🐳
@@ -94,17 +72,13 @@
   </div>
 </template>
 
-<script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import WhaleLogo from '~/components/WhaleLogo.vue'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
-const spiritMode = ref(false)
+const { theme } = useTheme()
 const showHeader = ref(true)
-
-function toggleSpiritMode() {
-  spiritMode.value = !spiritMode.value
-}
 
 function handleScroll() {
   const scrollY = window.scrollY
@@ -121,12 +95,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
-watch(spiritMode, (val) => {
-  if (typeof window !== 'undefined') {
-    document.body.classList.toggle('spirit', val)
-  }
-}, { immediate: true })
 </script>
 
 <style scoped>

@@ -2,26 +2,85 @@
 
 @import "tailwindcss";
 
-/* Spirit mode trippy neon styles */
-.spirit {
-  background: linear-gradient(135deg, #0a001a 0%, #1a0033 100%) fixed;
-  min-height: 100vh;
+@plugin "daisyui" {
+  themes: false;
+  root: ":root";
+  include: ;
+  exclude: ;
+  prefix: ;
+  logs: true;
 }
-.spirit main {
-  background: transparent;
+
+@plugin "daisyui/theme" {
+  name: "classic";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f3f4f6;
+  --color-base-300: #e5e7eb;
+  --color-base-content: #1f2937;
+  --color-primary: #0b1a2f;
+  --color-primary-content: #f9fafb;
+  --color-secondary: #3a4250;
+  --color-secondary-content: #f9fafb;
+  --color-accent: #0a223a;
+  --color-accent-content: #f9fafb;
+  --color-neutral: #22304a;
+  --color-neutral-content: #f9fafb;
+  --color-info: #00f0ff;
+  --color-info-content: #0b1a2f;
+  --color-success: #10b981;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #1f2937;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
 }
-.spirit header, .spirit footer {
-  background: rgba(255, 62, 200, 0.8) !important;
-  color: #00f0ff !important;
-  box-shadow: 0 0 16px #ff3ec8, 0 0 32px #00f0ff;
+
+@plugin "daisyui/theme" {
+  name: "spirit";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: #0a223a;
+  --color-base-200: #061624;
+  --color-base-300: #040d14;
+  --color-base-content: #e0f2fe;
+  --color-primary: #00f0ff;
+  --color-primary-content: #0a223a;
+  --color-secondary: #ff3ec8;
+  --color-secondary-content: #0a223a;
+  --color-accent: #fff700;
+  --color-accent-content: #0a223a;
+  --color-neutral: #061624;
+  --color-neutral-content: #e0f2fe;
+  --color-info: #00f0ff;
+  --color-info-content: #0a223a;
+  --color-success: #10b981;
+  --color-success-content: #ffffff;
+  --color-warning: #fff700;
+  --color-warning-content: #0a223a;
+  --color-error: #ff3ec8;
+  --color-error-content: #0a223a;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
 }
-.spirit a, .spirit .font-whale {
-  color: #fff700 !important;
-  text-shadow: 0 0 8px #00f0ff, 0 0 16px #ff3ec8;
-}
-.spirit button {
-  background: rgba(0, 240, 255, 0.7) !important;
-  color: #ff3ec8 !important;
-  border: 2px solid #fff700;
-  box-shadow: 0 0 8px #ff3ec8, 0 0 16px #00f0ff;
-} 

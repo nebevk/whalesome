@@ -1,65 +1,79 @@
 <template>
-  <div class="min-h-screen bg-ocean-light text-whale-blue p-8">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-5xl font-whale mb-8 text-center">🐋 Whale Species</h1>
+  <div class="min-h-screen bg-base-100 py-8 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h1 
+        v-motion
+        :initial="{ opacity: 0, y: 20 }"
+        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8 } }"
+        class="text-5xl md:text-6xl font-whale text-center mb-12"
+      >
+        Whale Species
+      </h1>
 
-      <div class="grid gap-6 md:grid-cols-2">
-        <div
-          v-for="(whale, index) in whales"
-          :key="index"
-          class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-        >
-          <h2 class="text-2xl font-whale mb-2">{{ whale.name }}</h2>
-          <p class="text-whale-gray mb-4">{{ whale.description }}</p>
-          <div class="text-sm text-whale-gray">
-            <p><span class="font-semibold">Size:</span> {{ whale.size }}</p>
-            <p>
-              <span class="font-semibold">Habitat:</span> {{ whale.habitat }}
-            </p>
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Left Sidebar Navigation -->
+        <SpeciesNav 
+          :species-list="featuredSpecies"
+          :selected-species-id="selectedSpeciesId"
+          @update:selected-species-id="selectedSpeciesId = $event"
+        />
+
+        <!-- Right Side Content -->
+        <div class="flex-1">
+          <div v-if="!selectedSpecies">
+            <div class="card bg-base-200 shadow-xl">
+              <div class="card-body text-center py-20">
+                <div class="text-6xl mb-4">🐋</div>
+                <h2 class="text-2xl mb-4">Select a Whale Species</h2>
+                <p class="text-base-content/70">
+                  Choose a species from the navigation menu to learn more about these magnificent creatures.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div v-else>
+            <SpeciesDetail :species="selectedSpecies" />
           </div>
         </div>
-      </div>
-
-      <div class="mt-8 text-center">
-        <NuxtLink
-          to="/"
-          class="inline-block px-4 py-2 bg-ocean-dark text-white rounded-lg hover:bg-ocean"
-        >
-          Back to Home
-        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-const whales = [
-  {
-    name: "Blue Whale",
-    description:
-      "The largest animal known to have ever existed, reaching lengths of up to 100 feet.",
-    size: "Up to 100 feet (30 meters)",
-    habitat: "All oceans except the Arctic",
-  },
-  {
-    name: "Humpback Whale",
-    description: "Known for their spectacular breaching and complex songs.",
-    size: "40-60 feet (12-18 meters)",
-    habitat: "All major oceans",
-  },
-  {
-    name: "Orca (Killer Whale)",
-    description:
-      "Actually the largest member of the dolphin family, known for their intelligence and social behavior.",
-    size: "20-30 feet (6-9 meters)",
-    habitat: "All oceans, from Arctic to Antarctic",
-  },
-  {
-    name: "Beluga Whale",
-    description:
-      'Known as the "canary of the sea" due to their high-pitched vocalizations.',
-    size: "13-20 feet (4-6 meters)",
-    habitat: "Arctic and sub-Arctic waters",
-  },
-];
+<script setup lang="ts">
+import { featuredSpecies } from '~/data/species'
+import type { WhaleSpecies } from '~/types/species'
+
+const selectedSpeciesId = ref<string>(featuredSpecies[0]?.id || '')
+
+const selectedSpecies = computed<WhaleSpecies | null>(() => {
+  return featuredSpecies.find(s => s.id === selectedSpeciesId.value) || null
+})
+
+// Handle hash navigation on mount
+onMounted(() => {
+  if (process.client) {
+    const hash = window.location.hash.slice(1)
+    if (hash) {
+      const species = featuredSpecies.find(s => s.id === hash)
+      if (species) {
+        selectedSpeciesId.value = species.id
+        // Scroll to element after a brief delay
+        setTimeout(() => {
+          const element = document.getElementById(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 100)
+      }
+    }
+  }
+})
+
+// Watch for hash changes
+watch(() => selectedSpeciesId.value, (newId) => {
+  if (process.client) {
+    window.history.replaceState(null, '', `#${newId}`)
+  }
+})
 </script>
