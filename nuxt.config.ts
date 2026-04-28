@@ -10,7 +10,6 @@ export default defineNuxtConfig({
   modules: [
     "@vueuse/motion/nuxt",
     "@nuxt/fonts",
-    "@nuxt/ui",
   ],
   css: ["~/assets/css/tailwind.css"],
   build: {

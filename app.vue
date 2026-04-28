@@ -5,10 +5,8 @@
 </template>
 
 <script setup lang="ts">
-const { initTheme } = useTheme()
-
-onMounted(() => {
-  initTheme()
+useHead({
+  htmlAttrs: { 'data-theme': 'spirit' },
 })
 </script>
 

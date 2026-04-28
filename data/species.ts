@@ -1,101 +1,447 @@
 import type { WhaleSpecies } from '~/types/species'
 import { unsplash } from '~/data/unsplash'
 
-export const featuredSpecies: WhaleSpecies[] = [
+export const species: WhaleSpecies[] = [
   {
     id: 'blue-whale',
     name: 'Blue Whale',
     scientificName: 'Balaenoptera musculus',
-    description: 'The largest animal on Earth, reaching lengths of up to 100 feet and weights of 200 tons. These gentle giants are filter feeders, consuming krill by the ton.',
+    description:
+      'The largest animal ever known to have lived. Reaches 30 metres and 180 tonnes, and sustains itself entirely on krill, filtering several tonnes of it a day through its baleen.',
     adult: {
-      size: 'Up to 100 feet (30 meters)',
-      weight: 'Up to 200 tons (180,000 kg)',
-      characteristics: ['Largest animal on Earth', 'Blue-gray coloration', 'Long, streamlined body', 'Small dorsal fin'],
+      size: 'Up to 30 m (100 ft)',
+      weight: 'Up to 180 tonnes',
+      characteristics: [
+        'Mottled blue-gray skin',
+        'Long, streamlined body',
+        'Small dorsal fin set far back',
+        'Broad U-shaped head',
+      ],
       image: unsplash.blueWhale,
-      facts: ['Can consume 4 tons of krill per day', 'Heart weighs as much as a car', 'Loudest animal on Earth']
+      facts: [
+        'Heart is roughly the size of a small car.',
+        'Calls reach 188 dB — the loudest sound made by any animal.',
+        'Can consume around 4 tonnes of krill per day.',
+      ],
     },
     baby: {
-      size: '23-26 feet (7-8 meters) at birth',
-      weight: '2.5-3 tons (2,300-2,700 kg)',
-      characteristics: ['Born tail-first', 'Can swim immediately', 'Nurses for 6-7 months', 'Grows rapidly'],
+      size: '7–8 m (23–26 ft) at birth',
+      weight: '2.5–3 tonnes',
+      characteristics: [
+        'Born tail-first, swims within minutes',
+        'Nurses for 6–7 months',
+        'Gains around 90 kg per day in first year',
+        'Stays close to mother through first migration',
+      ],
       image: unsplash.whaleUnderwater,
-      facts: ['Gains 200 pounds per day', 'Drinks 50 gallons of milk daily', 'Stays close to mother for first year']
+      facts: [
+        'Drinks up to 220 litres of milk per day.',
+        'Milk is roughly 40% fat — similar to double cream.',
+        'Doubles its birth length before weaning.',
+      ],
     },
-    habitat: 'All oceans, from polar to tropical waters',
+    habitat: 'All oceans, polar to tropical',
     conservationStatus: 'Endangered',
     group: 'baleen',
-    family: 'Balaenopteridae'
+    family: 'Balaenopteridae',
+    featured: true,
   },
   {
     id: 'humpback-whale',
     name: 'Humpback Whale',
     scientificName: 'Megaptera novaeangliae',
-    description: 'Known for their spectacular breaching behavior and complex songs. These acrobatic whales migrate thousands of miles between feeding and breeding grounds.',
+    description:
+      'Famous for breaching, bubble-net feeding, and long, evolving songs that spread between populations. Migrates further than any other mammal — up to 8,000 km each way.',
     adult: {
-      size: '40-50 feet (12-15 meters)',
-      weight: '25-40 tons (23,000-36,000 kg)',
-      characteristics: ['Long pectoral fins', 'Knobby head', 'Distinctive tail flukes', 'Breaching behavior'],
+      size: '12–15 m (40–50 ft)',
+      weight: '25–40 tonnes',
+      characteristics: [
+        'Long pectoral fins, up to a third of body length',
+        'Knobbly tubercles on head',
+        'Distinctive tail flukes used for ID',
+        'Acrobatic surface behaviour',
+      ],
       image: unsplash.humpback,
-      facts: ['Sings complex songs', 'Can breach completely out of water', 'Longest migration of any mammal']
+      facts: [
+        'Songs can last 20+ minutes and repeat for hours.',
+        'Entire populations learn new songs each season.',
+        'Co-operative bubble-net feeding is taught, not instinctive.',
+      ],
     },
     baby: {
-      size: '13-16 feet (4-5 meters) at birth',
-      weight: '1-2 tons (900-1,800 kg)',
-      characteristics: ['Born in warm waters', 'Nurses for 5-10 months', 'Stays with mother for 1 year', 'Learns migration routes'],
+      size: '4–5 m (13–16 ft) at birth',
+      weight: '0.9–1.8 tonnes',
+      characteristics: [
+        'Born in warm, shallow breeding grounds',
+        'Nurses 5–10 months',
+        'Stays with mother through first migration',
+        'Learns regional song variants from adults',
+      ],
       image: unsplash.whaleTail,
-      facts: ['Grows 1-2 feet per month', 'Learns songs from mother', 'Protected by mother from predators']
+      facts: [
+        'Grows around half a metre per month.',
+        'Mother fasts for months while nursing.',
+        'Often escorted by unrelated "escort" males.',
+      ],
     },
-    habitat: 'All major oceans, coastal and open waters',
+    habitat: 'All major oceans, coastal and offshore',
     conservationStatus: 'Least Concern',
     group: 'baleen',
-    family: 'Balaenopteridae'
+    family: 'Balaenopteridae',
+    featured: true,
   },
   {
     id: 'orca',
-    name: 'Orca (Killer Whale)',
+    name: 'Orca',
     scientificName: 'Orcinus orca',
-    description: 'The apex predator of the ocean, orcas are highly intelligent and social. They live in matriarchal pods and have complex hunting strategies.',
+    description:
+      'The ocean\'s apex predator. Lives in tight matrilineal pods with pod-specific dialects and hunting traditions — cultural behaviour in the full anthropological sense.',
     adult: {
-      size: '20-32 feet (6-10 meters)',
-      weight: '6-10 tons (5,400-9,000 kg)',
-      characteristics: ['Distinctive black and white coloring', 'Tall dorsal fin', 'Powerful tail', 'Intelligent hunter'],
+      size: '6–10 m (20–32 ft)',
+      weight: '6–10 tonnes',
+      characteristics: [
+        'Black-and-white patterning unique to each pod',
+        'Tall dorsal fin (up to 1.8 m in males)',
+        'Powerful tail flukes',
+        'Complex echolocation',
+      ],
       image: unsplash.orca,
-      facts: ['Apex predator with no natural enemies', 'Lives in matriarchal pods', 'Uses echolocation for hunting']
+      facts: [
+        'Different ecotypes specialise in fish, seals, or other whales.',
+        'Grandmother orcas live decades past menopause and lead pods.',
+        'Called "killer of whales" by whalers — the name stuck backwards.',
+      ],
     },
     baby: {
-      size: '6.5-8 feet (2-2.5 meters) at birth',
-      weight: '300-400 pounds (136-181 kg)',
-      characteristics: ['Born with orange tint', 'Nurses for 1-2 years', 'Stays with pod for life', 'Learns hunting from family'],
+      size: '2–2.5 m (6.5–8 ft) at birth',
+      weight: '140–180 kg',
+      characteristics: [
+        'Born with orange-tinted skin',
+        'Nurses for 1–2 years',
+        'Stays with natal pod for life',
+        'Learns pod-specific calls and hunting style',
+      ],
       image: unsplash.orca,
-      facts: ['Protected by entire pod', 'Learns pod-specific calls', 'Plays important role in pod social structure']
+      facts: [
+        'Doesn\'t sleep for the first month, neither does its mother.',
+        'Inherits dialect exclusively from its mother\'s line.',
+        'Plays a role in pod coordination from a young age.',
+      ],
     },
-    habitat: 'All oceans, from polar to tropical waters',
+    habitat: 'Every ocean, polar to tropical',
     conservationStatus: 'Data Deficient',
     group: 'toothed',
-    family: 'Delphinidae'
+    family: 'Delphinidae',
+    featured: true,
   },
   {
     id: 'beluga-whale',
     name: 'Beluga Whale',
     scientificName: 'Delphinapterus leucas',
-    description: 'Known as the "canary of the sea" for their vocalizations, belugas are social whales with distinctive white coloring and flexible necks.',
+    description:
+      'The Arctic\'s "canary of the sea." Pure white as adults, with a flexible neck and an unusually wide vocal range. Highly social, gathering in estuaries by the thousands each summer.',
     adult: {
-      size: '13-20 feet (4-6 meters)',
-      weight: '1-1.5 tons (900-1,400 kg)',
-      characteristics: ['Pure white coloring', 'Bulbous forehead (melon)', 'Flexible neck', 'No dorsal fin'],
+      size: '4–6 m (13–20 ft)',
+      weight: '1–1.5 tonnes',
+      characteristics: [
+        'Pure white skin',
+        'Bulbous forehead (the "melon")',
+        'No dorsal fin — adaptation to icy waters',
+        'Unfused neck vertebrae — can turn its head',
+      ],
       image: unsplash.beluga,
-      facts: ['Highly vocal with wide range of sounds', 'Can swim backwards', 'Lives in Arctic and sub-Arctic waters']
+      facts: [
+        'Produces clicks, whistles, and chirps across a wide range.',
+        'Can swim backwards and change facial expression.',
+        'Moults dead skin annually by rubbing on gravel beds.',
+      ],
     },
     baby: {
-      size: '4-5 feet (1.2-1.5 meters) at birth',
-      weight: '100-150 pounds (45-68 kg)',
-      characteristics: ['Born gray or brown', 'Turns white by age 5-7', 'Nurses for 1.5-2 years', 'Very playful'],
-      image: unsplash.beluga,
-      facts: ['Stays with mother for 2-3 years', 'Learns vocalizations from pod', 'Born in shallow, warm waters']
+      size: '1.2–1.5 m (4–5 ft) at birth',
+      weight: '45–70 kg',
+      characteristics: [
+        'Born gray or brown, whitens over 5–7 years',
+        'Nurses for 1.5–2 years',
+        'Stays with mother up to 3 years',
+        'Learns pod vocal repertoire gradually',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'Born in warm, shallow estuary waters in summer.',
+        'Practices vocalisations almost from birth.',
+        'Skin lightens in patches as it ages.',
+      ],
     },
-    habitat: 'Arctic and sub-Arctic waters',
-    conservationStatus: 'Near Threatened',
+    habitat: 'Arctic and sub-Arctic coastal waters',
+    conservationStatus: 'Least Concern (some populations endangered)',
     group: 'toothed',
-    family: 'Monodontidae'
-  }
+    family: 'Monodontidae',
+    featured: true,
+  },
+  {
+    id: 'sperm-whale',
+    name: 'Sperm Whale',
+    scientificName: 'Physeter macrocephalus',
+    description:
+      'The largest toothed predator on Earth and the deepest-diving mammal. Named for the waxy spermaceti organ in its massive head, which tunes its echolocation clicks — the loudest sound in the animal kingdom.',
+    adult: {
+      size: '11–18 m (36–60 ft)',
+      weight: '35–45 tonnes',
+      characteristics: [
+        'Enormous, block-shaped head (a third of body length)',
+        'Single blowhole angled to the left',
+        'Wrinkled gray skin',
+        'Up to 52 conical teeth in lower jaw',
+      ],
+      image: unsplash.spermWhale,
+      facts: [
+        'Regularly dives below 1,000 m to hunt giant squid.',
+        'Echolocation clicks reach 230 dB underwater.',
+        'Inspired Moby-Dick — the historical whale attacks were real.',
+      ],
+    },
+    baby: {
+      size: '3.5–4.5 m (11–15 ft) at birth',
+      weight: '0.9–1 tonne',
+      characteristics: [
+        'Born into tight matrilineal "nursery" groups',
+        'Nurses for 2+ years',
+        'Stays near the surface while mother hunts deep',
+        'Looked after by other females in the unit',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'Babysitting shifts are shared among adult females.',
+        'Learns codas — click patterns unique to its clan.',
+        'May not make its first deep dive until age 10.',
+      ],
+    },
+    habitat: 'All deep-water oceans, absent only from high Arctic',
+    conservationStatus: 'Vulnerable',
+    group: 'toothed',
+    family: 'Physeteridae',
+    featured: false,
+  },
+  {
+    id: 'narwhal',
+    name: 'Narwhal',
+    scientificName: 'Monodon monoceros',
+    description:
+      'The "unicorn of the sea." Males grow a long, spiralled tusk — actually an overgrown tooth — threaded with millions of nerve endings. Lives year-round in Arctic waters, under the ice.',
+    adult: {
+      size: '4–5.5 m (13–18 ft), excluding tusk',
+      weight: '0.8–1.6 tonnes',
+      characteristics: [
+        'Mottled gray-and-white skin, whitens with age',
+        'Males carry a spiralled tusk up to 3 m',
+        'No dorsal fin',
+        'Short, rounded flippers',
+      ],
+      image: unsplash.narwhal,
+      facts: [
+        'Tusk is a left-canine tooth that grows through the upper lip.',
+        'Tusk is sensitive to salinity, pressure, and temperature.',
+        'Can dive over 1,500 m under sea ice.',
+      ],
+    },
+    baby: {
+      size: '1.5–1.7 m (5–5.5 ft) at birth',
+      weight: '80–100 kg',
+      characteristics: [
+        'Born dark gray, no tusk',
+        'Nurses for about 20 months',
+        'Stays with mother through first winters',
+        'Learns ice-navigation from the pod',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'Males begin to grow tusks in their first year.',
+        'Lightens in colour over decades.',
+        'Survives winter in 5% open water between ice sheets.',
+      ],
+    },
+    habitat: 'Arctic waters around Greenland and Canada',
+    conservationStatus: 'Least Concern',
+    group: 'toothed',
+    family: 'Monodontidae',
+    featured: false,
+  },
+  {
+    id: 'gray-whale',
+    name: 'Gray Whale',
+    scientificName: 'Eschrichtius robustus',
+    description:
+      'A bottom-feeding baleen whale with a famously long migration — up to 20,000 km round-trip between Arctic feeding grounds and Mexican breeding lagoons.',
+    adult: {
+      size: '13–15 m (43–49 ft)',
+      weight: '27–36 tonnes',
+      characteristics: [
+        'Mottled gray skin, heavily encrusted with barnacles',
+        'No dorsal fin — instead, a low hump and knuckles',
+        'Short baleen plates',
+        'Two to five throat grooves (not pleated like rorquals)',
+      ],
+      image: unsplash.grayWhale,
+      facts: [
+        'Feeds by rolling on its side and scooping sediment from the seafloor.',
+        'One of the longest migrations of any mammal.',
+        'Nearly hunted to extinction twice — once recovered, once still recovering.',
+      ],
+    },
+    baby: {
+      size: '4–5 m (13–16 ft) at birth',
+      weight: '0.7–1 tonne',
+      characteristics: [
+        'Born in warm Baja California lagoons',
+        'Nurses for 7–8 months',
+        'Completes first migration northward at a few months old',
+        'Often curious and approaches boats',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'Migrates over 8,000 km before its first birthday.',
+        'Mothers are famously protective — hence whalers\' nickname "devil fish."',
+        'Modern calves in the lagoons are known to seek out human contact.',
+      ],
+    },
+    habitat: 'Eastern North Pacific, coastal',
+    conservationStatus: 'Least Concern (Western population Critically Endangered)',
+    group: 'baleen',
+    family: 'Eschrichtiidae',
+    featured: false,
+  },
+  {
+    id: 'fin-whale',
+    name: 'Fin Whale',
+    scientificName: 'Balaenoptera physalus',
+    description:
+      'The second-largest animal on Earth, and the fastest large whale — nicknamed the "greyhound of the sea." Known for asymmetrical head colouring and remarkably low-frequency calls.',
+    adult: {
+      size: '20–25 m (66–82 ft)',
+      weight: '40–80 tonnes',
+      characteristics: [
+        'Sleek, streamlined body',
+        'Asymmetrical jaw: right side white, left side dark',
+        'Prominent dorsal fin, far back',
+        'Up to 85 pleated throat grooves',
+      ],
+      image: unsplash.finWhale,
+      facts: [
+        'Can sustain 30+ km/h over long distances.',
+        'Calls at 20 Hz — below the range of human hearing.',
+        'Forms loose, fast-moving groups rather than tight pods.',
+      ],
+    },
+    baby: {
+      size: '6–6.5 m (20–21 ft) at birth',
+      weight: '1.8–2 tonnes',
+      characteristics: [
+        'Weaned at 6–7 months',
+        'Keeps close to mother at cruising speed',
+        'Learns migration corridors quickly',
+        'Grows rapidly in the first year',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'Has the same asymmetric pigmentation as adults from birth.',
+        'Can keep pace with pods within weeks.',
+        'Reaches adult size later than blue whales despite rapid growth.',
+      ],
+    },
+    habitat: 'All oceans, mostly offshore',
+    conservationStatus: 'Vulnerable',
+    group: 'baleen',
+    family: 'Balaenopteridae',
+    featured: false,
+  },
+  {
+    id: 'minke-whale',
+    name: 'Minke Whale',
+    scientificName: 'Balaenoptera acutorostrata',
+    description:
+      'The smallest of the rorquals, and one of the most widespread whales in the world. Sleek, fast, and often solitary — still hunted commercially in a handful of countries.',
+    adult: {
+      size: '7–10 m (23–33 ft)',
+      weight: '5–10 tonnes',
+      characteristics: [
+        'Dark gray back, pale underside',
+        'Pointed, triangular head',
+        'White band across each flipper',
+        'Tall, curved dorsal fin',
+      ],
+      image: unsplash.minkeWhale,
+      facts: [
+        'Surfaces quickly with little visible blow.',
+        'Often investigates stationary boats.',
+        'Produces low-frequency "boings" in parts of the Pacific.',
+      ],
+    },
+    baby: {
+      size: '2.4–2.8 m (8–9 ft) at birth',
+      weight: '300–350 kg',
+      characteristics: [
+        'Born after a 10-month gestation',
+        'Nurses 4–6 months',
+        'Independent quickly compared to larger whales',
+        'Often stays in coastal waters',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'One of the shortest nursing periods of any baleen whale.',
+        'Reaches sexual maturity at around 6 years.',
+        'Calves are already proficient feeders by their first winter.',
+      ],
+    },
+    habitat: 'All oceans, especially temperate and polar',
+    conservationStatus: 'Least Concern',
+    group: 'baleen',
+    family: 'Balaenopteridae',
+    featured: false,
+  },
+  {
+    id: 'bowhead-whale',
+    name: 'Bowhead Whale',
+    scientificName: 'Balaena mysticetus',
+    description:
+      'The Arctic specialist. Bowheads live their entire lives in polar waters, use their massive skulls to break through sea ice, and are thought to be the longest-lived mammals on Earth.',
+    adult: {
+      size: '14–18 m (46–60 ft)',
+      weight: '75–100 tonnes',
+      characteristics: [
+        'Enormous, arched upper jaw',
+        'Skin is black with a white "chin" and tailstock band',
+        'No dorsal fin',
+        'Blubber layer up to 50 cm thick',
+      ],
+      image: unsplash.bowhead,
+      facts: [
+        'Can break through sea ice 60 cm thick with its head.',
+        'Confirmed ages over 200 years from stone harpoon tips found in living animals.',
+        'Longest baleen of any whale — up to 4 m per plate.',
+      ],
+    },
+    baby: {
+      size: '4–4.5 m (13–15 ft) at birth',
+      weight: '0.9–1 tonne',
+      characteristics: [
+        'Born in early spring at ice edges',
+        'Nurses 9–12 months',
+        'Learns ice navigation from mother immediately',
+        'Grows slowly — reflects long lifespan',
+      ],
+      image: unsplash.whaleCalf,
+      facts: [
+        'Thickens blubber rapidly in first months.',
+        'Stays with mother through at least one full Arctic winter.',
+        'Reaches full size only after several decades.',
+      ],
+    },
+    habitat: 'Arctic and sub-Arctic waters year-round',
+    conservationStatus: 'Least Concern (some subpopulations endangered)',
+    group: 'baleen',
+    family: 'Balaenidae',
+    featured: false,
+  },
 ]
+
+export const featuredSpecies: WhaleSpecies[] = species.filter(s => s.featured)

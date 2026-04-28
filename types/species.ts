@@ -21,6 +21,7 @@ export interface WhaleSpecies {
   conservationStatus: string;
   group: 'baleen' | 'toothed';
   family: string;
+  featured?: boolean;
 }
 
 export interface WhaleGroup {
