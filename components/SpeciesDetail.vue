@@ -85,6 +85,35 @@
             <div class="stat-value text-lg">{{ species.conservationStatus }}</div>
           </div>
         </div>
+
+        <section v-if="species.gallery?.length" class="mt-10">
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="text-xl font-semibold">Gallery</h3>
+            <p class="text-xs text-base-content/60">
+              Photos from Wikimedia Commons. Click an image to open the source.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <a
+              v-for="(image, i) in species.gallery"
+              :key="i"
+              :href="image.src"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative block aspect-[4/3] rounded-lg overflow-hidden bg-base-300"
+            >
+              <img
+                :src="image.src"
+                :alt="image.caption"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <p class="text-white text-sm">{{ image.caption }}</p>
+              </div>
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   </div>

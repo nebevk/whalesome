@@ -22,6 +22,13 @@ export interface WhaleSpecies {
   group: 'baleen' | 'toothed';
   family: string;
   featured?: boolean;
+  gallery?: GalleryImage[];
+}
+
+export interface GalleryImage {
+  src: string;
+  caption: string;
+  source: 'unsplash' | 'wikimedia';
 }
 
 export interface WhaleGroup {

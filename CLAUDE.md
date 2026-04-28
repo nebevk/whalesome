@@ -50,9 +50,10 @@ Any new deep-link entry point should use this hash convention rather than dynami
 
 ### Data layer
 Static TypeScript modules under [data/](data/) — no CMS, no fetch:
-- [data/species.ts](data/species.ts) — exports `species: WhaleSpecies[]` (all profiles) and a derived `featuredSpecies` (those with `featured: true`). The homepage grid uses the featured subset; the species page uses the full list.
+- [data/species.ts](data/species.ts) — exports `species: WhaleSpecies[]` (all profiles) and a derived `featuredSpecies` (those with `featured: true`). The homepage grid uses the featured subset; the species page uses the full list. Each species has a `gallery: GalleryImage[]` of additional photos.
 - [data/whaleTaxonomy.ts](data/whaleTaxonomy.ts) — `whaleGroups: WhaleGroup[]` drives the classification tree.
-- [data/unsplash.ts](data/unsplash.ts) — centralized hotlinked Unsplash URLs via a `U(id, w)` helper. Add new imagery here rather than inlining URLs.
+- [data/unsplash.ts](data/unsplash.ts) — hotlinked Unsplash URLs via a `U(id, w)` helper. Used for hero/card primary photography and ocean backgrounds.
+- [data/wikimedia.ts](data/wikimedia.ts) — `wm(path, w)` helper for Wikimedia Commons thumbnails. Powers the per-species galleries (mostly NOAA / scientific photography). **Wikimedia rejects arbitrary widths** — only `120 | 250 | 500 | 960 | 1280` work; anything else returns 400. The `WmWidth` type encodes that.
 
 Types live in [types/species.ts](types/species.ts). Prose strings use real Unicode punctuation (`—`, `–`) rather than HTML entities, because `{{ }}` interpolation renders them as literals.
 

@@ -1,5 +1,6 @@
 import type { WhaleSpecies } from '~/types/species'
 import { unsplash } from '~/data/unsplash'
+import { wm } from '~/data/wikimedia'
 
 export const species: WhaleSpecies[] = [
   {
@@ -45,6 +46,13 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenopteridae',
     featured: true,
+    gallery: [
+      { src: wm('1/1c/Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg'), caption: 'Adult blue whale at the surface', source: 'wikimedia' },
+      { src: wm('c/cd/Bluewhale2_noaa.jpg'), caption: 'Blowholes and bow wave (NOAA)', source: 'wikimedia' },
+      { src: wm('9/9e/Bluewhale1_noaa_crop.jpg'), caption: 'Distinctive spout (NOAA)', source: 'wikimedia' },
+      { src: wm('1/16/Blue-whale.jpg'), caption: 'Throat distended during a feeding lunge', source: 'wikimedia' },
+      { src: wm('e/ee/BlueWhaleWithCalf.jpg'), caption: 'Mother and calf', source: 'wikimedia' },
+    ],
   },
   {
     id: 'humpback-whale',
@@ -89,6 +97,14 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenopteridae',
     featured: true,
+    gallery: [
+      { src: wm('6/61/Humpback_Whale_underwater_shot.jpg'), caption: 'Underwater portrait', source: 'wikimedia' },
+      { src: wm('5/58/Humpback_Whale%2C_blowholes.jpg'), caption: 'Young whale showing its blowholes', source: 'wikimedia' },
+      { src: wm('7/79/026b_Humpback_whale_jump_and_splash_Photo_by_Giles_Laurent.jpg'), caption: 'Mid-breach', source: 'wikimedia' },
+      { src: wm('8/85/030_Humpback_whale_lobtailing_Photo_by_Giles_Laurent.jpg'), caption: 'Lobtailing — slapping the surface with the flukes', source: 'wikimedia' },
+      { src: wm('8/85/Humpback_whale_%28Megaptera_novaeangliae%29_blowing_Eyjafjordur.jpg'), caption: 'Blowing on the surface in Eyjafjörður, Iceland', source: 'wikimedia' },
+      { src: wm('f/fa/Whales_Bubble_Net_Feeding-edit1.jpg'), caption: 'Bubble-net feeding off Juneau, Alaska', source: 'wikimedia' },
+    ],
   },
   {
     id: 'orca',
@@ -133,6 +149,13 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Delphinidae',
     featured: true,
+    gallery: [
+      { src: wm('3/37/Killerwhales_jumping.jpg'), caption: 'Pair leaping near Unimak Island, Alaska', source: 'wikimedia' },
+      { src: wm('3/38/Orca_porpoising.jpg'), caption: 'Porpoising in Hood Canal, Washington', source: 'wikimedia' },
+      { src: wm('7/78/Orcinus_orca_%28Vestfjord%29.jpg'), caption: 'Tail-slap in Vestfjorden, Norway', source: 'wikimedia' },
+      { src: wm('2/2d/Killer_Whale_chasing_Chinook.jpg'), caption: 'Resident orca pursuing a chinook salmon', source: 'wikimedia' },
+      { src: wm('9/99/TypeC_orca_cape.JPG'), caption: 'Type C ecotype navigating Antarctic ice', source: 'wikimedia' },
+    ],
   },
   {
     id: 'beluga-whale',
@@ -177,6 +200,14 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Monodontidae',
     featured: true,
+    gallery: [
+      { src: wm('e/e2/Delphinapterus_leucas_2.jpg'), caption: 'Head close-up showing the melon', source: 'wikimedia' },
+      { src: wm('e/ea/Beluga_1_1999-07-03.jpg'), caption: 'Surfacing in Hudson Bay', source: 'wikimedia' },
+      { src: wm('b/bd/Belugaschule_1999-07-02.jpg'), caption: 'Pod from above, Churchill River', source: 'wikimedia' },
+      { src: wm('e/e8/Oceanogr%C3%A0fic_29102004.jpg'), caption: 'In aquarium care, Valencia', source: 'wikimedia' },
+      { src: wm('a/ac/Beluga_premier.gov.ru-3.jpeg'), caption: 'Front-on portrait', source: 'wikimedia' },
+      { src: wm('6/68/Beluga_premier.gov.ru-8.jpeg'), caption: 'Russian researchers, Sea of Okhotsk', source: 'wikimedia' },
+    ],
   },
   {
     id: 'sperm-whale',
@@ -221,6 +252,13 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Physeteridae',
     featured: false,
+    gallery: [
+      { src: wm('b/b5/Kaskelot.jpg'), caption: 'Diving off New Zealand', source: 'wikimedia' },
+      { src: wm('6/61/Physeter_macrocephalus_jumping.jpg'), caption: 'Breach off the Azores', source: 'wikimedia' },
+      { src: wm('d/d4/Sperm_whale_and_ship.jpg'), caption: 'Surface encounter with a research vessel', source: 'wikimedia' },
+      { src: wm('4/4c/Sperm_whale_fluke_2.jpg'), caption: 'Fluke before a deep dive', source: 'wikimedia' },
+      { src: wm('8/80/Sperm_whale_and_Bottlenose_whale.JPG'), caption: 'Sperm whale and a bottlenose whale together', source: 'wikimedia' },
+    ],
   },
   {
     id: 'narwhal',
@@ -265,6 +303,12 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Monodontidae',
     featured: false,
+    gallery: [
+      { src: wm('4/43/Narwhal_1_1995-06-10.jpg'), caption: 'Surfacing in the Canadian Arctic', source: 'wikimedia' },
+      { src: wm('3/39/Narwhal_at_ice_edge.jpg'), caption: 'At the edge of an Arctic ice floe', source: 'wikimedia' },
+      { src: wm('9/94/Monodon_monoceros_pod.jpg'), caption: 'A pod travelling together', source: 'wikimedia' },
+      { src: wm('d/dc/Narwhals_1997-08-01.jpg'), caption: 'Multiple narwhals at the surface', source: 'wikimedia' },
+    ],
   },
   {
     id: 'gray-whale',
@@ -309,6 +353,13 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Eschrichtiidae',
     featured: false,
+    gallery: [
+      { src: wm('0/00/Ballena_gris_adulta_con_su_ballenato.jpg'), caption: 'Adult spy-hopping next to a calf', source: 'wikimedia' },
+      { src: wm('c/c6/Eschrichtius_robustus_01-cropped.jpg'), caption: 'Mid-breach', source: 'wikimedia' },
+      { src: wm('d/d9/Spouting_gray_whale_Yachats%2C_OR_%288008163164%29.jpg'), caption: 'Spouting off Yachats, Oregon', source: 'wikimedia' },
+      { src: wm('7/75/GrayWhaleByPhilKonstantin.jpg'), caption: 'Double blowhole and barnacle encrustation', source: 'wikimedia' },
+      { src: wm('5/5f/Whale_with_Laguna_Peak%2C_California%2C_in_background.jpg'), caption: 'Coastal migration past the Santa Monica Mountains', source: 'wikimedia' },
+    ],
   },
   {
     id: 'fin-whale',
@@ -353,6 +404,13 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenopteridae',
     featured: false,
+    gallery: [
+      { src: wm('c/ce/Finhval_%281%29.jpg'), caption: 'Surfacing in Greenlandic waters', source: 'wikimedia' },
+      { src: wm('f/f7/Balaenoptera_physalus_Saint-Laurent_02.jpg'), caption: 'Backswept dorsal fin, Gulf of St Lawrence', source: 'wikimedia' },
+      { src: wm('d/d0/Finwhaleapproach.jpg'), caption: 'Asymmetric jaw colouring (frontal view)', source: 'wikimedia' },
+      { src: wm('7/7d/Jour_6_En_guise_d%27aurevoir%2C_la_plus_grosse_baleine_nous_rend_visite.jpg'), caption: 'Lunge feeding at the surface', source: 'wikimedia' },
+      { src: wm('9/92/CZ_Rorcual_FinWhale_Estrecho_Strait_Gibraltar.jpg'), caption: 'Crossing the Strait of Gibraltar', source: 'wikimedia' },
+    ],
   },
   {
     id: 'minke-whale',
@@ -397,6 +455,14 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenopteridae',
     featured: false,
+    gallery: [
+      { src: wm('a/a6/SBNMS_-_Minke_Whale_-_Breach_%2828670557361%29.jpg'), caption: 'Breaching at Stellwagen Bank Marine Sanctuary', source: 'wikimedia' },
+      { src: wm('7/70/Whale_watching_Tadoussac_04.jpg'), caption: 'Compared to a zodiac off Tadoussac', source: 'wikimedia' },
+      { src: wm('d/d9/Minke_Whale_%28NOAA%29.jpg'), caption: 'White flipper bands of a dwarf minke (NOAA)', source: 'wikimedia' },
+      { src: wm('d/dd/Bac_rp_002.jpg'), caption: 'Underwater shot showing the diagnostic flipper band', source: 'wikimedia' },
+      { src: wm('e/e3/Uma_Baleia_An%C3%A3_nos_A%C3%A7ores%2C_version_2.jpg'), caption: 'Breaching off the Azores', source: 'wikimedia' },
+      { src: wm('7/70/Balaenoptera_acutorostrata_Saint-Laurent_01a.jpg'), caption: 'Saguenay–St Lawrence Marine Park', source: 'wikimedia' },
+    ],
   },
   {
     id: 'bowhead-whale',
@@ -441,6 +507,12 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenidae',
     featured: false,
+    gallery: [
+      { src: wm('d/d3/Bowhead_Whale_NOAA.jpg'), caption: 'Approaching the ice edge (NOAA)', source: 'wikimedia' },
+      { src: wm('6/63/Gr%C3%B6nlandwal_6-1999.jpg'), caption: 'Resting at the surface, Foxe Basin', source: 'wikimedia' },
+      { src: wm('6/6f/Bowhead-1_Kate_Stafford_edit_%2816272151841%29.jpg'), caption: 'Breaching off Alaska', source: 'wikimedia' },
+      { src: wm('8/87/A_bowhead_whale_breaches_off_the_coast_of_western_Sea_of_Okhotsk_by_Olga_Shpak%2C_Marine_Mammal_Council%2C_IEE_RAS.jpg'), caption: 'Spy-hopping in Ulbansky Bay, Sea of Okhotsk', source: 'wikimedia' },
+    ],
   },
 ]
 
