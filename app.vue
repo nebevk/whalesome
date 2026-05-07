@@ -5,19 +5,14 @@
 </template>
 
 <script setup lang="ts">
+const APP_VERSION = 'v24 — re-enable DevTools + page/layout transitions (post og-image fix)'
+
 useHead({
   htmlAttrs: { 'data-theme': 'spirit' },
 })
-</script>
 
-<style>
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s;
+if (import.meta.client) {
+  // eslint-disable-next-line no-console
+  console.log(`%c[Whalesome] ${APP_VERSION}`, 'color:#00f0ff;font-weight:600')
 }
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-  filter: blur(0.5rem);
-}
-</style>
+</script>

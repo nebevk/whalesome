@@ -23,6 +23,25 @@ export interface WhaleSpecies {
   family: string;
   featured?: boolean;
   gallery?: GalleryImage[];
+  audio?: AudioClip;
+  habitatRegions?: HabitatRegion[];
+}
+
+export interface AudioClip {
+  /**
+   * Wikimedia Commons path to the original OGG file, in the form `{a}/{ab}/{filename}.ogg`
+   * (e.g. `7/79/Killer_whale.ogg`). Filename uses underscores, not spaces.
+   * The component derives both the original OGG URL and the auto-generated MP3 transcode URL from this.
+   */
+  path: string;
+  label: string;
+  source: string;
+}
+
+export interface HabitatRegion {
+  lat: number;
+  lng: number;
+  label: string;
 }
 
 export interface GalleryImage {

@@ -15,10 +15,15 @@
 </template>
 
 <script setup lang="ts">
-// Homepage with ocean depth scrolling effect
-// Sections transition from surface (light) to deep ocean (dark)
-</script>
+defineOptions({ name: 'HomePage' })
 
-<style scoped>
-/* Ocean depth effect is handled by individual components */
-</style>
+useSeoMeta({
+  title: 'Whalesome — discover the world of whales',
+  description: 'A quiet field guide to whales. Profiles, classification, and the conservation work keeping them around.',
+  ogTitle: 'Whalesome',
+  ogDescription: 'A quiet field guide to whales — profiles, classification, conservation.',
+  twitterCard: 'summary_large_image',
+})
+
+// defineOgImage temporarily removed while bisecting hydration bug
+</script>

@@ -2,17 +2,11 @@
   <div class="min-h-screen bg-base-100 py-20 px-6">
     <div class="max-w-7xl mx-auto">
       <h1
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8 } }"
         class="text-5xl md:text-6xl font-whale text-center mb-4"
       >
         About Whalesome
       </h1>
       <p
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } }"
         class="text-xl text-center text-base-content/70 mb-16 max-w-3xl mx-auto"
       >
         A quiet tribute to the ocean's largest residents — built as a place to learn, to
@@ -23,9 +17,6 @@
         <div
           v-for="(pillar, i) in pillars"
           :key="pillar.title"
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 + i * 0.1 } }"
           class="card bg-base-200 shadow-xl"
         >
           <div class="card-body">
@@ -38,9 +29,6 @@
       </div>
 
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.5 } }"
         class="card bg-base-200 shadow-xl mb-16"
       >
         <div class="card-body">
@@ -76,9 +64,6 @@
       </div>
 
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.6 } }"
         class="card bg-base-200 shadow-xl"
       >
         <div class="card-body">
@@ -109,6 +94,16 @@ import {
   CodeBracketIcon,
   ArrowLeftIcon,
 } from '@heroicons/vue/24/outline'
+
+useSeoMeta({
+  title: 'About — Whalesome',
+  description: 'Why Whalesome exists: a love letter to whales, a sandbox for the web, and a small experiment in caring about something quietly.',
+  ogTitle: 'About Whalesome',
+  ogDescription: 'Why Whalesome exists — a love letter to whales and a sandbox for the web.',
+  twitterCard: 'summary_large_image',
+})
+
+// defineOgImage temporarily removed while bisecting hydration bug
 
 const pillars = [
   {

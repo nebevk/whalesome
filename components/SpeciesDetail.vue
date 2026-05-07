@@ -13,6 +13,8 @@
         </p>
         <p class="text-base-content/80 text-lg mb-6">{{ species.description }}</p>
 
+        <SpeciesAudio v-if="species.audio" :clip="species.audio" class="mb-6" />
+
         <div class="diff aspect-[16/9] mb-6">
           <div class="diff-item-1">
             <div class="relative flex flex-col items-center justify-end h-full min-h-[200px]">
@@ -21,6 +23,7 @@
                 :alt="`Adult ${species.name}`"
                 class="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
               <div class="relative z-10 w-full bg-base-300/90 backdrop-blur-sm p-4 text-left">
                 <h3 class="text-lg font-bold mb-2">Adult</h3>
@@ -36,6 +39,7 @@
                 :alt="`Calf ${species.name}`"
                 class="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
               <div class="relative z-10 w-full bg-base-300/90 backdrop-blur-sm p-4 text-left">
                 <h3 class="text-lg font-bold mb-2">Calf</h3>
@@ -86,33 +90,47 @@
           </div>
         </div>
 
+        <section v-if="species.habitatRegions?.length" class="mt-10">
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="text-xl font-semibold">Where they live</h3>
+            <p class="text-xs text-base-content/60">{{ species.habitatRegions.length }} hotspots</p>
+          </div>
+          <SpeciesMap :regions="species.habitatRegions" />
+        </section>
+
         <section v-if="species.gallery?.length" class="mt-10">
           <div class="flex items-baseline justify-between mb-4">
             <h3 class="text-xl font-semibold">Gallery</h3>
             <p class="text-xs text-base-content/60">
-              Photos from Wikimedia Commons. Click an image to open the source.
+              Photos from Wikimedia Commons. Click any image.
             </p>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            <a
+            <button
               v-for="(image, i) in species.gallery"
               :key="i"
-              :href="image.src"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group relative block aspect-[4/3] rounded-lg overflow-hidden bg-base-300"
+              type="button"
+              class="group relative block aspect-[4/3] rounded-lg overflow-hidden bg-base-300 cursor-zoom-in"
+              @click="openLightbox(i)"
             >
               <img
                 :src="image.src"
                 :alt="image.caption"
                 loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <p class="text-white text-sm">{{ image.caption }}</p>
+                <p class="text-white text-sm text-left">{{ image.caption }}</p>
               </div>
-            </a>
+            </button>
           </div>
+
+          <ImageLightbox
+            v-model:index="lightboxIndex"
+            v-model:open="lightboxOpen"
+            :images="species.gallery"
+          />
         </section>
       </div>
     </div>
@@ -127,4 +145,12 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const lightboxOpen = ref(false)
+const lightboxIndex = ref(0)
+
+function openLightbox(index: number) {
+  lightboxIndex.value = index
+  lightboxOpen.value = true
+}
 </script>

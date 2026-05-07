@@ -2,17 +2,11 @@
   <section id="classification" class="py-20 px-6 ocean-depth-mid scroll-mt-20">
     <div class="max-w-6xl mx-auto">
       <h2
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8 } }"
         class="text-4xl md:text-5xl font-whale text-white mb-4 text-center"
       >
         Classification
       </h2>
       <p
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } }"
         class="text-lg text-white/80 mb-12 text-center max-w-3xl mx-auto"
       >
         Every living whale belongs to one of two branches: baleen filter-feeders and toothed
@@ -23,9 +17,6 @@
         <div
           v-for="(group, groupIndex) in whaleGroups"
           :key="group.scientificName"
-          v-motion
-          :initial="{ opacity: 0, x: -20 }"
-          :enter="{ opacity: 1, x: 0, transition: { duration: 0.6, delay: groupIndex * 0.2 } }"
           class="card bg-base-100/10 backdrop-blur-sm border border-white/20 shadow-xl"
         >
           <div class="card-body">

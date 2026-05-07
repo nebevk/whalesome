@@ -2,17 +2,11 @@
   <section class="py-20 px-6 ocean-depth-deep">
     <div class="max-w-7xl mx-auto">
       <h2
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8 } }"
         class="text-4xl md:text-5xl font-whale text-white mb-4 text-center"
       >
         Featured Species
       </h2>
       <p
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } }"
         class="text-lg text-white/80 mb-12 text-center max-w-3xl mx-auto"
       >
         Four whales worth starting with. Each links to a fuller profile with adult and calf detail.
@@ -22,11 +16,8 @@
         <div
           v-for="(entry, index) in featuredSpecies"
           :key="entry.id"
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 0.6, delay: index * 0.1 } }"
         >
-          <NuxtLink :to="`/species#${entry.id}`" class="block h-full">
+          <NuxtLink :to="`/species/${entry.id}`" class="block h-full">
             <div class="card bg-base-100/10 backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-full">
               <figure class="px-6 pt-6">
                 <img
@@ -34,6 +25,7 @@
                   :alt="entry.name"
                   class="w-full h-48 object-cover rounded-lg"
                   loading="lazy"
+                  decoding="async"
                 />
               </figure>
               <div class="card-body">

@@ -53,6 +53,17 @@ export const species: WhaleSpecies[] = [
       { src: wm('1/16/Blue-whale.jpg'), caption: 'Throat distended during a feeding lunge', source: 'wikimedia' },
       { src: wm('e/ee/BlueWhaleWithCalf.jpg'), caption: 'Mother and calf', source: 'wikimedia' },
     ],
+    audio: {
+      path: '8/85/Blue_whale_atlantic1.ogg',
+      label: 'Atlantic blue whale song',
+      source: 'NOAA / Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 50, lng: -30, label: 'North Atlantic feeding grounds' },
+      { lat: -65, lng: 0, label: 'Antarctic feeding grounds' },
+      { lat: -25, lng: 70, label: 'Southern Indian Ocean' },
+      { lat: 45, lng: -150, label: 'North Pacific' },
+    ],
   },
   {
     id: 'humpback-whale',
@@ -105,6 +116,18 @@ export const species: WhaleSpecies[] = [
       { src: wm('8/85/Humpback_whale_%28Megaptera_novaeangliae%29_blowing_Eyjafjordur.jpg'), caption: 'Blowing on the surface in Eyjafjörður, Iceland', source: 'wikimedia' },
       { src: wm('f/fa/Whales_Bubble_Net_Feeding-edit1.jpg'), caption: 'Bubble-net feeding off Juneau, Alaska', source: 'wikimedia' },
     ],
+    audio: {
+      path: 'd/d4/Humpback_whale_wheezeblow.ogg',
+      label: 'Humpback whale song',
+      source: 'NOAA / Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 20, lng: -157, label: 'Hawaii (winter breeding)' },
+      { lat: 58, lng: -150, label: 'Alaska (summer feeding)' },
+      { lat: -20, lng: -175, label: 'Tonga (Southern breeding)' },
+      { lat: -65, lng: -65, label: 'Antarctic Peninsula' },
+      { lat: 42, lng: -70, label: 'Stellwagen Bank, Cape Cod' },
+    ],
   },
   {
     id: 'orca',
@@ -155,6 +178,18 @@ export const species: WhaleSpecies[] = [
       { src: wm('7/78/Orcinus_orca_%28Vestfjord%29.jpg'), caption: 'Tail-slap in Vestfjorden, Norway', source: 'wikimedia' },
       { src: wm('2/2d/Killer_Whale_chasing_Chinook.jpg'), caption: 'Resident orca pursuing a chinook salmon', source: 'wikimedia' },
       { src: wm('9/99/TypeC_orca_cape.JPG'), caption: 'Type C ecotype navigating Antarctic ice', source: 'wikimedia' },
+    ],
+    audio: {
+      path: '7/79/Killer_whale.ogg',
+      label: 'Orca calls and echolocation',
+      source: 'NOAA / Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 48, lng: -123, label: 'Pacific Northwest residents' },
+      { lat: 65, lng: -22, label: 'Iceland' },
+      { lat: 68, lng: 14, label: 'Vestfjorden, Norway' },
+      { lat: -68, lng: 20, label: 'Antarctic peninsula' },
+      { lat: -42, lng: -64, label: 'Patagonia' },
     ],
   },
   {
@@ -208,6 +243,17 @@ export const species: WhaleSpecies[] = [
       { src: wm('a/ac/Beluga_premier.gov.ru-3.jpeg'), caption: 'Front-on portrait', source: 'wikimedia' },
       { src: wm('6/68/Beluga_premier.gov.ru-8.jpeg'), caption: 'Russian researchers, Sea of Okhotsk', source: 'wikimedia' },
     ],
+    audio: {
+      path: '9/9f/Beluga_vocalizations.ogg',
+      label: 'Beluga clicks, whistles, and chirps',
+      source: 'NOAA / Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 60, lng: -85, label: 'Hudson Bay' },
+      { lat: 70, lng: -170, label: 'Chukchi Sea' },
+      { lat: 65, lng: 35, label: 'White Sea, Russia' },
+      { lat: 49, lng: -68, label: 'St. Lawrence Estuary' },
+    ],
   },
   {
     id: 'sperm-whale',
@@ -259,6 +305,17 @@ export const species: WhaleSpecies[] = [
       { src: wm('4/4c/Sperm_whale_fluke_2.jpg'), caption: 'Fluke before a deep dive', source: 'wikimedia' },
       { src: wm('8/80/Sperm_whale_and_Bottlenose_whale.JPG'), caption: 'Sperm whale and a bottlenose whale together', source: 'wikimedia' },
     ],
+    audio: {
+      path: 'd/dd/Sperm_Whale_Rapid_Clicks_and_Coda.ogg',
+      label: 'Rapid clicks and a coda exchange',
+      source: 'Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 38, lng: -28, label: 'Azores' },
+      { lat: 7, lng: 80, label: 'Sri Lanka (Trincomalee Canyon)' },
+      { lat: -42, lng: 174, label: 'Kaikōura, New Zealand' },
+      { lat: 15, lng: -61, label: 'Dominica' },
+    ],
   },
   {
     id: 'narwhal',
@@ -308,6 +365,12 @@ export const species: WhaleSpecies[] = [
       { src: wm('3/39/Narwhal_at_ice_edge.jpg'), caption: 'At the edge of an Arctic ice floe', source: 'wikimedia' },
       { src: wm('9/94/Monodon_monoceros_pod.jpg'), caption: 'A pod travelling together', source: 'wikimedia' },
       { src: wm('d/dc/Narwhals_1997-08-01.jpg'), caption: 'Multiple narwhals at the surface', source: 'wikimedia' },
+    ],
+    habitatRegions: [
+      { lat: 74, lng: -85, label: 'Lancaster Sound, Canada' },
+      { lat: 75, lng: -65, label: 'Baffin Bay' },
+      { lat: 70, lng: -25, label: 'East Greenland' },
+      { lat: 78, lng: 16, label: 'Svalbard' },
     ],
   },
   {
@@ -360,6 +423,12 @@ export const species: WhaleSpecies[] = [
       { src: wm('7/75/GrayWhaleByPhilKonstantin.jpg'), caption: 'Double blowhole and barnacle encrustation', source: 'wikimedia' },
       { src: wm('5/5f/Whale_with_Laguna_Peak%2C_California%2C_in_background.jpg'), caption: 'Coastal migration past the Santa Monica Mountains', source: 'wikimedia' },
     ],
+    habitatRegions: [
+      { lat: 27, lng: -113, label: 'Baja California (winter breeding)' },
+      { lat: 60, lng: -175, label: 'Bering Sea (summer feeding)' },
+      { lat: 35, lng: -121, label: 'California migration corridor' },
+      { lat: 55, lng: 144, label: 'Sakhalin, Russia (Western pop.)' },
+    ],
   },
   {
     id: 'fin-whale',
@@ -410,6 +479,17 @@ export const species: WhaleSpecies[] = [
       { src: wm('d/d0/Finwhaleapproach.jpg'), caption: 'Asymmetric jaw colouring (frontal view)', source: 'wikimedia' },
       { src: wm('7/7d/Jour_6_En_guise_d%27aurevoir%2C_la_plus_grosse_baleine_nous_rend_visite.jpg'), caption: 'Lunge feeding at the surface', source: 'wikimedia' },
       { src: wm('9/92/CZ_Rorcual_FinWhale_Estrecho_Strait_Gibraltar.jpg'), caption: 'Crossing the Strait of Gibraltar', source: 'wikimedia' },
+    ],
+    audio: {
+      path: '9/9f/FinWhaleAtlantic-10x.ogg',
+      label: 'Fin whale 20 Hz pulse (10× speed)',
+      source: 'NOAA / Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 42, lng: 6, label: 'Mediterranean (Pelagos Sanctuary)' },
+      { lat: 64, lng: -22, label: 'Iceland' },
+      { lat: 28, lng: -111, label: 'Gulf of California' },
+      { lat: -60, lng: 0, label: 'Antarctic' },
     ],
   },
   {
@@ -463,6 +543,17 @@ export const species: WhaleSpecies[] = [
       { src: wm('e/e3/Uma_Baleia_An%C3%A3_nos_A%C3%A7ores%2C_version_2.jpg'), caption: 'Breaching off the Azores', source: 'wikimedia' },
       { src: wm('7/70/Balaenoptera_acutorostrata_Saint-Laurent_01a.jpg'), caption: 'Saguenay–St Lawrence Marine Park', source: 'wikimedia' },
     ],
+    audio: {
+      path: '2/27/Atlantic_minke_whale_call.ogg',
+      label: 'Atlantic minke whale call',
+      source: 'NOAA / Wikimedia Commons',
+    },
+    habitatRegions: [
+      { lat: 42, lng: -70, label: 'Stellwagen Bank, Massachusetts' },
+      { lat: 65, lng: -22, label: 'Iceland' },
+      { lat: 57, lng: -7, label: 'Inner Hebrides, Scotland' },
+      { lat: -67, lng: 20, label: 'Antarctic' },
+    ],
   },
   {
     id: 'bowhead-whale',
@@ -512,6 +603,12 @@ export const species: WhaleSpecies[] = [
       { src: wm('6/63/Gr%C3%B6nlandwal_6-1999.jpg'), caption: 'Resting at the surface, Foxe Basin', source: 'wikimedia' },
       { src: wm('6/6f/Bowhead-1_Kate_Stafford_edit_%2816272151841%29.jpg'), caption: 'Breaching off Alaska', source: 'wikimedia' },
       { src: wm('8/87/A_bowhead_whale_breaches_off_the_coast_of_western_Sea_of_Okhotsk_by_Olga_Shpak%2C_Marine_Mammal_Council%2C_IEE_RAS.jpg'), caption: 'Spy-hopping in Ulbansky Bay, Sea of Okhotsk', source: 'wikimedia' },
+    ],
+    habitatRegions: [
+      { lat: 71, lng: -150, label: 'Beaufort Sea' },
+      { lat: 67, lng: -78, label: 'Foxe Basin' },
+      { lat: 56, lng: 142, label: 'Sea of Okhotsk' },
+      { lat: 75, lng: -20, label: 'Northeast Greenland' },
     ],
   },
 ]

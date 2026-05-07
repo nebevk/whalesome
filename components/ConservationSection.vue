@@ -4,21 +4,17 @@
       :src="unsplash.ocean"
       alt=""
       class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+      loading="lazy"
+      decoding="async"
       aria-hidden="true"
     />
     <div class="relative z-10 max-w-6xl mx-auto">
       <h2
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8 } }"
         class="text-4xl md:text-5xl font-whale text-white mb-4 text-center"
       >
         Conservation &amp; Action
       </h2>
       <p
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } }"
         class="text-lg text-white/80 mb-12 text-center max-w-3xl mx-auto"
       >
         Whales face a short list of large problems: warming seas, plastic, ship strikes,
@@ -27,9 +23,6 @@
 
       <div class="grid md:grid-cols-2 gap-8 mb-12">
         <div
-          v-motion
-          :initial="{ opacity: 0, x: -20 }"
-          :enter="{ opacity: 1, x: 0, transition: { duration: 0.6 } }"
           class="card bg-base-100/10 backdrop-blur-sm border border-white/20 shadow-xl"
         >
           <div class="card-body">
@@ -60,9 +53,6 @@
         </div>
 
         <div
-          v-motion
-          :initial="{ opacity: 0, x: 20 }"
-          :enter="{ opacity: 1, x: 0, transition: { duration: 0.6 } }"
           class="card bg-base-100/10 backdrop-blur-sm border border-white/20 shadow-xl"
         >
           <div class="card-body">
@@ -91,9 +81,6 @@
       </div>
 
       <div
-        v-motion
-        :initial="{ opacity: 0, y: 20 }"
-        :enter="{ opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.3 } }"
         class="card bg-base-100/10 backdrop-blur-sm border border-white/20 shadow-xl"
       >
         <div class="card-body">
