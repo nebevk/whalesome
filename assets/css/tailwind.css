@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Merriweather+Sans:wght@400;700&family=Rouge+Script&display=swap');
 
 @import "tailwindcss";
 
@@ -46,6 +46,23 @@
   --border: 1px;
   --depth: 1;
   --noise: 0;
+}
+
+/* Typography tokens — Tailwind v4 turns each --font-* into a font-* utility.
+   font-sans  = body            (Merriweather Sans)
+   font-whale = display headings (Fredoka, punchy + rounded)
+   font-brand = the Whalesome wordmark (Rouge Script, handwritten) */
+@theme {
+  --font-sans: 'Merriweather Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-whale: 'Fredoka', 'Merriweather Sans', ui-sans-serif, sans-serif;
+  --font-brand: 'Rouge Script', 'Merriweather Sans', cursive;
+}
+
+/* The handwritten wordmark wants a touch of glow against dark water. */
+.brand-wordmark {
+  font-family: var(--font-brand);
+  line-height: 1;
+  text-shadow: 0 0 18px rgba(0, 240, 255, 0.35), 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .page-enter-active,

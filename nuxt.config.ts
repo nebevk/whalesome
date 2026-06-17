@@ -6,9 +6,10 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
-    // 'nuxt-og-image' temporarily disabled while bisecting a hydration bug
-    // ("Cannot create property 'el' on boolean 'false'" → SpeciesIndexPage rendered
-    // as Symbol(v-cmt) on client). Re-enable once root cause is fixed.
+    // 'nuxt-og-image' disabled: its composable tree-shaking corrupts the Vite
+    // client transform of @vue/runtime-dom in dev, which breaks hydration (the
+    // particle canvas and other <ClientOnly> content silently stay on fallback).
+    // Revisit via the v6 defineOgImage() API or as a production-only build step.
   ],
 
   css: [
@@ -36,7 +37,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-06-24',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about', '/species'],
+      routes: ['/', '/about', '/species', '/history', '/populations', '/compare'],
     },
   },
 

@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="flex flex-wrap items-baseline gap-3 mb-2">
           <h2 class="card-title text-3xl">{{ species.name }}</h2>
-          <span class="badge badge-primary badge-lg">{{ species.conservationStatus }}</span>
+          <StatusBadge :status="species.conservationStatus" />
           <span class="badge badge-outline capitalize">{{ species.group }} whale</span>
         </div>
         <p class="text-base-content/70 italic text-lg mb-4">
@@ -89,6 +89,10 @@
             <div class="stat-value text-lg">{{ species.conservationStatus }}</div>
           </div>
         </div>
+
+        <section class="mt-8">
+          <SizeComparison :name="species.name" :size="species.adult.size" />
+        </section>
 
         <section v-if="species.habitatRegions?.length" class="mt-10">
           <div class="flex items-baseline justify-between mb-4">

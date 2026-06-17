@@ -47,7 +47,7 @@ const message = computed(() => {
 
 useHead({ htmlAttrs: { 'data-theme': 'spirit' } })
 useSeoMeta({
-  title: `${statusCode.value} — Whalesome`,
+  title: `${statusCode.value}, Whalesome`,
 })
 
 function handleError() {

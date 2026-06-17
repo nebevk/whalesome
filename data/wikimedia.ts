@@ -6,7 +6,7 @@
  *
  * Filenames with non-ASCII characters or punctuation must be URL-encoded
  * exactly the way Wikimedia stores them (paste the value out of the
- * existing thumbnail URL — don't re-encode by hand).
+ * existing thumbnail URL, do not re-encode by hand).
  *
  * Wikimedia rejects arbitrary widths; only fixed "thumbnail steps" work.
  * Confirmed-OK widths: 120, 250, 500, 960, 1280. Anything else returns 400.

@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-const APP_VERSION = 'v24 — re-enable DevTools + page/layout transitions (post og-image fix)'
+const APP_VERSION = 'v24, re-enable DevTools + page/layout transitions (post og-image fix)'
 
 useHead({
   htmlAttrs: { 'data-theme': 'spirit' },

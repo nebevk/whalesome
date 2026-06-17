@@ -63,3 +63,45 @@ export interface WhaleFamily {
   description: string;
   species: string[];
 }
+
+export type IucnCode = 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'DD';
+export type PopulationTrend = 'increasing' | 'stable' | 'decreasing' | 'unknown';
+
+export interface WhalePopulation {
+  /** Matches a WhaleSpecies id when a profile exists, so the chart can link through. */
+  id: string;
+  commonName: string;
+  scientificName: string;
+  group: 'baleen' | 'toothed';
+  /** Low/high of the current global estimate. 0/0 means no reliable numeric estimate. */
+  currentLow: number;
+  currentHigh: number;
+  currentText: string;
+  /** Approximate pre-exploitation population, only where a clean figure exists. */
+  prewhalingApprox?: number;
+  prewhalingText?: string;
+  iucnStatus: string;
+  iucnCode: IucnCode;
+  trend: PopulationTrend;
+  note?: string;
+  source: string;
+}
+
+export type WhalingEra = 'early' | 'industrial' | 'peak' | 'regulation' | 'recovery';
+
+export interface WhalingEvent {
+  year: string;
+  sortYear: number;
+  title: string;
+  description: string;
+  figure?: string;
+  era: WhalingEra;
+  source: string;
+}
+
+export interface WhaleStat {
+  label: string;
+  value: string;
+  detail: string;
+  source: string;
+}

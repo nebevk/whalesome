@@ -51,12 +51,12 @@ Every page calls `useSeoMeta` for title, description, and OG/Twitter tags. Speci
 
 ### Homepage — ocean-depth gradient chain
 [pages/index.vue](pages/index.vue) composes four sections that form one continuous surface→abyss gradient:
-1. [HomeHero](components/HomeHero.vue) — `.ocean-depth-surface`, CTAs to Species and `#classification`.
-2. [WhaleTree](components/WhaleTree.vue) — `.ocean-depth-mid`, `id="classification"` anchor target.
-3. [SpeciesGrid](components/SpeciesGrid.vue) — `.ocean-depth-deep`, featured subset linking to `/species/[id]`.
-4. [ConservationSection](components/ConservationSection.vue) — `.ocean-depth-deepest`.
+1. [HomeHero](components/HomeHero.vue) — video background with a light-surface overlay that blends into the gradient; CTAs to Species and `#classification`.
+2. [WhaleTree](components/WhaleTree.vue) — `id="classification"` anchor target.
+3. [SpeciesGrid](components/SpeciesGrid.vue) — featured subset linking to `/species/[id]`.
+4. [ConservationSection](components/ConservationSection.vue) — deepest section.
 
-Each component owns its own scoped `.ocean-depth-*` gradient. If you add, remove, or reorder a section, keep the gradient stops continuous across neighbors — that illusion is the whole concept.
+The gradient is now a **single** `linear-gradient` on the `.ocean-page` wrapper in `index.vue` (sunlit surface at the top to black abyss at the bottom). The four sections are transparent and sit on top of it, so adding or reordering a section no longer means matching per-section gradient stops. [OceanParticles](components/OceanParticles.vue) draws a fixed bubble and marine-snow canvas behind the content, faded in by scroll so it only shows below the surface (honours `prefers-reduced-motion`). The wrapper uses a negative top margin so the hero sits under the floating glass nav in [layouts/default.vue](layouts/default.vue).
 
 ### Data layer
 Static TypeScript modules under [data/](data/) — no CMS, no fetch:

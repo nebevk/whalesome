@@ -1,6 +1,6 @@
 <template>
-  <section class="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden ocean-depth-surface">
-    <div class="absolute inset-0 z-0">
+  <section class="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <div class="hero-media absolute inset-0 z-0">
       <video
         ref="videoEl"
         autoplay
@@ -10,15 +10,17 @@
         preload="metadata"
         :poster="posterUrl"
         aria-hidden="true"
-        class="absolute inset-0 w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover opacity-50"
       >
         <source :src="videoUrl" type="video/mp4" />
       </video>
-      <div class="absolute inset-0 bg-gradient-to-b from-blue-900/30 via-blue-950/50 to-black/70"></div>
+      <!-- Tint follows the page gradient so the video blends into the descent,
+           and stays translucent so the time-of-day theme shows through. -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#5cb3e0]/20 via-[#1a6a9a]/40 to-[#0d456b]/70"></div>
     </div>
     <div class="relative z-10 px-6 max-w-4xl mx-auto">
       <h1
-        class="text-6xl md:text-8xl font-whale text-white drop-shadow-2xl mb-6"
+        class="brand-wordmark text-7xl md:text-9xl text-white drop-shadow-2xl mb-6 leading-none"
       >
         Whalesome
       </h1>
@@ -50,13 +52,13 @@
       class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 animate-bounce"
       aria-hidden="true"
     >
-      <ChevronDoubleDownIcon class="h-6 w-6" />
+      <AnchorIcon class="h-7 w-7" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ArrowRightIcon, ChevronDoubleDownIcon } from '@heroicons/vue/24/outline'
+import { ArrowRightIcon } from '@heroicons/vue/24/outline'
 
 const videoUrl = '/vid/bg_video.mp4'
 const posterUrl = '/img/karl-heinz-muller-bMieozQvHeU-unsplash.jpg'
@@ -76,11 +78,10 @@ watchEffect(() => {
 </script>
 
 <style scoped>
-.ocean-depth-surface {
-  background: linear-gradient(to bottom,
-    rgba(135, 206, 250, 0.1) 0%,
-    rgba(70, 130, 180, 0.2) 50%,
-    rgba(25, 25, 112, 0.3) 100%
-  );
+/* Dissolve the video and its tint into the page gradient toward the bottom,
+   so there is no hard edge where the hero meets the next section. */
+.hero-media {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%);
 }
 </style>

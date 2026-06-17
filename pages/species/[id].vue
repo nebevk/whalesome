@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen bg-base-100 py-8 px-6">
+    <ReadingProgress />
     <div class="max-w-7xl mx-auto">
       <div class="mb-8">
         <NuxtLink to="/species" class="btn btn-ghost btn-sm gap-1">
@@ -71,12 +72,11 @@ if (current.value) {
   const c = current.value
   const shortDesc = c.description.length > 140 ? c.description.slice(0, 137) + '…' : c.description
   useSeoMeta({
-    title: `${c.name} — Whalesome`,
+    title: `${c.name}, Whalesome`,
     description: c.description,
     ogTitle: `${c.name} (${c.scientificName})`,
     ogDescription: c.description,
     twitterCard: 'summary_large_image',
   })
-  // defineOgImage temporarily removed while bisecting hydration bug
 }
 </script>

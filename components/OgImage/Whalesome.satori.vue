@@ -42,6 +42,6 @@ withDefaults(defineProps<{
   description?: string
 }>(), {
   title: 'Whalesome',
-  description: 'Discover the world of whales — profiles, classification, conservation.',
+  description: 'Discover the world of whales, profiles, classification, conservation.',
 })
 </script>

@@ -9,7 +9,7 @@
       <p
         class="text-xl text-center text-base-content/70 mb-16 max-w-3xl mx-auto"
       >
-        A quiet tribute to the ocean's largest residents — built as a place to learn, to
+        A quiet tribute to the ocean's largest residents, built as a place to learn, to
         experiment, and to share.
       </p>
 
@@ -96,32 +96,30 @@ import {
 } from '@heroicons/vue/24/outline'
 
 useSeoMeta({
-  title: 'About — Whalesome',
+  title: 'About, Whalesome',
   description: 'Why Whalesome exists: a love letter to whales, a sandbox for the web, and a small experiment in caring about something quietly.',
   ogTitle: 'About Whalesome',
-  ogDescription: 'Why Whalesome exists — a love letter to whales and a sandbox for the web.',
+  ogDescription: 'Why Whalesome exists, a love letter to whales and a sandbox for the web.',
   twitterCard: 'summary_large_image',
 })
-
-// defineOgImage temporarily removed while bisecting hydration bug
 
 const pillars = [
   {
     icon: HeartIcon,
     title: 'Love for Whales',
-    body: 'Whales are quiet evidence that the planet is stranger and older than we think. This site is an attempt to pay attention to them the way they deserve — without shouting, without kitsch.',
+    body: 'Whales are quiet evidence that the planet is stranger and older than we think. This site is an attempt to pay attention to them the way they deserve, without shouting, without kitsch.',
     quote: '"The ocean\'s gentle giants remind us that wonder is still the right response to being alive."',
   },
   {
     icon: BeakerIcon,
     title: 'A Sandbox for Learning',
-    body: 'Whalesome is where I try things. Nuxt 3, DaisyUI themes, motion directives, prerender pipelines — each feature is an excuse to read a little further into the docs.',
+    body: 'Whalesome is where I try things. Nuxt 3, DaisyUI themes, motion directives, prerender pipelines, each feature is an excuse to read a little further into the docs.',
     quote: '"If a feature isn\'t teaching me anything, it probably isn\'t worth keeping."',
   },
   {
     icon: CodeBracketIcon,
     title: 'Love for the Web',
-    body: 'Good sites feel like furniture: solid, considered, out of the way. This is a small place to practice that — fast first paint, sensible typography, real accessibility.',
+    body: 'Good sites feel like furniture: solid, considered, out of the way. This is a small place to practice that, fast first paint, sensible typography, real accessibility.',
     quote: '"The web is at its best when it disappears and leaves you with the content."',
   },
 ]

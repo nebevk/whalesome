@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 px-6 ocean-depth-deep">
+  <section class="py-20 px-6">
     <div class="max-w-7xl mx-auto">
       <h2
         class="text-4xl md:text-5xl font-whale text-white mb-4 text-center"
@@ -33,7 +33,7 @@
                 <p class="text-white/70 text-sm italic mb-2">{{ entry.scientificName }}</p>
                 <p class="text-white/80 text-sm line-clamp-3">{{ entry.description }}</p>
                 <div class="card-actions justify-end mt-4">
-                  <span class="badge badge-primary badge-outline">{{ entry.conservationStatus }}</span>
+                  <StatusBadge :status="entry.conservationStatus" short />
                 </div>
               </div>
             </div>
@@ -55,13 +55,3 @@
 import { ArrowRightIcon } from '@heroicons/vue/24/outline'
 import { species, featuredSpecies } from '~/data/species'
 </script>
-
-<style scoped>
-.ocean-depth-deep {
-  background: linear-gradient(to bottom,
-    rgba(25, 25, 112, 0.5) 0%,
-    rgba(0, 0, 139, 0.6) 50%,
-    rgba(0, 0, 50, 0.7) 100%
-  );
-}
-</style>

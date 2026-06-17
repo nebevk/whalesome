@@ -1,13 +1,5 @@
 <template>
-  <section class="relative py-20 px-6 ocean-depth-deepest overflow-hidden">
-    <img
-      :src="unsplash.ocean"
-      alt=""
-      class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
-      loading="lazy"
-      decoding="async"
-      aria-hidden="true"
-    />
+  <section class="relative py-20 px-6 overflow-hidden">
     <div class="relative z-10 max-w-6xl mx-auto">
       <h2
         class="text-4xl md:text-5xl font-whale text-white mb-4 text-center"
@@ -30,7 +22,7 @@
             <ul class="space-y-3 text-white/80">
               <li class="flex gap-3">
                 <CheckCircleIcon class="h-6 w-6 flex-shrink-0 text-primary" />
-                <span>Cut single-use plastics where you can — straws and bags end up where the whales are.</span>
+                <span>Cut single-use plastics where you can. Straws and bags end up where the whales are.</span>
               </li>
               <li class="flex gap-3">
                 <CheckCircleIcon class="h-6 w-6 flex-shrink-0 text-primary" />
@@ -42,7 +34,7 @@
               </li>
               <li class="flex gap-3">
                 <CheckCircleIcon class="h-6 w-6 flex-shrink-0 text-primary" />
-                <span>Support marine protected areas — they're the single biggest lever we have.</span>
+                <span>Support marine protected areas, the single biggest lever we have.</span>
               </li>
               <li class="flex gap-3">
                 <CheckCircleIcon class="h-6 w-6 flex-shrink-0 text-primary" />
@@ -117,7 +109,6 @@ import {
   ArrowTopRightOnSquareIcon,
   UserCircleIcon,
 } from '@heroicons/vue/24/outline'
-import { unsplash } from '~/data/unsplash'
 
 const organizations = [
   {
@@ -179,13 +170,3 @@ const socialAccounts = [
   },
 ]
 </script>
-
-<style scoped>
-.ocean-depth-deepest {
-  background: linear-gradient(to bottom,
-    rgba(0, 0, 139, 0.6) 0%,
-    rgba(0, 0, 50, 0.7) 50%,
-    rgba(0, 0, 20, 0.8) 100%
-  );
-}
-</style>
