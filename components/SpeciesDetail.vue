@@ -52,6 +52,12 @@
           <p v-if="species.baby.image" class="hidden sm:block px-4 pb-3 -mt-1 text-xs text-base-content/50">
             Drag the divider on the photo to compare adult and calf.
           </p>
+          <p v-if="heroCredits.length" class="px-4 pb-3 text-[11px] text-base-content/50">
+            {{ heroCredits.length > 1 ? 'Photos' : 'Photo' }}:
+            <template v-for="(credit, i) in heroCredits" :key="credit.page">
+              <a :href="credit.page" class="link link-hover" target="_blank" rel="noopener noreferrer">{{ credit.author }}<span class="sr-only"> (opens in a new tab)</span></a>, {{ credit.license }}<span v-if="i < heroCredits.length - 1"> · </span>
+            </template>
+          </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
@@ -85,26 +91,30 @@
         <div class="mt-6 grid md:grid-cols-2 gap-4">
           <div class="stat bg-base-200 rounded-lg">
             <div class="stat-title">Habitat</div>
-            <div class="stat-value text-lg">{{ species.habitat }}</div>
+            <div class="stat-value text-lg leading-snug whitespace-normal">{{ species.habitat }}</div>
           </div>
           <div class="stat bg-base-200 rounded-lg">
             <div class="stat-title">Conservation</div>
-            <div class="stat-value text-lg">{{ species.conservationStatus }}</div>
+            <div class="stat-value text-lg leading-snug whitespace-normal">{{ species.conservationStatus }}</div>
           </div>
         </div>
 
-        <NuxtLink
-          v-if="species.group === 'toothed'"
-          to="/anatomy#echolocation"
-          class="group mt-6 flex items-center gap-4 rounded-lg border border-primary/25 bg-primary/5 px-4 py-3 transition-colors hover:border-primary/50 hover:bg-primary/10"
-        >
-          <CubeTransparentIcon class="h-7 w-7 flex-none text-primary" aria-hidden="true" />
-          <span class="flex-1">
-            <span class="block font-semibold">How toothed whales find prey in the dark</span>
-            <span class="block text-sm text-base-content/70">Try the interactive echolocation figure.</span>
-          </span>
-          <ArrowRightIcon class="h-5 w-5 flex-none text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
-        </NuxtLink>
+        <!-- Interactive figures on /anatomy that cover this species (data/figures.ts). -->
+        <ul v-if="relatedFigures.length" class="mt-6 space-y-2">
+          <li v-for="figure in relatedFigures" :key="figure.id">
+            <NuxtLink
+              :to="`/anatomy#${figure.id}`"
+              class="group flex items-center gap-4 rounded-lg border border-primary/25 bg-primary/5 px-4 py-3 transition-colors hover:border-primary/50 hover:bg-primary/10"
+            >
+              <CubeTransparentIcon class="h-7 w-7 flex-none text-primary" aria-hidden="true" />
+              <span class="flex-1">
+                <span class="block font-semibold">{{ figure.callout.title }}</span>
+                <span class="block text-sm text-base-content/70">{{ figure.callout.body }}</span>
+              </span>
+              <ArrowRightIcon class="h-5 w-5 flex-none text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </NuxtLink>
+          </li>
+        </ul>
 
         <section class="mt-8">
           <SizeComparison :name="species.name" :size="species.adult.size" />
@@ -149,6 +159,17 @@
             </button>
           </div>
 
+          <details v-if="galleryCredits.length" class="mt-3 text-xs text-base-content/60">
+            <summary class="cursor-pointer select-none hover:text-base-content/80">Photo credits</summary>
+            <ul class="mt-2 space-y-1">
+              <li v-for="item in galleryCredits" :key="item.caption">
+                {{ item.caption }}:
+                <a :href="item.credit.page" class="link link-hover" target="_blank" rel="noopener noreferrer">{{ item.credit.author }}<span class="sr-only"> (opens in a new tab)</span></a>,
+                {{ item.credit.license }}
+              </li>
+            </ul>
+          </details>
+
           <ImageLightbox
             v-model:index="lightboxIndex"
             v-model:open="lightboxOpen"
@@ -162,12 +183,29 @@
 
 <script setup lang="ts">
 import type { WhaleSpecies } from '~/types/species'
+import { figuresFor } from '~/data/figures'
+import { creditFor, type PhotoCredit } from '~/data/imageCredits'
 
 interface Props {
   species: WhaleSpecies | null
 }
 
 const props = defineProps<Props>()
+
+const relatedFigures = computed(() => (props.species ? figuresFor(props.species.id) : []))
+
+// CC BY / BY-SA photos must be credited where they're shown (data/imageCredits.ts).
+const heroCredits = computed(() => {
+  if (!props.species) return []
+  const found = [creditFor(props.species.adult.image), creditFor(props.species.baby.image)].filter(c => !!c)
+  return found.filter((c, i) => found.findIndex(o => o!.page === c!.page) === i) as PhotoCredit[]
+})
+const galleryCredits = computed(() =>
+  (props.species?.gallery ?? []).flatMap((image) => {
+    const credit = creditFor(image.src)
+    return credit ? [{ caption: image.caption, credit }] : []
+  }),
+)
 
 const lifeStages = computed(() => props.species
   ? [

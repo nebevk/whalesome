@@ -1,125 +1,166 @@
 <template>
   <div class="min-h-screen bg-base-100 py-16 px-6">
     <div class="max-w-4xl mx-auto">
-      <header class="text-center mb-14">
+      <header class="text-center mb-10">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-3">Anatomy</p>
         <h1 class="text-5xl md:text-6xl font-whale mb-5">How Whales Work</h1>
-        <p class="text-lg text-base-content/80 max-w-2xl mx-auto">
-          Whale anatomy, rebuilt as working instruments. Each part of a figure stands for a real
-          organ, and every number it shows comes from published research.
-        </p>
+        <p class="text-lg text-base-content/80 max-w-2xl mx-auto">{{ anatomyIntro }}</p>
       </header>
 
-      <section id="echolocation" class="scroll-mt-24" aria-labelledby="echolocation-title">
-        <h2 id="echolocation-title" class="text-3xl font-whale mb-3">Echolocation</h2>
-        <p class="text-lg text-base-content/80 mb-6">
-          Toothed whales see with sound. A click made in the nose is focused by the fatty melon,
-          bounces off prey, and travels back through the lower jaw to the ear. The delay tells the
-          whale how far away the fish is. Drag the fish, or focus the figure and use the arrow keys.
+      <nav aria-label="On this page" class="mb-16">
+        <ul class="flex flex-wrap justify-center gap-2">
+          <li v-for="item in contents" :key="item.id">
+            <a :href="`#${item.id}`" class="btn btn-sm btn-ghost rounded-full border border-base-content/15 font-normal">
+              <span v-if="item.fig" class="text-primary">{{ item.fig }}</span>
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- The body plan -->
+      <section id="body-plan" class="scroll-mt-24" aria-labelledby="body-plan-title">
+        <h2 id="body-plan-title" class="text-3xl font-whale mb-6">The whale body plan</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          <article
+            v-for="topic in bodyPlan"
+            :id="topic.id"
+            :key="topic.id"
+            class="scroll-mt-24 rounded-box bg-base-200 p-5"
+          >
+            <h3 class="flex items-center gap-2.5 text-lg font-bold mb-2">
+              <component :is="topic.icon" class="h-6 w-6 flex-none text-primary" aria-hidden="true" />
+              {{ topic.title }}
+            </h3>
+            <p class="text-base-content/80 mb-3">{{ topic.summary }}</p>
+            <ul class="space-y-1.5 text-sm text-base-content/80">
+              <li v-for="point in topic.points" :key="point" class="flex gap-2">
+                <span class="mt-2 h-1 w-1 flex-none rounded-full bg-primary" aria-hidden="true" />
+                <span>{{ point }}</span>
+              </li>
+            </ul>
+            <a v-if="topic.link" :href="topic.link.href" class="link link-hover link-primary mt-3 inline-flex items-center gap-1 text-sm">
+              {{ topic.link.label }}
+              <ArrowRightIcon class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+            <p class="mt-3 text-xs text-base-content/60">
+              Sources:
+              <template v-for="(source, i) in topic.sources" :key="source.href">
+                <a :href="source.href" class="link link-hover" target="_blank" rel="noopener noreferrer">{{ source.label }}<span class="sr-only"> (opens in a new tab)</span></a><span v-if="i < topic.sources.length - 1">, </span>
+              </template>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Baleen vs toothed -->
+      <section id="baleen-vs-toothed" class="scroll-mt-24 mt-16" aria-labelledby="contrast-title">
+        <h2 id="contrast-title" class="text-3xl font-whale mb-6">Baleen whales and toothed whales</h2>
+        <div class="overflow-x-auto rounded-box bg-base-200">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="w-1/4" />
+                <th scope="col" class="text-base-content">Baleen whales</th>
+                <th scope="col" class="text-base-content">Toothed whales</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="row in baleenVsToothed.rows" :key="row.trait">
+                <th scope="row" class="font-semibold">{{ row.trait }}</th>
+                <td class="text-base-content/80">{{ row.baleen }}</td>
+                <td class="text-base-content/80">{{ row.toothed }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs text-base-content/60">
+          Sources:
+          <template v-for="(source, i) in baleenVsToothed.sources" :key="source.href">
+            <a :href="source.href" class="link link-hover" target="_blank" rel="noopener noreferrer">{{ source.label }}<span class="sr-only"> (opens in a new tab)</span></a><span v-if="i < baleenVsToothed.sources.length - 1">, </span>
+          </template>
         </p>
+      </section>
 
-        <FigureFrame
-          src="/figures/echolocation.html"
-          title="Interactive figure: a sonar test tank built like a dolphin’s head. Drag the fish, or focus the figure and use the arrow keys, to change its distance."
-        />
+      <!-- Interactive figures, each rendered from its model's `page` (data/figures.ts) -->
+      <section
+        v-for="figure in figures"
+        :id="figure.id"
+        :key="figure.id"
+        class="scroll-mt-24 mt-20"
+        :aria-labelledby="`${figure.id}-title`"
+      >
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-2">{{ figure.fig }}</p>
+        <h2 :id="`${figure.id}-title`" class="text-3xl font-whale mb-3">{{ figure.heading }}</h2>
+        <p class="text-lg text-base-content/80 mb-6">{{ figure.lead }}</p>
 
-        <!-- Mirrors `keys` and `caption` in figures/echolocation/build.mjs; the embed leaves them to this page. -->
+        <FigureFrame :src="figure.src" :title="figure.frameTitle" />
+
         <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-base-content/80">
-          <li v-for="key in keys" :key="key.label" class="flex items-center gap-2">
+          <li v-for="key in figure.keys" :key="key.label" class="flex items-center gap-2">
             <span class="h-0.5 w-5 flex-none rounded-full" :style="{ background: key.color }" aria-hidden="true" />
             {{ key.label }}
           </li>
         </ul>
-        <p class="mt-4 text-sm leading-relaxed text-base-content/70">{{ caption }}</p>
+        <p class="mt-4 text-sm leading-relaxed text-base-content/70">{{ figure.caption }}</p>
 
-        <h3 class="text-xl font-bold mt-12 mb-4">How the rig maps onto the whale</h3>
+        <h3 class="text-xl font-bold mt-10 mb-4">How the rig maps onto the whale</h3>
         <dl class="divide-y divide-base-content/10 rounded-box bg-base-200">
-          <div v-for="part in parts" :key="part.rig" class="grid gap-1 px-5 py-3 sm:grid-cols-[1fr_1.3fr] sm:gap-6">
+          <div v-for="part in figure.parts" :key="part.rig" class="grid gap-1 px-5 py-3 sm:grid-cols-[1fr_1.3fr] sm:gap-6">
             <dt class="font-semibold">{{ part.rig }}</dt>
             <dd class="text-base-content/80">{{ part.whale }}</dd>
           </div>
         </dl>
 
-        <h3 class="text-xl font-bold mt-12 mb-3">Which whales do this?</h3>
-        <p class="text-base-content/80 mb-4">
-          Every toothed whale echolocates, from the vaquita to the sperm whale. Baleen whales are
-          not known to.
-        </p>
+        <h3 class="text-xl font-bold mt-10 mb-3">Which whales?</h3>
+        <p class="text-base-content/80 mb-4">{{ figure.speciesNote }}</p>
         <ul class="flex flex-wrap gap-2">
-          <li v-for="s in toothed" :key="s.id">
-            <NuxtLink :to="`/species/${s.id}`" class="btn btn-sm btn-outline rounded-full font-normal">
-              {{ s.name }}
-            </NuxtLink>
+          <li v-for="s in speciesOf(figure)" :key="s.id">
+            <NuxtLink :to="`/species/${s.id}`" class="btn btn-sm btn-outline rounded-full font-normal">{{ s.name }}</NuxtLink>
           </li>
         </ul>
 
-        <h3 class="text-xl font-bold mt-12 mb-3">Sources</h3>
+        <h3 class="text-xl font-bold mt-10 mb-3">Sources</h3>
         <ul class="space-y-2 text-sm text-base-content/80">
-          <li v-for="source in sources" :key="source.href">
+          <li v-for="source in figure.sources" :key="source.href">
             <a :href="source.href" class="link link-hover" target="_blank" rel="noopener noreferrer">
               {{ source.label }}<span class="sr-only"> (opens in a new tab)</span>
             </a>
             <span class="text-base-content/60">: {{ source.note }}</span>
           </li>
         </ul>
-        <p class="mt-6 text-xs text-base-content/60">
-          Figure built with the
-          <a href="https://github.com/wheresryan22/anatomy" class="link link-hover" target="_blank" rel="noopener noreferrer">Anatomy kit<span class="sr-only"> (opens in a new tab)</span></a>
-          by Ryan (@wheresryan22), MIT licence.
-        </p>
       </section>
+
+      <p class="mt-16 text-center text-xs text-base-content/60">
+        Figures built with the
+        <a href="https://github.com/wheresryan22/anatomy" class="link link-hover" target="_blank" rel="noopener noreferrer">Anatomy kit<span class="sr-only"> (opens in a new tab)</span></a>
+        by Ryan (@wheresryan22), MIT licence.
+      </p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ArrowRightIcon } from '@heroicons/vue/24/outline'
 import { species } from '~/data/species'
-// The figure's own model, so the caption here can never drift from the figure.
-import * as M from '~/figures/echolocation/model.mjs'
+import { anatomyIntro, bodyPlan, baleenVsToothed } from '~/data/anatomy'
+import { figures, type FigurePage } from '~/data/figures'
 
 useSeoMeta({
   title: 'How whales work, Whalesome',
-  description: 'Whale anatomy rebuilt as working instruments. Drag a fish through a sonar tank built like a dolphin’s head to see how echolocation measures distance.',
-  ogTitle: 'How whales work: echolocation',
-  ogDescription: 'Drag a fish through a sonar tank built like a dolphin’s head to see how echolocation measures distance.',
+  description: 'Whale anatomy explained: the body plan, baleen versus toothed whales, and interactive figures of echolocation, sperm whale clicks, lunge feeding and deep diving.',
+  ogTitle: 'How whales work',
+  ogDescription: 'The whale body plan and interactive figures of echolocation, sperm whale clicks, lunge feeding and deep diving.',
   twitterCard: 'summary_large_image',
 })
 
-const fmt = (value: number, digits = 0) =>
-  value.toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits })
-
-const keys = [
-  { label: 'Click, focused by the lens (the melon)', color: '#00f0ff' },
-  { label: 'Echo, carried by the jaw fat to the ear', color: '#ff3ec8' },
-  { label: 'Needle: time from click to echo', color: '#ffffff' },
+const contents = [
+  { id: 'body-plan', label: 'Body plan' },
+  { id: 'baleen-vs-toothed', label: 'Baleen vs toothed' },
+  ...figures.map(f => ({ id: f.id, label: f.heading, fig: f.fig })),
 ]
 
-const caption
-  = `Each click lasts ${M.CLICK_US[0]} to ${M.CLICK_US[1]} µs in wild bottlenose dolphins and centres on `
-  + `${M.CENTROID_KHZ[0]} to ${M.CENTROID_KHZ[1]} kHz, so its waves are ${fmt(M.wavelengthMm(M.CENTROID_KHZ[1]))} `
-  + `to ${fmt(M.wavelengthMm(M.CENTROID_KHZ[0]))} mm long. The melon focuses it into a beam about ${M.BEAM_DEG}° wide. `
-  + `Sound crosses seawater at about ${fmt(M.C)} m/s, so every millisecond of round trip means `
-  + `${fmt(M.metresPerMs, 2)} m of range. The next click usually waits for the echo. `
-  + `In the figure, sound runs ${M.SLOW} times slower than real so you can follow it.`
-
-const parts = [
-  { rig: 'A clicker whose two “lips” snap at each click', whale: 'The phonic lips, deep in the nasal passages below the blowhole' },
-  { rig: 'A bellows that dips with every click', whale: 'The nasal air sacs: air pushed past the phonic lips drives each click' },
-  { rig: 'A lens dome reaching through the tank’s glass end', whale: 'The melon, a fatty acoustic lens in the forehead that focuses clicks into a beam' },
-  { rig: 'A fat-filled channel running back from the water', whale: 'Fat bodies in the lower jaw, which carry echoes in through a thin bony window' },
-  { rig: 'An ear capsule on four soft springs', whale: 'The ear bones, hung on soft tissue and isolated from the skull' },
-  { rig: 'A dial timing click to echo', whale: 'The brain, reading distance from the delay' },
-  { rig: 'A fish on a carriage over a ruler in metres', whale: 'The prey, and how far away it is' },
-]
-
-const toothed = species.filter(s => s.group === 'toothed')
-
-const sources = [
-  { label: 'NASA JPL, the speed of sound in seawater', href: 'https://sealevel.jpl.nasa.gov/files/archive/activities/ts2ssac5.pdf', note: 'about 1,500 m/s' },
-  { label: 'Wahlberg et al. 2011, Journal of the Acoustical Society of America', href: 'https://doi.org/10.1121/1.3624822', note: 'click duration and frequency in wild bottlenose dolphins' },
-  { label: 'Au, Moore & Pawloski 1986, Journal of the Acoustical Society of America', href: 'https://doi.org/10.1121/1.394012', note: 'the width of the transmitted beam' },
-  { label: 'Ladegaard et al. 2019, Journal of Experimental Biology', href: 'https://doi.org/10.1242/jeb.189217', note: 'the next click waiting for the echo' },
-  { label: 'Cranford, Amundin & Norris 1996, Journal of Morphology', href: 'https://marineinfo.org/id/publication/260941', note: 'the phonic lips as the sound source' },
-  { label: 'Cranford, Krysl & Amundin 2010, PLoS ONE', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2915923/', note: 'how the fats of the lower jaw pass sound into the ear bones' },
-]
+const byId = new Map(species.map(s => [s.id, s]))
+const speciesOf = (figure: FigurePage) =>
+  figure.species.map(id => byId.get(id)).filter((s): s is NonNullable<typeof s> => !!s)
 </script>

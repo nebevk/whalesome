@@ -41,17 +41,18 @@ export const species: WhaleSpecies[] = [
         'Doubles its birth length before weaning.',
       ],
     },
-    habitat: 'All oceans except the Arctic',
+    habitat: 'All oceans, from the tropics to polar waters',
     conservationStatus: 'Endangered',
     group: 'baleen',
     family: 'Balaenopteridae',
     featured: true,
     gallery: [
-      { src: wm('1/1c/Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg'), caption: 'Adult blue whale at the surface', source: 'wikimedia' },
+      { src: wm('2/29/Blue_Whale_004_noaa_dorsal.jpg', 500), caption: 'Mottled skin and the tiny dorsal fin set far back (NOAA)', source: 'wikimedia' },
       { src: wm('c/cd/Bluewhale2_noaa.jpg'), caption: 'Blowholes and bow wave (NOAA)', source: 'wikimedia' },
       { src: wm('9/9e/Bluewhale1_noaa_crop.jpg'), caption: 'Distinctive spout (NOAA)', source: 'wikimedia' },
-      { src: wm('1/16/Blue-whale.jpg'), caption: 'Throat distended during a feeding lunge', source: 'wikimedia' },
-      { src: wm('e/ee/BlueWhaleWithCalf.jpg'), caption: 'Mother and calf', source: 'wikimedia' },
+      { src: wm('1/16/Blue-whale.jpg'), caption: 'Throat pouch still swollen just after a feeding lunge (NOAA)', source: 'wikimedia' },
+      { src: wm('e/ee/BlueWhaleWithCalf.jpg'), caption: 'Mother and calf off Ólafsvík, Iceland', source: 'wikimedia' },
+      { src: wm('8/80/Tail_of_the_Blue_whale_in_2006_near_the_Channel_Islands_of_California.jpg'), caption: 'Raising its flukes to dive near the Channel Islands, California', source: 'wikimedia' },
     ],
     audio: {
       path: '8/85/Blue_whale_atlantic1.ogg',
@@ -111,9 +112,9 @@ export const species: WhaleSpecies[] = [
     featured: true,
     gallery: [
       { src: wm('6/61/Humpback_Whale_underwater_shot.jpg'), caption: 'Underwater portrait', source: 'wikimedia' },
-      { src: wm('5/58/Humpback_Whale%2C_blowholes.jpg'), caption: 'Young whale showing its blowholes', source: 'wikimedia' },
-      { src: wm('7/79/026b_Humpback_whale_jump_and_splash_Photo_by_Giles_Laurent.jpg'), caption: 'Mid-breach', source: 'wikimedia' },
-      { src: wm('8/85/030_Humpback_whale_lobtailing_Photo_by_Giles_Laurent.jpg'), caption: 'Lobtailing, slapping the surface with the flukes', source: 'wikimedia' },
+      { src: wm('5/58/Humpback_Whale%2C_blowholes.jpg'), caption: 'Twin blowholes and a white flipper, Newfoundland', source: 'wikimedia' },
+      { src: wm('7/79/026b_Humpback_whale_jump_and_splash_Photo_by_Giles_Laurent.jpg'), caption: 'Breaching in Ísafjarðardjúp, Iceland', source: 'wikimedia' },
+      { src: wm('8/85/030_Humpback_whale_lobtailing_Photo_by_Giles_Laurent.jpg'), caption: 'Lobtailing in Ísafjarðardjúp, Iceland', source: 'wikimedia' },
       { src: wm('8/85/Humpback_whale_%28Megaptera_novaeangliae%29_blowing_Eyjafjordur.jpg'), caption: 'Blowing on the surface in Eyjafjörður, Iceland', source: 'wikimedia' },
       { src: wm('f/fa/Whales_Bubble_Net_Feeding-edit1.jpg'), caption: 'Bubble-net feeding off Juneau, Alaska', source: 'wikimedia' },
     ],
@@ -161,6 +162,7 @@ export const species: WhaleSpecies[] = [
         'In resident pods, stays with its mother\'s group for life',
         'Learns pod-specific calls and hunting style',
       ],
+      image: wm('e/e8/J-50_orca.jpg'),
       facts: [
         'For its first month, neither calf nor mother stops to rest at the surface; both likely sleep on the move.',
         'In resident pods, learns its family\'s dialect mainly from its mother.',
@@ -174,10 +176,11 @@ export const species: WhaleSpecies[] = [
     featured: true,
     gallery: [
       { src: wm('3/37/Killerwhales_jumping.jpg'), caption: 'Pair leaping near Unimak Island, Alaska', source: 'wikimedia' },
-      { src: wm('3/38/Orca_porpoising.jpg'), caption: 'Porpoising in Hood Canal, Washington', source: 'wikimedia' },
+      { src: wm('3/38/Orca_porpoising.jpg', 500), caption: 'Porpoising in Hood Canal, Washington', source: 'wikimedia' },
       { src: wm('7/78/Orcinus_orca_%28Vestfjord%29.jpg'), caption: 'Tail-slap in Vestfjorden, Norway', source: 'wikimedia' },
-      { src: wm('2/2d/Killer_Whale_chasing_Chinook.jpg'), caption: 'Resident orca pursuing a chinook salmon', source: 'wikimedia' },
-      { src: wm('9/99/TypeC_orca_cape.JPG'), caption: 'Type C ecotype navigating Antarctic ice', source: 'wikimedia' },
+      { src: wm('2/2d/Killer_Whale_chasing_Chinook.jpg'), caption: 'Young resident orca chasing a chinook salmon off San Juan Island, Washington', source: 'wikimedia' },
+      { src: wm('c/c0/Type_C_Orcas_2.jpg'), caption: 'Type C mother and calf spyhopping in the Ross Sea, Antarctica', source: 'wikimedia' },
+      { src: wm('6/66/Killer_Whales_Hunting_a_Seal.jpg'), caption: 'Hunting a crabeater seal on an ice floe off the Antarctic Peninsula', source: 'wikimedia' },
     ],
     audio: {
       path: '7/79/Killer_whale.ogg',
@@ -207,7 +210,7 @@ export const species: WhaleSpecies[] = [
         'No dorsal fin, adaptation to icy waters',
         'Unfused neck vertebrae, can turn its head',
       ],
-      image: unsplash.beluga,
+      image: wm('5/5b/Beluga_1_1999-07-03_cropped.jpg'),
       facts: [
         'Produces clicks, whistles, and chirps across a wide range.',
         'Can swim backwards and change facial expression.',
@@ -223,6 +226,7 @@ export const species: WhaleSpecies[] = [
         'Stays with mother up to 3 years',
         'Learns pod vocal repertoire gradually',
       ],
+      image: wm('1/1b/St._Lawrence_beluga_and_calf.jpg'),
       facts: [
         'Born in warm, shallow estuary waters in summer.',
         'Practices vocalisations almost from birth.',
@@ -235,12 +239,12 @@ export const species: WhaleSpecies[] = [
     family: 'Monodontidae',
     featured: true,
     gallery: [
-      { src: wm('e/e2/Delphinapterus_leucas_2.jpg'), caption: 'Head close-up showing the melon', source: 'wikimedia' },
-      { src: wm('e/ea/Beluga_1_1999-07-03.jpg'), caption: 'Surfacing in Hudson Bay', source: 'wikimedia' },
-      { src: wm('b/bd/Belugaschule_1999-07-02.jpg'), caption: 'Pod from above, Churchill River', source: 'wikimedia' },
-      { src: wm('e/e8/Oceanogr%C3%A0fic_29102004.jpg'), caption: 'In aquarium care, Valencia', source: 'wikimedia' },
-      { src: wm('a/ac/Beluga_premier.gov.ru-3.jpeg'), caption: 'Front-on portrait', source: 'wikimedia' },
-      { src: wm('6/68/Beluga_premier.gov.ru-8.jpeg'), caption: 'Russian researchers, Sea of Okhotsk', source: 'wikimedia' },
+      { src: wm('b/bd/Belugaschule_1999-07-02.jpg'), caption: 'A pod from the air near Churchill, Hudson Bay', source: 'wikimedia' },
+      { src: wm('b/be/Belugas_%28124233821%29.jpeg'), caption: 'A pod passing a sailing ship off Svalbard', source: 'wikimedia' },
+      { src: wm('4/43/Beluga_Whale_Tadoussac_Quebec_Canada_Luca_Galuzzi_2005.jpg'), caption: 'Raising its flukes off Tadoussac, St. Lawrence Estuary', source: 'wikimedia' },
+      { src: wm('1/1b/Beluga_premier.gov.ru-6.jpeg'), caption: 'Adults at the surface, each one identifiable by its scars', source: 'wikimedia' },
+      { src: wm('6/68/Beluga_premier.gov.ru-8.jpeg', 500), caption: 'Russian scientists fitting a satellite tag', source: 'wikimedia' },
+      { src: wm('e/e8/Oceanogr%C3%A0fic_29102004.jpg'), caption: 'Captive beluga at L’Oceanogràfic aquarium, Valencia', source: 'wikimedia' },
     ],
     audio: {
       path: '9/9f/Beluga_vocalizations.ogg',
@@ -269,11 +273,11 @@ export const species: WhaleSpecies[] = [
         'Wrinkled gray skin',
         'Up to 52 conical teeth in lower jaw',
       ],
-      image: unsplash.spermWhale,
+      image: wm('b/b8/Sperm_whale_pod.jpg'),
       facts: [
         'Typical hunting dives reach 600-1,000 m and last about 45 minutes.',
         'Echolocation clicks reach up to 236 dB underwater.',
-        'Inspired Moby-Dick, the historical whale attacks were real.',
+        'Inspired Moby-Dick, which drew on real attacks such as the sinking of the whaleship Essex in 1820.',
       ],
     },
     baby: {
@@ -285,6 +289,7 @@ export const species: WhaleSpecies[] = [
         'Stays near the surface while mother hunts deep',
         'Looked after by other females in the unit',
       ],
+      image: wm('b/b1/Mother_and_baby_sperm_whale.jpg'),
       facts: [
         'Babysitting shifts are shared among adult females.',
         'Learns codas, click patterns unique to its clan.',
@@ -297,10 +302,10 @@ export const species: WhaleSpecies[] = [
     family: 'Physeteridae',
     featured: false,
     gallery: [
-      { src: wm('b/b5/Kaskelot.jpg'), caption: 'Diving off New Zealand', source: 'wikimedia' },
-      { src: wm('d/d4/Sperm_whale_and_ship.jpg'), caption: 'Whale-watching boat beside a sperm whale off Kaikōura, New Zealand', source: 'wikimedia' },
-      { src: wm('4/4c/Sperm_whale_fluke_2.jpg'), caption: 'Fluke before a deep dive', source: 'wikimedia' },
-      { src: wm('8/80/Sperm_whale_and_Bottlenose_whale.JPG'), caption: 'Painting of a sperm whale and a bottlenose whale by Archibald Thorburn', source: 'wikimedia' },
+      { src: wm('c/cd/Sperm_whale_Tim_Cole_NMFS_crop.jpg'), caption: 'Seen from the air, showing the huge, blunt head', source: 'wikimedia' },
+      { src: wm('c/cd/Sperm_whale_%28Physeter_macrocephalus%29%2C_S%C3%A3o_Miguel_Island%2C_Azores%2C_Portugal_%28PPL1-Corrected%29-2.jpg'), caption: 'Blowing at the surface off São Miguel, Azores', source: 'wikimedia' },
+      { src: wm('0/04/Sperm_Whale._%28Physeter_macrocephalus%29_%2837611504244%29.jpg'), caption: 'Fluke raised for a deep dive off Kaikōura, New Zealand', source: 'wikimedia' },
+      { src: wm('5/54/Two_sperm_whales_%28Physeter_macrocephalus%29%2C_S%C3%A3o_Miguel_Island%2C_Azores%2C_Portugal_%28PPL1-Corrected%29.jpg'), caption: 'Two whales diving off São Miguel, Azores', source: 'wikimedia' },
     ],
     audio: {
       path: 'd/dd/Sperm_Whale_Rapid_Clicks_and_Coda.ogg',
@@ -329,7 +334,7 @@ export const species: WhaleSpecies[] = [
         'No dorsal fin',
         'Short, rounded flippers',
       ],
-      image: wm('9/94/Monodon_monoceros_pod.jpg'),
+      image: wm('4/4e/Pod_Monodon_monoceros.jpg'),
       facts: [
         'Tusk is a left-canine tooth that grows through the upper lip.',
         'Experiments suggest the tusk can sense changes in water saltiness.',
@@ -343,7 +348,7 @@ export const species: WhaleSpecies[] = [
         'Born dark gray, no tusk',
         'Nurses for about 20 months',
         'Stays with mother through first winters',
-        'Darkens and gains white mottling as a juvenile',
+        'Darkens to blue-black as a juvenile, then gains white mottling with age',
       ],
       facts: [
         'A male\'s tusk starts to erupt when he is two or three years old.',
@@ -357,10 +362,9 @@ export const species: WhaleSpecies[] = [
     family: 'Monodontidae',
     featured: false,
     gallery: [
-      { src: wm('4/43/Narwhal_1_1995-06-10.jpg'), caption: 'Surfacing in the Canadian Arctic', source: 'wikimedia' },
-      { src: wm('3/39/Narwhal_at_ice_edge.jpg'), caption: 'At the edge of an Arctic ice floe', source: 'wikimedia' },
-      { src: wm('9/94/Monodon_monoceros_pod.jpg'), caption: 'A pod travelling together', source: 'wikimedia' },
-      { src: wm('d/dc/Narwhals_1997-08-01.jpg'), caption: 'Multiple narwhals at the surface', source: 'wikimedia' },
+      { src: wm('3/39/Narwhal_at_ice_edge.jpg'), caption: 'Surfacing at the ice edge off north Baffin Island', source: 'wikimedia' },
+      { src: wm('9/94/Monodon_monoceros_pod.jpg'), caption: 'A pod from the air off Greenland, several with tusks', source: 'wikimedia' },
+      { src: wm('2/25/Narwhal_satellite.jpg'), caption: 'A male held alongside a boat for satellite tagging', source: 'wikimedia' },
     ],
     habitatRegions: [
       { lat: 74, lng: -85, label: 'Lancaster Sound, Canada' },
@@ -400,6 +404,7 @@ export const species: WhaleSpecies[] = [
         'Completes first migration northward at a few months old',
         'Often curious and approaches boats',
       ],
+      image: wm('9/92/Gray_whale_calf_by_Marc_Webber_USFWS.jpg'),
       facts: [
         'Migrates over 8,000 km before its first birthday.',
         'Mothers are famously protective, hence whalers\' nickname "devil fish."',
@@ -412,11 +417,11 @@ export const species: WhaleSpecies[] = [
     family: 'Eschrichtiidae',
     featured: false,
     gallery: [
-      { src: wm('0/00/Ballena_gris_adulta_con_su_ballenato.jpg'), caption: 'Adult spy-hopping next to a calf', source: 'wikimedia' },
-      { src: wm('c/c6/Eschrichtius_robustus_01-cropped.jpg'), caption: 'Mid-breach', source: 'wikimedia' },
-      { src: wm('d/d9/Spouting_gray_whale_Yachats%2C_OR_%288008163164%29.jpg'), caption: 'Spouting off Yachats, Oregon', source: 'wikimedia' },
-      { src: wm('7/75/GrayWhaleByPhilKonstantin.jpg'), caption: 'Double blowhole and barnacle encrustation', source: 'wikimedia' },
-      { src: wm('5/5f/Whale_with_Laguna_Peak%2C_California%2C_in_background.jpg'), caption: 'Coastal migration past the Santa Monica Mountains', source: 'wikimedia' },
+      { src: wm('0/00/Ballena_gris_adulta_con_su_ballenato.jpg'), caption: 'Adult spy-hopping beside its calf, Baja California Sur, Mexico', source: 'wikimedia' },
+      { src: wm('c/c6/Eschrichtius_robustus_01-cropped.jpg', 500), caption: 'Breaching, showing the mottled, barnacle-covered skin (NOAA)', source: 'wikimedia' },
+      { src: wm('9/9b/CINMS_and_MBNMS_gray_whale_and_calf_%2848770472308%29.jpg'), caption: 'Mother and calf migrating north off California (NOAA)', source: 'wikimedia' },
+      { src: wm('7/75/GrayWhaleByPhilKonstantin.jpg', 500), caption: 'Double blowhole and barnacles, San Ignacio Lagoon, Mexico', source: 'wikimedia' },
+      { src: wm('e/e6/Gray_Whale_at_Depoe_Bay_%288020033539%29.jpg'), caption: 'Raising its flukes off Depoe Bay, Oregon', source: 'wikimedia' },
     ],
     habitatRegions: [
       { lat: 28.0, lng: -114.6, label: 'Baja California lagoons (winter breeding)' },
@@ -440,7 +445,7 @@ export const species: WhaleSpecies[] = [
         'Prominent dorsal fin, far back',
         '50-100 pleated throat grooves',
       ],
-      image: wm('f/f7/Balaenoptera_physalus_Saint-Laurent_02.jpg'),
+      image: wm('c/ce/Finhval_%281%29.jpg'),
       facts: [
         'Cruises at 9-15 km/h and can sprint to about 37 km/h.',
         'Its 20 Hz calls sit at the lower limit of human hearing.',
@@ -468,11 +473,10 @@ export const species: WhaleSpecies[] = [
     family: 'Balaenopteridae',
     featured: false,
     gallery: [
-      { src: wm('c/ce/Finhval_%281%29.jpg'), caption: 'Surfacing in Greenlandic waters', source: 'wikimedia' },
-      { src: wm('f/f7/Balaenoptera_physalus_Saint-Laurent_02.jpg'), caption: 'Backswept dorsal fin, Gulf of St Lawrence', source: 'wikimedia' },
-      { src: wm('d/d0/Finwhaleapproach.jpg'), caption: 'Asymmetric jaw colouring (frontal view)', source: 'wikimedia' },
-      { src: wm('7/7d/Jour_6_En_guise_d%27aurevoir%2C_la_plus_grosse_baleine_nous_rend_visite.jpg'), caption: 'Lunge feeding at the surface', source: 'wikimedia' },
-      { src: wm('9/92/CZ_Rorcual_FinWhale_Estrecho_Strait_Gibraltar.jpg'), caption: 'Crossing the Strait of Gibraltar', source: 'wikimedia' },
+      { src: wm('f/f7/Balaenoptera_physalus_Saint-Laurent_02.jpg'), caption: 'Backswept dorsal fin, St Lawrence Estuary, Quebec', source: 'wikimedia' },
+      { src: wm('d/d0/Finwhaleapproach.jpg', 500), caption: 'Head-on, showing the blowholes and splash guard (NOAA)', source: 'wikimedia' },
+      { src: wm('7/7d/Jour_6_En_guise_d%27aurevoir%2C_la_plus_grosse_baleine_nous_rend_visite.jpg'), caption: 'Lunge feeding on its side at the surface', source: 'wikimedia' },
+      { src: wm('9/92/CZ_Rorcual_FinWhale_Estrecho_Strait_Gibraltar.jpg'), caption: 'Passing a whale-watching boat in the Strait of Gibraltar', source: 'wikimedia' },
     ],
     audio: {
       path: '9/9f/FinWhaleAtlantic-10x.ogg',
@@ -529,12 +533,10 @@ export const species: WhaleSpecies[] = [
     family: 'Balaenopteridae',
     featured: false,
     gallery: [
-      { src: wm('a/a6/SBNMS_-_Minke_Whale_-_Breach_%2828670557361%29.jpg'), caption: 'Breaching at Stellwagen Bank Marine Sanctuary', source: 'wikimedia' },
-      { src: wm('7/70/Whale_watching_Tadoussac_04.jpg'), caption: 'Compared to a zodiac off Tadoussac', source: 'wikimedia' },
-      { src: wm('d/d9/Minke_Whale_%28NOAA%29.jpg'), caption: 'White flipper bands (NOAA)', source: 'wikimedia' },
-      { src: wm('d/dd/Bac_rp_002.jpg'), caption: 'Underwater shot showing the diagnostic flipper band', source: 'wikimedia' },
-      { src: wm('e/e3/Uma_Baleia_An%C3%A3_nos_A%C3%A7ores%2C_version_2.jpg'), caption: 'Breaching off the Azores', source: 'wikimedia' },
-      { src: wm('7/70/Balaenoptera_acutorostrata_Saint-Laurent_01a.jpg'), caption: 'Saguenay-St Lawrence Marine Park', source: 'wikimedia' },
+      { src: wm('7/70/Whale_watching_Tadoussac_04.jpg'), caption: 'Surfacing beside a whale-watching boat off Tadoussac, Quebec', source: 'wikimedia' },
+      { src: wm('d/d9/Minke_Whale_%28NOAA%29.jpg', 500), caption: 'Underwater, showing the white flipper band (NOAA)', source: 'wikimedia' },
+      { src: wm('d/dd/Bac_rp_002.jpg'), caption: 'Just below the surface, white flipper bands showing', source: 'wikimedia' },
+      { src: wm('9/9a/Balaenoptera_acutorostrata_Saint-Laurent_03.jpg'), caption: 'Curved dorsal fin, St Lawrence Estuary, Quebec', source: 'wikimedia' },
     ],
     audio: {
       path: '2/27/Atlantic_minke_whale_call.ogg',
@@ -592,9 +594,9 @@ export const species: WhaleSpecies[] = [
     featured: false,
     gallery: [
       { src: wm('d/d3/Bowhead_Whale_NOAA.jpg'), caption: 'Approaching the ice edge (NOAA)', source: 'wikimedia' },
-      { src: wm('6/63/Gr%C3%B6nlandwal_6-1999.jpg'), caption: 'Resting at the surface, Foxe Basin', source: 'wikimedia' },
-      { src: wm('6/6f/Bowhead-1_Kate_Stafford_edit_%2816272151841%29.jpg'), caption: 'Breaching off Alaska', source: 'wikimedia' },
-      { src: wm('8/87/A_bowhead_whale_breaches_off_the_coast_of_western_Sea_of_Okhotsk_by_Olga_Shpak%2C_Marine_Mammal_Council%2C_IEE_RAS.jpg'), caption: 'Spy-hopping in Ulbansky Bay, Sea of Okhotsk', source: 'wikimedia' },
+      { src: wm('6/63/Gr%C3%B6nlandwal_6-1999.jpg', 500), caption: 'Resting at the surface, Foxe Basin, Nunavut', source: 'wikimedia' },
+      { src: wm('8/87/A_bowhead_whale_breaches_off_the_coast_of_western_Sea_of_Okhotsk_by_Olga_Shpak%2C_Marine_Mammal_Council%2C_IEE_RAS.jpg', 500), caption: 'Spy-hopping in the western Sea of Okhotsk, Russia', source: 'wikimedia' },
+      { src: wm('a/a7/A_bowhead_whale_is_tail-slapping_in_the_coastal_waters_of_western_Sea_of_Okhotsk_by_Olga_Shpak%2C_Marine_Mammal_Council%2C_IEE_RAS.jpg'), caption: 'Tail-slapping in the western Sea of Okhotsk, Russia', source: 'wikimedia' },
     ],
     habitatRegions: [
       { lat: 71, lng: -150, label: 'Beaufort Sea' },
@@ -608,7 +610,7 @@ export const species: WhaleSpecies[] = [
     name: 'Sei Whale',
     scientificName: 'Balaenoptera borealis',
     description:
-      'One of the largest and fastest rorquals, capable of short bursts up to roughly 50 km/h. It favours deep, open ocean far from coasts and is named after the Norwegian word for pollock, a fish that appeared off Norway in the same season as the whales. Unlike other rorquals it can switch between skimming copepods at the surface and gulping krill and small schooling fish.',
+      'One of the largest and fastest rorquals, capable of short bursts up to roughly 50 km/h. It usually favours deep, open ocean away from coasts and is named after the Norwegian word for pollock, a fish that appeared off Norway in the same season as the whales. Unlike other rorquals it can switch between skimming copepods at the surface and gulping krill and small schooling fish.',
     adult: {
       size: '15 to 19.5 m (49 to 64 ft)',
       weight: '15 to 20 tonnes',
@@ -618,7 +620,7 @@ export const species: WhaleSpecies[] = [
         'The finest baleen bristles of any rorqual',
         'Short throat pleats that end well before the navel',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sei_whale_mother_and_calf_Christin_Khan_NOAA.jpg/960px-Sei_whale_mother_and_calf_Christin_Khan_NOAA.jpg',
+      image: wm('5/5f/2023-02-16_Sei_whale_Falklands_Islands_02_%28cropped%29.jpg'),
       facts: [
         'Among the fastest great whales, reaching roughly 50 km/h in short sprints.',
         'Females are slightly larger than males, as in most baleen whales.',
@@ -633,6 +635,7 @@ export const species: WhaleSpecies[] = [
         'Nursed for about 6 to 9 months, reaching 8 to 9 m by weaning',
         'Relies on rich milk for fast early growth',
       ],
+      image: wm('e/e3/Sei_whale_mother_and_calf_Christin_Khan_NOAA.jpg'),
       facts: [
         'Gestation lasts about 11 months, with one calf every 2 to 3 years.',
         'A newborn nearly doubles in length in its first half year.',
@@ -643,6 +646,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Endangered',
     group: 'baleen',
     family: 'Balaenopteridae',
+    gallery: [
+      { src: wm('2/2e/2023-02-16_Sei_whale_Falklands_Islands_04.jpg'), caption: 'Surfacing near West Point Island, Falkland Islands', source: 'wikimedia' },
+      { src: wm('e/e3/Sei_whale_mother_and_calf_Christin_Khan_NOAA.jpg'), caption: 'Mother and calf seen from the air (NOAA)', source: 'wikimedia' },
+      { src: wm('c/cd/Museo_Municipal_Virginia_Choquintel_-_Barbas_de_ballena_Sei_%28Balaenoptera_borealis%29_1.jpg'), caption: 'Baleen plate with its very fine fringe, from a whale found in the Beagle Channel', source: 'wikimedia' },
+      { src: wm('e/e4/Sei_Whale_Stanley_Falkland_Islands.jpg'), caption: 'Skeleton on display in Stanley, Falkland Islands', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 42.5, lng: -67, label: 'Gulf of Maine and Georges Bank' },
       { lat: 65, lng: -30, label: 'Denmark Strait off Greenland' },
@@ -666,7 +675,7 @@ export const species: WhaleSpecies[] = [
         'Tall, curved dorsal fin with a pointed tip',
         '40 to 70 long throat pleats reaching past the navel',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Balaenoptera_brydei.jpg/960px-Balaenoptera_brydei.jpg',
+      image: wm('f/f9/Baleia_de_Bryde.jpg'),
       facts: [
         'Many populations stay in warm water all year, unlike most baleen whales.',
         'Bryde\'s whales in the western North Pacific make a strange call nicknamed the biotwang.',
@@ -691,6 +700,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'baleen',
     family: 'Balaenopteridae',
+    gallery: [
+      { src: wm('a/a1/Anim2619_%2834590655782%29.jpg'), caption: 'Surfacing in the Northwestern Hawaiian Islands (NOAA)', source: 'wikimedia' },
+      { src: wm('3/37/Brydes_whale.jpg'), caption: 'Back and dorsal fin in False Bay, South Africa', source: 'wikimedia' },
+      { src: wm('5/51/Bryde%27s_whale_2.jpg'), caption: 'Eden’s whales feeding among terns in the Gulf of Thailand', source: 'wikimedia' },
+      { src: wm('8/84/Bryde%27s_Whale_-_Hauraki_Gulf_Marine_Park%2C_New_Zealand.jpg'), caption: 'Beside a whale-watching boat in the Hauraki Gulf, New Zealand', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: -34.2, lng: 23.0, label: 'South African south coast' },
       { lat: -36.8, lng: 174.9, label: 'Hauraki Gulf, New Zealand' },
@@ -714,7 +729,7 @@ export const species: WhaleSpecies[] = [
         'Small sickle-shaped dorsal fin set well back, unlike the finless true right whales',
         'A more streamlined body than the true right whales',
       ],
-      image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Caperea_marginata_3.jpg?width=960',
+      image: wm('b/bb/Pygmy_right_whale.png'),
       facts: [
         'It is the smallest baleen whale and the sole survivor of its family.',
         'Fewer than 25 live sightings at sea were documented before 2008.',
@@ -735,10 +750,16 @@ export const species: WhaleSpecies[] = [
         'Newborns likely stay close to their mothers in temperate coastal waters.',
       ],
     },
-    habitat: 'Temperate Southern Hemisphere waters, roughly between 30 and 55 degrees south',
+    habitat: 'Temperate Southern Hemisphere waters, mostly between about 30 and 55 degrees south',
     conservationStatus: 'Least Concern',
     group: 'baleen',
     family: 'Neobalaenidae',
+    gallery: [
+      { src: wm('b/bb/Pygmy_right_whale.png'), caption: 'Swimming off southern Australia, a rare photo of a live animal', source: 'wikimedia' },
+      { src: wm('6/6c/Caperea_marginata_3.jpg'), caption: 'Illustration of an adult, showing its shape and colouring', source: 'wikimedia' },
+      { src: wm('7/77/Caperea_marginata_MNHN.png', 500), caption: 'Skull and lower jaws, Muséum national d’Histoire naturelle, Paris', source: 'wikimedia' },
+      { src: wm('f/f0/Caperea_marginata_%28Pygmy_right_whale%29_%2848725201712%29.jpg'), caption: 'Skeleton laid out in the Auckland Museum collection', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: -43.5, lng: 173.1, label: 'Canterbury coast, New Zealand' },
       { lat: -35.0, lng: 138.2, label: 'Gulf St Vincent, South Australia' },
@@ -787,6 +808,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Delphinidae',
+    gallery: [
+      { src: wm('9/9f/Globicephala_melas_Cape_Breton_group.jpg'), caption: 'A pod off Cape Breton Island, Nova Scotia', source: 'wikimedia' },
+      { src: wm('f/ff/Globicephala_melas_Cape_Breton_1.jpg'), caption: 'Spyhopping off Cape Breton Island, showing the bulbous head', source: 'wikimedia' },
+      { src: wm('0/00/Spyhopping_%28cropped%29.JPG'), caption: 'Spyhopping with one long, sickle-shaped flipper raised', source: 'wikimedia' },
+      { src: wm('3/38/LF_Pilot_Whale_Goban_Spur.jpg', 500), caption: 'Mother and calf at the Goban Spur, south of Ireland', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 62, lng: -6.3, label: 'Faroe Islands' },
       { lat: 47.5, lng: -52, label: 'Newfoundland shelf' },
@@ -810,7 +837,7 @@ export const species: WhaleSpecies[] = [
         'A V-shaped blow that makes a heart-shaped spout',
         'A huge arched mouth with up to 270 baleen plates per side',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/GRNMS_-_Right_Whales_%2831361234602%29.jpg/960px-GRNMS_-_Right_Whales_%2831361234602%29.jpg',
+      image: wm('8/8b/SBNMS_-_right_whale_-_NOAA_Permit_633-1762-01_%2827740030522%29.jpg'),
       facts: [
         'Right whales can live at least 70 years, but females now live only to about 45.',
         'Females once calved every three years but now average every seven to ten.',
@@ -825,6 +852,7 @@ export const species: WhaleSpecies[] = [
         'Lacks the heavy callosities of adults at first',
         'Stays close to its mother in shallow calving waters',
       ],
+      image: wm('0/0b/Anim1751_-_Flickr_-_NOAA_Photo_Library.jpg'),
       facts: [
         'Calving happens in winter off Georgia and Florida.',
         'Gestation lasts more than a year, with a single calf.',
@@ -835,6 +863,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Critically Endangered',
     group: 'baleen',
     family: 'Balaenidae',
+    gallery: [
+      { src: wm('7/7f/GRNMS_-_North_Atlantic_Right_Whales_%2831472816856%29.jpg'), caption: 'A group at the surface in Gray’s Reef sanctuary off Georgia (NOAA)', source: 'wikimedia' },
+      { src: wm('8/80/Right_Whale_%22Scoop%22_%2842853281122%29.jpg'), caption: 'Feeding near Atlantic white-sided dolphins, Stellwagen Bank (NOAA)', source: 'wikimedia' },
+      { src: wm('9/98/Orange_whale_lice_right_whale.jpg'), caption: 'Orange whale lice on the head (NOAA)', source: 'wikimedia' },
+      { src: wm('4/42/Post0025_-_Flickr_-_NOAA_Photo_Library.jpg'), caption: 'Rescuers cutting fishing gear from an entangled whale off Florida (NOAA)', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 44.9, lng: -66.3, label: 'Bay of Fundy feeding grounds' },
       { lat: 41.9, lng: -70.3, label: 'Cape Cod Bay' },
@@ -858,7 +892,7 @@ export const species: WhaleSpecies[] = [
         'A long, strongly arching mouthline',
         'Dark grey to black skin, sometimes with white belly patches',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Southern_right_whale6.jpg/960px-Southern_right_whale6.jpg',
+      image: wm('c/c2/Southern_right_whale6.jpg'),
       facts: [
         'Several populations grew about 7 percent a year after protection, but growth has slowed since the mid 2010s.',
         'It tail-sails, holding the flukes up to catch the wind.',
@@ -883,6 +917,13 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'baleen',
     family: 'Balaenidae',
+    gallery: [
+      { src: wm('0/08/Southern_right_whale8.jpg'), caption: 'Callosities seen from above, Península Valdés, Argentina', source: 'wikimedia' },
+      { src: wm('c/c9/Southern_right_whale_%28Walker_Bay%29.jpg'), caption: 'Surfacing in Walker Bay, Hermanus, South Africa', source: 'wikimedia' },
+      { src: wm('a/ab/Southern_right_whale2.jpg'), caption: 'Head-on at sunset, Península Valdés, Argentina', source: 'wikimedia' },
+      { src: wm('b/be/Right_whale_Mother_and_partial_albino_calf.jpg'), caption: 'Mother with a rare pale calf, Argentina', source: 'wikimedia' },
+      { src: wm('5/5b/Southern_Right_Whales_gather_to_give_birth_-_Flickr_-_gailhampshire.jpg'), caption: 'Flukes raised off Rawson, Argentina', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: -42.7, lng: -64.6, label: 'Golfo Nuevo, Peninsula Valdes, Argentina' },
       { lat: -34.5, lng: 19.25, label: 'Walker Bay, Hermanus, South Africa' },
@@ -906,7 +947,7 @@ export const species: WhaleSpecies[] = [
         'Skin covered in linear scars and round cookie-cutter shark bites',
         'Only adult males show two tusk-like teeth at the tip of the jaw',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Ziphius_carvirostris.jpg/960px-Ziphius_carvirostris.jpg',
+      image: wm('6/6e/Ziphius_Ligurian_Sea.jpg'),
       facts: [
         'Recorded diving to 2,992 m, the deepest dive known for any mammal.',
         'One individual stayed under for 222 minutes, a mammal record.',
@@ -931,6 +972,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Ziphiidae',
+    gallery: [
+      { src: wm('6/66/Ziphius_cavirostris_in_Dominica%2C_2012.jpg'), caption: 'Two surfacing off Dominica, the larger one heavily scarred', source: 'wikimedia' },
+      { src: wm('d/da/Ziphius_cavirostris_47619123.jpg', 500), caption: 'Breaching in the Bay of Biscay', source: 'wikimedia' },
+      { src: wm('f/fc/Ziphius_cavirostris_Mar_Ligure.jpg'), caption: 'Adult male surfacing off Liguria, Italy', source: 'wikimedia' },
+      { src: wm('3/33/Cuvier%E2%80%99s_Beaked_Whale_%28Ziphius_cavirostris%29.jpg'), caption: 'Just below the surface, seen from a survey plane off California', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 33, lng: -118.9, label: 'Southern California Bight' },
       { lat: 43.7, lng: 8.3, label: 'Ligurian Sea, Mediterranean' },
@@ -979,6 +1026,11 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Kogiidae',
+    gallery: [
+      { src: wm('c/c2/Zwergpottwal_Kogia_breviceps_DSC_0071.jpg'), caption: 'Head of a stranded whale, showing the underslung jaw, La Gomera', source: 'wikimedia' },
+      { src: wm('b/b0/Zwergpottwal_Kogia_breviceps_DSC_0058.jpg'), caption: 'A dead stranded whale towed ashore, La Gomera, Canary Islands', source: 'wikimedia' },
+      { src: wm('f/fb/Kogia_breviceps_%28Pigmy_Sperm_Whale%3B_Paraoa_Teoteo%29_%2848740079578%29.jpg'), caption: 'Skeleton in the Auckland Museum collection, New Zealand', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 27.5, lng: -80, label: 'Off southeastern Florida' },
       { lat: -33.9, lng: 18.4, label: 'Off South Africa' },
@@ -1027,6 +1079,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Delphinidae',
+    gallery: [
+      { src: wm('0/0e/Bottlenose_dolphin_with_young.JPG'), caption: 'A mother leaping with two young in the Moray Firth, Scotland', source: 'wikimedia' },
+      { src: wm('f/f4/Dolphins_Croatia_%2820022107230%29.jpg'), caption: 'Leaping off Lošinj, Croatia, in the Adriatic', source: 'wikimedia' },
+      { src: wm('7/78/Anim1074_-_Flickr_-_NOAA_Photo_Library.jpg'), caption: 'A group riding a ship’s bow wave', source: 'wikimedia' },
+      { src: wm('2/28/Anim1069_-_Flickr_-_NOAA_Photo_Library.jpg'), caption: 'Breaching in open water', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 27.7, lng: -82.7, label: 'Gulf coast of Florida' },
       { lat: 57.7, lng: -3.8, label: 'Moray Firth, Scotland' },
@@ -1052,7 +1110,7 @@ export const species: WhaleSpecies[] = [
       ],
       image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Vaquita6_Olson_NOAA.jpg?width=960',
       facts: [
-        'The smallest of all cetaceans, it was only described by scientists in 1958.',
+        'One of the smallest cetaceans, it was only described by scientists in 1958.',
         'It has the smallest range of any marine mammal.',
         'Its decline is driven almost entirely by gillnets set illegally for the totoaba fish.',
       ],
@@ -1075,6 +1133,11 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Critically Endangered',
     group: 'toothed',
     family: 'Phocoenidae',
+    gallery: [
+      { src: wm('5/5e/Vaquita2_Olson_NOAA.jpg', 500), caption: 'Surfacing, showing the dark ring around the eye', source: 'wikimedia' },
+      { src: wm('6/65/Vaquita4_Olson_NOAA.jpg'), caption: 'The tall, triangular dorsal fin breaking the surface', source: 'wikimedia' },
+      { src: wm('b/b2/Vaquita7_Olson_NOAA.jpg', 500), caption: 'Rolling at the surface in the northern Gulf of California', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 31.3, lng: -114.5, label: 'Upper Gulf near San Felipe' },
       { lat: 31.6, lng: -114.7, label: 'Colorado River Delta Reserve' },
@@ -1097,7 +1160,7 @@ export const species: WhaleSpecies[] = [
         'A short, blunt head with no real beak',
         'Spade-shaped teeth, a porpoise trait',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ecomare_-_bruinvis_Michael_in_2015_%28bruinvis-michael2015-9313-sw%29.jpg/960px-Ecomare_-_bruinvis_Michael_in_2015_%28bruinvis-michael2015-9313-sw%29.jpg',
+      image: wm('1/10/Harbor_porpoise_in_Glacier_Bay_%2838a04a5d-1dd8-b71c-0728-33257acd330a%29_%28cropped%29.jpg'),
       facts: [
         'One of the smallest cetaceans and the only porpoise native to the North Atlantic.',
         'An efficient hunter, taking hundreds of small fish an hour.',
@@ -1122,6 +1185,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Phocoenidae',
+    gallery: [
+      { src: wm('e/e1/Harbor_porpoise_at_surface.jpg', 500), caption: 'Surfacing, showing the short, blunt head', source: 'wikimedia' },
+      { src: wm('0/01/Schweinswal.jpg', 500), caption: 'The low, triangular dorsal fin', source: 'wikimedia' },
+      { src: wm('2/2d/Schweinswale_im_Walschutzgebiet_Nationalpark_SH-Wattenmeer.jpg'), caption: 'Two surfacing off Sylt in the Wadden Sea, Germany', source: 'wikimedia' },
+      { src: wm('0/0e/Ecomare_-_bruinvis_Michael_in_2015_%28bruinvis-michael2015-9313-sw%29.jpg'), caption: 'Michael, a captive porpoise at Ecomare, Texel, Netherlands', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 54.5, lng: 7.5, label: 'North Sea' },
       { lat: 58, lng: 11, label: 'Kattegat and Skagerrak' },
@@ -1170,6 +1239,12 @@ export const species: WhaleSpecies[] = [
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Phocoenidae',
+    gallery: [
+      { src: wm('1/1b/Dall%27s_Porpoise.jpg'), caption: 'Side view showing the white flank patch and frosted fin, Alaska', source: 'wikimedia' },
+      { src: wm('8/8f/Dall%27s_Porpoise_%28692ab6fa-1dd8-b71b-0b18-15b0cc71f6c6%29.jpg'), caption: 'Seen from above in Glacier Bay, Alaska', source: 'wikimedia' },
+      { src: wm('1/12/Dalls_porpoises.jpg'), caption: 'A group off Point Reyes, California', source: 'wikimedia' },
+      { src: wm('a/a4/Cutting_through_the_water_%286895679550%29.jpg'), caption: 'Throwing up spray at speed off the Kenai Peninsula, Alaska', source: 'wikimedia' },
+    ],
     habitatRegions: [
       { lat: 49.5, lng: -127, label: 'Coast of British Columbia' },
       { lat: 57, lng: -153, label: 'Gulf of Alaska' },

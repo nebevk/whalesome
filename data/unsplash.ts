@@ -16,11 +16,10 @@ export const unsplash = {
 
   // Species portraits. Unsplash titles are unreliable: blue, fin, bowhead, minke and
   // narwhal portraits now come from Wikimedia because their Unsplash picks showed
-  // humpbacks or orcas. Check the photo itself before adding one here.
+  // humpbacks or orcas, and the beluga (captive) and sperm whale (tail only) portraits
+  // were replaced in the 2026 photo audit. Check the photo itself before adding one here.
   humpback: U('1698472505070-6d3b90afb530'), // humpback under surface
   orca: U('1721750887731-a0c76043092d'), // pair of orcas
-  beluga: U('1706043903343-8f3765f0fc80'), // beluga, Mystic Aquarium
-  spermWhale: U('1520646924857-261be3037bc7'), // sperm whale fluke
   grayWhale: U('1548638168-bdb1d0f1e700'), // gray whale from above
 
   // Reused detail shots

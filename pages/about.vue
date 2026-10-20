@@ -77,6 +77,23 @@
         </div>
       </div>
 
+      <div id="photo-credits" class="card bg-base-200 shadow-xl mt-12 scroll-mt-24">
+        <div class="card-body">
+          <h2 class="card-title text-2xl mb-2">Photo Credits</h2>
+          <p class="grow-0 text-sm text-base-content/70 mb-4">
+            Species photos come from Wikimedia Commons, credited below with their authors and
+            licences, and from Unsplash, whose licence needs no attribution. Habitat maps use
+            Natural Earth data, which is in the public domain.
+          </p>
+          <ul class="grid gap-x-8 gap-y-1.5 text-sm md:grid-cols-2">
+            <li v-for="credit in allCredits" :key="credit.file" class="min-w-0">
+              <a :href="credit.page" class="link link-hover block truncate" target="_blank" rel="noopener noreferrer" :title="credit.file">{{ credit.file.replace(/_/g, ' ').replace(/\.\w+$/, '') }}<span class="sr-only"> (opens in a new tab)</span></a>
+              <span class="block text-xs text-base-content/60">{{ credit.author }}, {{ credit.license }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <div class="text-center mt-12">
         <NuxtLink to="/" class="btn btn-primary btn-lg">
           <ArrowLeftIcon class="h-5 w-5" />
@@ -102,6 +119,7 @@ import {
   LifebuoyIcon,
   CubeTransparentIcon,
 } from '@heroicons/vue/24/outline'
+import { allCredits } from '~/data/imageCredits'
 
 useSeoMeta({
   title: 'About, Whalesome',
@@ -143,7 +161,7 @@ const sections = [
     to: '/anatomy',
     icon: CubeTransparentIcon,
     title: 'How Whales Work',
-    body: 'Anatomy rebuilt as working instruments, starting with echolocation: drag a fish through a sonar tank built like a dolphin’s head.',
+    body: 'The whale body plan, how baleen and toothed whales differ, and interactive figures of echolocation, sperm whale clicks, lunge feeding and deep diving.',
   },
   {
     to: '/#classification',

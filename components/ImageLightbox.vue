@@ -50,6 +50,11 @@
           />
           <figcaption v-if="current?.caption" class="mt-4 text-white/80 text-sm text-center max-w-xl">
             {{ current.caption }}
+            <span v-if="credit" class="block text-white/60 text-xs mt-1">
+              Photo:
+              <a :href="credit.page" class="underline decoration-white/30 hover:text-white" target="_blank" rel="noopener noreferrer">{{ credit.author }}<span class="sr-only"> (opens in a new tab)</span></a>,
+              {{ credit.license }}
+            </span>
             <span v-if="images.length > 1" class="block text-white/50 text-xs mt-1">
               {{ index + 1 }} / {{ images.length }}
             </span>
@@ -63,6 +68,7 @@
 <script setup lang="ts">
 import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 import type { GalleryImage } from '~/types/species'
+import { creditFor } from '~/data/imageCredits'
 
 const props = defineProps<{
   images: GalleryImage[]
@@ -76,6 +82,7 @@ const emit = defineEmits<{
 }>()
 
 const current = computed(() => props.images[props.index])
+const credit = computed(() => creditFor(current.value?.src))
 const hasPrev = computed(() => props.index > 0)
 const hasNext = computed(() => props.index < props.images.length - 1)
 
