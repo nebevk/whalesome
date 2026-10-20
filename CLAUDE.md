@@ -30,7 +30,7 @@ Share cards use each page's `useSeoMeta` tags. Species detail pages set `ogImage
 
 ### App config, prerender and hydration
 - **Page / layout transitions** (`page` blur+fade, `layout` fade) are configured in `app.pageTransition` / `app.layoutTransition`. View Transitions API is not enabled. Layouts must keep a single root element.
-- **Nitro prerender** uses `crawlLinks: true` seeded from `/`, `/about`, `/species`, `/history`, `/populations`, `/compare`. Every `<NuxtLink>` from those pages is followed, so all 22 species detail pages get static HTML automatically. If a species ever becomes unreachable from those seeds, add its path explicitly.
+- **Nitro prerender** uses `crawlLinks: true` seeded from `/`, `/about`, `/species`, `/history`, `/populations`, `/compare`, `/anatomy`. Every `<NuxtLink>` from those pages is followed, so all 22 species detail pages get static HTML automatically. If a species ever becomes unreachable from those seeds, add its path explicitly.
 - Everything is prerendered, so state that depends on the URL query, window size, the clock, or localStorage is applied after mount (Whale of the Day, `/compare` and `/species` query state, the tree's layout mode).
 - Round trig-derived numbers before they reach SSR'd attributes or inline styles. Node's and the browser's `Math.sin`/`cos` differ in the last bits, which made every cladogram path and map marker a hydration mismatch until they were rounded.
 - Don't put an HTML comment at a template's root: dev keeps it, the component renders as a fragment, and class fallthrough breaks.
@@ -57,6 +57,7 @@ Share cards use each page's `useSeoMeta` tags. Species detail pages set `ogImage
 - `/about` ([pages/about.vue](pages/about.vue))
 - `/species` ([pages/species/index.vue](pages/species/index.vue)) — all species, grouped baleen vs toothed: compact rows on phones, a card grid from `sm`. Search and filters are mirrored to `?q=&group=&status=` (read after mount, written with `router.replace`), plus a “Surprise me” pick. `useState('species-list-path')` lets a profile's “All species” link return to the filtered list.
 - `/species/[id]` ([pages/species/[id].vue](pages/species/[id].vue)) — detail page. [SpeciesNav](components/SpeciesNav.vue) is the sidebar from `lg`; below that, [SpeciesSwitcher](components/SpeciesSwitcher.vue) is a sticky bar with prev/next and a searchable `<dialog>` picker. ←/→ page through species in browse order (baleen then toothed, matching the sidebar and index). `definePageMeta.validate` rejects unknown ids server-side, triggering [error.vue](error.vue) with a 404.
+- `/anatomy` ([pages/anatomy.vue](pages/anatomy.vue)) — “How Whales Work”: interactive figures (see Interactive figures below), starting with echolocation, plus the part-to-anatomy mapping and sources. Toothed species profiles link to `#echolocation`.
 - `/history` ([pages/history.vue](pages/history.vue)) — sourced whaling timeline.
 - `/populations` ([pages/populations.vue](pages/populations.vue)) — hook stats, “How far they fell”, the decades scrubber, the Red List donut (it filters the abundance chart below it), “How many are left”, then record facts.
 - `/compare` ([pages/compare.vue](pages/compare.vue)) — two species side by side. Selections are mirrored to `?a=&b=` after mount, with a swap button, quick-pick pairs, and a copy-link button. Reuses [SizeComparison](components/SizeComparison.vue) with its `versus` prop.
@@ -110,6 +111,12 @@ Shared components:
 - **[SizeComparison](components/SizeComparison.vue)** — size-to-scale bars; it reads the largest number followed by “m” in `adult.size`, so keep metres in every size string.
 
 Types live in [types/species.ts](types/species.ts).
+
+### Interactive figures
+Figures are isometric “working instrument” explainers built with the Anatomy kit (MIT, https://github.com/wheresryan22/anatomy; not vendored, built against commit 1482e84).
+- Source lives in [figures/](figures/): one folder per figure with a pure `model.mjs` (every number the figure shows, with its sources) and a `build.mjs`. Build with `ANATOMY_KIT=/path/to/anatomy-clone node figures/echolocation/build.mjs`; it writes the embed page to `public/figures/echolocation.html`, which is committed (Netlify doesn't build figures). `--standalone` writes a full preview page instead.
+- The embed has no page chrome and no caption; [pages/anatomy.vue](pages/anatomy.vue) renders the legend and caption, importing the same `model.mjs` so they can't drift. The kit's MIT notice is embedded in the built file because its runtime is inlined.
+- [FigureFrame](components/FigureFrame.vue) shows a figure in a lazy iframe, which keeps the kit's global CSS and script away from the site. The figure posts `whalesome:figure-height` and answers `whalesome:figure-ping` (sent on mount and on load, since the prerendered frame can load before hydration), and the frame follows that height.
 
 `nuxt.config.ts` cannot import from `~/data/...` because it runs through jiti before Nuxt aliases exist. If you need data at config time, hardcode it in the config or wait for the runtime crawl.
 

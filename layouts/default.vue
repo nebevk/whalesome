@@ -175,6 +175,7 @@ import {
   Bars3Icon,
   BookOpenIcon,
   ChartBarIcon,
+  CubeTransparentIcon,
   HeartIcon,
   HomeIcon,
   IdentificationIcon,
@@ -188,6 +189,7 @@ import {
 const links = [
   { to: '/', label: 'Home', icon: HomeIcon, blurb: 'From the surface to the abyss, plus the whale of the day', keywords: 'start classification tree conservation whale of the day' },
   { to: '/species', label: 'Species', icon: IdentificationIcon, blurb: 'Every profile, with search and filters', keywords: 'all browse list profiles baleen toothed' },
+  { to: '/anatomy', label: 'Anatomy', icon: CubeTransparentIcon, blurb: 'How whales work, as interactive figures', keywords: 'echolocation sonar melon click echo how whales work figure interactive' },
   { to: '/history', label: 'History', icon: BookOpenIcon, blurb: 'The age of whaling, a sourced timeline', keywords: 'whaling timeline moratorium hunting' },
   { to: '/populations', label: 'Numbers', icon: ChartBarIcon, blurb: 'Whales by the numbers', keywords: 'populations statistics estimates recovery data red list' },
   { to: '/compare', label: 'Compare', icon: ScaleIcon, blurb: 'Any two whales, side by side', keywords: 'versus size scale side by side' },
@@ -197,6 +199,7 @@ const links = [
 const credits = [
   { label: 'Photography via Unsplash', href: 'https://unsplash.com' },
   { label: 'Galleries via Wikimedia Commons', href: 'https://commons.wikimedia.org' },
+  { label: 'Figures built with the Anatomy kit', href: 'https://github.com/wheresryan22/anatomy' },
   { label: 'Logo by VectorStock / SeptionDigital', href: 'https://www.vectorstock.com/royalty-free-vector/abstract-whale-tattoo-silhouette-with-wave-accent-vector-47585302' },
   { label: 'Built by Nejc Bevk', href: 'https://nejcbevk.com' },
 ]

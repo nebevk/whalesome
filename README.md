@@ -20,6 +20,7 @@ Live: [whalesome.netlify.app](https://whalesome.netlify.app)
 - Search and filter on `/species`, with shareable filtered views
 - Interactive classification tree of all 94 living cetacean species, and a whale of the day
 - `/history` sourced timeline, `/populations` estimates and recovery charts, `/compare` side-by-side with shareable links
+- `/anatomy`: interactive figures of how whales work, starting with echolocation (built with the [Anatomy kit](https://github.com/wheresryan22/anatomy), MIT)
 - Quick find (`/` or Ctrl/Cmd+K) for any page or species
 - Optional underwater ambience and a time-of-day ocean tint
 

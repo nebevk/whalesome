@@ -56,7 +56,7 @@ export default defineNuxtConfig({
     replace: { 'typeof window': 'typeof window' },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about', '/species', '/history', '/populations', '/compare'],
+      routes: ['/', '/about', '/species', '/history', '/populations', '/compare', '/anatomy'],
     },
   },
 

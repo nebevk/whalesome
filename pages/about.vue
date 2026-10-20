@@ -100,6 +100,7 @@ import {
   ChartBarIcon,
   ScaleIcon,
   LifebuoyIcon,
+  CubeTransparentIcon,
 } from '@heroicons/vue/24/outline'
 
 useSeoMeta({
@@ -137,6 +138,12 @@ const sections = [
     icon: IdentificationIcon,
     title: 'Species Profiles',
     body: 'Side-by-side adult and calf information for the whales most people have heard of, and several they haven’t, with habitat maps, photo galleries, and a few recorded calls.',
+  },
+  {
+    to: '/anatomy',
+    icon: CubeTransparentIcon,
+    title: 'How Whales Work',
+    body: 'Anatomy rebuilt as working instruments, starting with echolocation: drag a fish through a sonar tank built like a dolphin’s head.',
   },
   {
     to: '/#classification',
@@ -179,5 +186,6 @@ const stack = [
   { name: '@nuxt/fonts', role: 'Self-hosted Google Fonts' },
   { name: 'Heroicons', role: 'Outline icons throughout' },
   { name: 'Natural Earth', role: 'Coastlines for the habitat maps, drawn as static SVG' },
+  { name: 'Anatomy kit', role: 'Interactive isometric figures on the Anatomy page' },
 ]
 </script>

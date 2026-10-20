@@ -93,6 +93,19 @@
           </div>
         </div>
 
+        <NuxtLink
+          v-if="species.group === 'toothed'"
+          to="/anatomy#echolocation"
+          class="group mt-6 flex items-center gap-4 rounded-lg border border-primary/25 bg-primary/5 px-4 py-3 transition-colors hover:border-primary/50 hover:bg-primary/10"
+        >
+          <CubeTransparentIcon class="h-7 w-7 flex-none text-primary" aria-hidden="true" />
+          <span class="flex-1">
+            <span class="block font-semibold">How toothed whales find prey in the dark</span>
+            <span class="block text-sm text-base-content/70">Try the interactive echolocation figure.</span>
+          </span>
+          <ArrowRightIcon class="h-5 w-5 flex-none text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        </NuxtLink>
+
         <section class="mt-8">
           <SizeComparison :name="species.name" :size="species.adult.size" />
         </section>
