@@ -14,7 +14,12 @@ export interface WhaleSpecies {
     size: string;
     weight: string;
     characteristics: string[];
-    image: string;
+    /**
+     * Only set when the photo really shows a calf of this species. Without it the detail
+     * page shows the adult photo alone instead of the adult/calf slider. Never borrow
+     * another species' calf.
+     */
+    image?: string;
     facts: string[];
   };
   habitat: string;
@@ -50,19 +55,6 @@ export interface GalleryImage {
   source: 'unsplash' | 'wikimedia';
 }
 
-export interface WhaleGroup {
-  name: string;
-  scientificName: string;
-  description: string;
-  families: WhaleFamily[];
-}
-
-export interface WhaleFamily {
-  name: string;
-  scientificName: string;
-  description: string;
-  species: string[];
-}
 
 export type IucnCode = 'LC' | 'NT' | 'VU' | 'EN' | 'CR' | 'DD';
 export type PopulationTrend = 'increasing' | 'stable' | 'decreasing' | 'unknown';

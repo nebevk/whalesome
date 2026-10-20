@@ -1,145 +1,93 @@
 <template>
   <div class="min-h-screen">
-    <!-- Hero band -->
-    <section class="relative overflow-hidden px-6 pt-16 pb-16 text-center pop-hero">
-      <div class="relative z-10 max-w-3xl mx-auto">
+    <section class="relative overflow-hidden px-6 pt-16 pb-14 pop-hero">
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
         <p class="uppercase tracking-[0.3em] text-primary/80 text-xs mb-4">By the numbers</p>
         <h1 class="text-4xl md:text-6xl font-whale text-white mb-4">Whales by the Numbers</h1>
         <p class="text-lg text-white/80">
-          How many whales are left, how far they fell, and where they stand today. Figures drawn
-          from the IUCN Red List, NOAA Fisheries, and the International Whaling Commission.
+          How far they fell, where they stand today, and how many are left. Figures drawn from the
+          IUCN Red List, NOAA Fisheries, the International Whaling Commission, and the
+          peer-reviewed literature.
         </p>
+      </div>
+
+      <!-- The hook: four figures, each with the story behind it. -->
+      <div class="relative z-10 max-w-4xl mx-auto mt-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <StatTile
+            v-for="stat in headlineStats"
+            :key="stat.label"
+            :value="stat.value"
+            :label="stat.label"
+            interactive
+            :pressed="openHeadline === stat.label"
+            controls="headline-story"
+            @click="openHeadline = openHeadline === stat.label ? null : stat.label"
+          />
+        </div>
+        <p class="mt-4 flex items-center justify-center gap-1.5 text-xs text-white/70">
+          <CursorArrowRaysIcon class="h-4 w-4" />
+          Select a figure for the story behind it.
+        </p>
+        <div id="headline-story" class="mt-3" aria-live="polite">
+          <div
+            v-if="openHeadlineStat"
+            class="mx-auto max-w-2xl rounded-2xl border border-primary/20 bg-base-200/40 px-5 py-4 backdrop-blur-sm"
+          >
+            <div :key="openHeadlineStat.label" class="story-in">
+              <p class="text-[0.7rem] uppercase tracking-[0.2em] text-primary/80">{{ openHeadlineStat.label }}</p>
+              <p class="mt-1.5 text-sm leading-relaxed text-white/80">{{ openHeadlineStat.detail }}</p>
+              <p class="mt-2 text-[0.7rem] text-white/60">Source: {{ openHeadlineStat.source }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <div class="px-6 pb-24 -mt-6">
-      <div class="max-w-6xl mx-auto space-y-16">
-        <!-- Headline stat cards -->
-        <section>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div
-              v-for="stat in whaleStats"
+    <div class="px-6 pt-2 pb-24">
+      <div class="max-w-6xl mx-auto space-y-14">
+        <!-- Then: how far each species fell, and how it unfolded decade by decade. -->
+        <PopulationRecovery />
+
+        <PopulationScrubber />
+
+        <!-- Now: where they stand, and how many are left. The status ring filters the
+             abundance chart, so the two stay side by side. -->
+        <PopulationStatus v-model:status="statusFilter" />
+
+        <PopulationAbundance v-model:group="groupFilter" v-model:status="statusFilter" />
+
+        <!-- Records of the living: lighter trivia, kept compact near the end. -->
+        <section aria-labelledby="records-heading">
+          <div class="mb-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h2 id="records-heading" class="text-sm uppercase tracking-[0.2em] text-base-content/60">
+              Records of the living
+            </h2>
+            <p class="flex items-center gap-1.5 text-xs text-base-content/60">
+              <CursorArrowRaysIcon class="h-4 w-4" />
+              Select a record for the story behind it.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+            <StatTile
+              v-for="(stat, i) in recordStats"
               :key="stat.label"
-              class="card bg-base-200/70 backdrop-blur border border-white/10 shadow-lg"
-            >
-              <div class="card-body p-5">
-                <p class="text-xs uppercase tracking-wide text-base-content/60">{{ stat.label }}</p>
-                <p class="text-3xl font-whale text-primary my-1">{{ stat.value }}</p>
-                <p class="text-sm text-base-content/75 leading-relaxed">{{ stat.detail }}</p>
-                <p class="text-[0.7rem] text-base-content/40 mt-2">{{ stat.source }}</p>
-              </div>
-            </div>
+              :value="stat.value"
+              :label="stat.label"
+              size="sm"
+              interactive
+              :pressed="openRecord === stat.label"
+              controls="record-story"
+              :class="i === recordStats.length - 1 && recordStats.length % 2 === 1 ? 'col-span-2 lg:col-span-1' : ''"
+              @click="openRecord = openRecord === stat.label ? null : stat.label"
+            />
           </div>
-        </section>
-
-        <!-- Current population bar chart -->
-        <section class="card bg-base-200/60 border border-white/10 shadow-xl">
-          <div class="card-body">
-            <h2 class="text-2xl md:text-3xl font-whale mb-1">How many are left</h2>
-            <p class="text-base-content/70 mb-2">
-              Best current global estimates. The scale is logarithmic: each step right is roughly ten
-              times more animals, the only way to fit the vaquita and the pilot whale on one chart.
-            </p>
-            <div class="flex flex-wrap gap-x-4 gap-y-1 mb-6">
-              <div
-                v-for="seg in statusBreakdown"
-                :key="seg.code"
-                class="flex items-center gap-1.5 text-xs text-base-content/70"
-              >
-                <span class="h-2.5 w-2.5 rounded-full" :style="{ background: statusColor(seg.code) }" />
-                {{ seg.label }}
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <NuxtLink
-                v-for="row in currentChart"
-                :key="row.id"
-                :to="`/species/${row.id}`"
-                class="block group"
-              >
-                <div class="flex items-baseline justify-between gap-3 text-sm mb-1">
-                  <span class="font-medium group-hover:text-primary transition-colors">{{ row.commonName }}</span>
-                  <span class="text-base-content/60 text-xs text-right">{{ row.currentText }}</span>
-                </div>
-                <div class="h-3.5 rounded-full bg-base-300/70 overflow-hidden">
-                  <div
-                    class="h-full rounded-full transition-all duration-700"
-                    :style="{ width: row.widthPct + '%', background: statusColor(row.iucnCode) }"
-                  />
-                </div>
-              </NuxtLink>
-            </div>
-
-            <p v-if="noEstimate.length" class="text-xs text-base-content/50 mt-6">
-              No reliable global count exists for
-              {{ noEstimate.map(s => s.commonName).join(' or ') }}; both are deep-diving or rarely
-              seen, and are known mostly from strandings.
-            </p>
-          </div>
-        </section>
-
-        <!-- Depletion and recovery -->
-        <section class="card bg-base-200/60 border border-white/10 shadow-xl">
-          <div class="card-body">
-            <h2 class="text-2xl md:text-3xl font-whale mb-1">How far they fell</h2>
-            <p class="text-base-content/70 mb-6">
-              For the species with a documented pre-whaling baseline, the bar shows how much of the
-              original population is estimated to survive today. Some have barely begun to recover.
-            </p>
-
-            <div class="space-y-5">
-              <div v-for="row in recoveryRows" :key="row.id">
-                <div class="flex items-baseline justify-between gap-3 mb-1">
-                  <NuxtLink :to="`/species/${row.id}`" class="font-medium hover:text-primary transition-colors">
-                    {{ row.commonName }}
-                  </NuxtLink>
-                  <span class="text-sm font-semibold" :style="{ color: statusColor(row.iucnCode) }">
-                    {{ row.pctRemaining }}% remaining
-                  </span>
-                </div>
-                <div class="relative h-6 rounded-md bg-base-300/70 overflow-hidden">
-                  <div
-                    class="h-full rounded-md transition-all duration-700"
-                    :style="{ width: Math.max(row.pctRemaining, 1.5) + '%', background: statusColor(row.iucnCode) }"
-                  />
-                </div>
-                <div class="flex justify-between text-xs text-base-content/55 mt-1">
-                  <span>now ~{{ fmt(row.currentMid) }}</span>
-                  <span>pre-whaling ~{{ fmt(row.prewhalingApprox) }}</span>
-                </div>
-              </div>
-            </div>
-            <p class="text-xs text-base-content/45 mt-6">
-              Vaquita are measured against a 1997 baseline of about 600 animals rather than a true
-              pre-whaling figure.
-            </p>
-          </div>
-        </section>
-
-        <!-- Conservation status breakdown -->
-        <section class="card bg-base-200/60 border border-white/10 shadow-xl">
-          <div class="card-body">
-            <h2 class="text-2xl md:text-3xl font-whale mb-1">Where they stand</h2>
-            <p class="text-base-content/70 mb-6">
-              IUCN Red List status across the {{ populations.length }} species tracked here.
-            </p>
-            <div class="flex h-8 w-full rounded-full overflow-hidden border border-white/10">
-              <div
-                v-for="seg in statusBreakdown"
-                :key="seg.code"
-                class="h-full flex items-center justify-center text-[0.7rem] font-semibold text-black/80"
-                :style="{ width: (seg.count / populations.length * 100) + '%', background: statusColor(seg.code) }"
-                :title="`${seg.label}: ${seg.count}`"
-              >
-                {{ seg.count }}
-              </div>
-            </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 mt-5">
-              <div v-for="seg in statusBreakdown" :key="seg.code" class="flex items-center gap-2 text-sm">
-                <span class="h-3 w-3 rounded-full flex-shrink-0" :style="{ background: statusColor(seg.code) }" />
-                <span class="text-base-content/80">{{ seg.label }}</span>
-                <span class="text-base-content/50 ml-auto">{{ seg.count }}</span>
+          <div id="record-story" class="mt-3" aria-live="polite">
+            <div v-if="openRecordStat" class="rounded-2xl border border-white/10 bg-base-300/40 px-5 py-4">
+              <div :key="openRecordStat.label" class="story-in">
+                <p class="text-[0.7rem] uppercase tracking-[0.2em] text-primary/80">{{ openRecordStat.label }}</p>
+                <p class="mt-1.5 text-sm leading-relaxed text-base-content/75">{{ openRecordStat.detail }}</p>
+                <p class="mt-2 text-[0.7rem] text-base-content/55">Source: {{ openRecordStat.source }}</p>
               </div>
             </div>
           </div>
@@ -157,10 +105,9 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowRightIcon } from '@heroicons/vue/24/outline'
+import { ArrowRightIcon, CursorArrowRaysIcon } from '@heroicons/vue/24/outline'
 import type { IucnCode } from '~/types/species'
-import { populations, recoveryPairs, whaleStats } from '~/data/population'
-import { iucnMeta as statusMeta, iucnColor as statusColor } from '~/data/iucn'
+import { headlineStats, recordStats } from '~/data/population'
 
 defineOptions({ name: 'PopulationsPage' })
 
@@ -172,40 +119,37 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-const fmt = (n: number) => new Intl.NumberFormat('en-US').format(n)
+// One story open at a time per row of tiles; the first headline starts open so the
+// pattern explains itself.
+const openHeadline = ref<string | null>(headlineStats[0]?.label ?? null)
+const openHeadlineStat = computed(() => headlineStats.find(s => s.label === openHeadline.value) ?? null)
+const openRecord = ref<string | null>(null)
+const openRecordStat = computed(() => recordStats.find(s => s.label === openRecord.value) ?? null)
 
-const withEstimate = populations.filter(p => p.currentHigh > 0)
-const noEstimate = populations.filter(p => p.currentHigh === 0)
-
-const currentChart = computed(() => {
-  const rows = withEstimate.map(p => ({ ...p, mid: (p.currentLow + p.currentHigh) / 2 }))
-  const logs = rows.map(r => Math.log10(r.mid))
-  const minLog = Math.min(...logs)
-  const maxLog = Math.max(...logs)
-  return rows
-    .map(r => ({
-      ...r,
-      widthPct: 6 + ((Math.log10(r.mid) - minLog) / (maxLog - minLog)) * 94,
-    }))
-    .sort((a, b) => b.mid - a.mid)
-})
-
-const recoveryRows = recoveryPairs
-
-const statusBreakdown = computed(() => {
-  const order: IucnCode[] = ['CR', 'EN', 'VU', 'NT', 'LC', 'DD']
-  return order
-    .map(code => ({
-      code,
-      label: statusMeta[code].label,
-      count: populations.filter(p => p.iucnCode === code).length,
-    }))
-    .filter(s => s.count > 0)
-})
+const groupFilter = ref<'all' | 'baleen' | 'toothed'>('all')
+const statusFilter = ref<'all' | IucnCode>('all')
 </script>
 
 <style scoped>
 .pop-hero {
-  background: linear-gradient(to bottom, #0a3a5c 0%, #082a45 60%, var(--color-base-100) 100%);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 240, 255, 0.12), transparent 55%),
+    linear-gradient(to bottom, #0a3a5c 0%, #082a45 55%, var(--color-base-100) 100%);
+}
+
+/* Swapping stories replaces the text in place (no collapse and regrow), then fades it in. */
+.story-in {
+  animation: story-in 0.22s ease-out;
+}
+@keyframes story-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-in {
+    animation: none;
+  }
 }
 </style>

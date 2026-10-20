@@ -6,15 +6,18 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
-    // 'nuxt-og-image' disabled: its composable tree-shaking corrupts the Vite
-    // client transform of @vue/runtime-dom in dev, which breaks hydration (the
-    // particle canvas and other <ClientOnly> content silently stay on fallback).
-    // Revisit via the v6 defineOgImage() API or as a production-only build step.
   ],
+
+  fonts: {
+    families: [
+      { name: 'Fredoka', provider: 'google', weights: [400, 500, 600, 700], global: true },
+      { name: 'Merriweather Sans', provider: 'google', weights: [400, 700], global: true },
+      { name: 'Rouge Script', provider: 'google', weights: [400], global: true },
+    ],
+  },
 
   css: [
     '~/assets/css/tailwind.css',
-    'leaflet/dist/leaflet.css',
   ],
 
   app: {
@@ -31,6 +34,11 @@ export default defineNuxtConfig({
   },
 
   image: {
+    // Resize at the source CDNs instead of IPX; see providers/remote.ts for why.
+    provider: 'remote',
+    providers: {
+      remote: { provider: '~/providers/remote.ts' },
+    },
     domains: ['images.unsplash.com', 'upload.wikimedia.org'],
     screens: { xs: 320, sm: 640, md: 768, lg: 1024, xl: 1280 },
     unsplash: {
@@ -40,6 +48,12 @@ export default defineNuxtConfig({
 
   nitro: {
     compatibilityDate: '2025-06-24',
+    // Nitro rewrites `typeof window` to "undefined" with a regex that also matches
+    // `typeof window$1`, the name Rollup gives VueUse's local `window` in some chunks,
+    // which left `"undefined"$1` in the server bundle and broke `npm run generate`.
+    // An identity replacement switches that rewrite off; on the server
+    // `typeof window` is "undefined" at runtime anyway.
+    replace: { 'typeof window': 'typeof window' },
     prerender: {
       crawlLinks: true,
       routes: ['/', '/about', '/species', '/history', '/populations', '/compare'],

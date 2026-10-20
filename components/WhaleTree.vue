@@ -4,10 +4,11 @@
       <h2 class="text-4xl md:text-5xl font-whale text-white mb-4">
         The Tree of Life
       </h2>
-      <p class="text-lg text-white/80 mb-6 max-w-3xl mx-auto">
+      <!-- Full white: on phones this sits high on the gradient, where 80% white falls short of 4.5:1. -->
+      <p class="text-lg text-white mb-6 max-w-3xl mx-auto">
         Every living cetacean belongs to one of two branches: baleen filter-feeders and toothed
-        predators. Explore the whole family tree below. Names in cyan have a full profile, just
-        click through.
+        predators. Explore the whole family tree below. Families open and fold with a click, and
+        names in cyan lead to a full profile.
       </p>
     </div>
 

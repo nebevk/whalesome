@@ -32,15 +32,10 @@ export function phaseForHour(h: number): DayPhase {
   return 'night'
 }
 
-// TEMPORARY demo: when true, "follow time of day" cycles a full day in about
-// 60 seconds so the effect is easy to see. Set to false to track the real clock.
-const DEMO_MINUTE_CYCLE = true
-
 // ---- Web Audio underwater ambience (synthesized, no asset to load) ----
 let ctx: AudioContext | null = null
 let gain: GainNode | null = null
 let started = false
-let demoStart = 0
 
 function buildAudio() {
   if (ctx) return
@@ -106,14 +101,7 @@ export function useAmbient() {
   const phaseLabel = computed(() => phaseMeta[phase.value].label)
 
   function refreshPhase() {
-    if (DEMO_MINUTE_CYCLE) {
-      if (!demoStart) demoStart = Date.now()
-      const virtualHour = ((Date.now() - demoStart) / 60000) * 24 % 24
-      phase.value = phaseForHour(virtualHour)
-    }
-    else {
-      phase.value = phaseForHour(new Date().getHours())
-    }
+    phase.value = phaseForHour(new Date().getHours())
   }
 
   function applySound() {
@@ -152,7 +140,6 @@ export function useAmbient() {
     catch {
       // ignore malformed storage
     }
-    demoStart = Date.now()
     refreshPhase()
   }
 

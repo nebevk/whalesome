@@ -1,12 +1,15 @@
 import type { IucnCode } from '~/types/species'
 
 /**
- * The cetacean tree of life, from the order Cetacea down to ~87 living species.
- * Species that have a full profile carry an `id` linking to /species/[id], and
- * every species carries an indicative IUCN Red List status for colour-coding.
+ * The cetacean tree of life, from the order Cetacea down to all 94 living
+ * species on the Society for Marine Mammalogy list (April 2026), the baiji
+ * included although it may already be extinct. Species that have a full profile
+ * carry an `id` linking to /species/[id], and every species the IUCN has
+ * assessed carries an indicative Red List status for colour-coding. Tamanend's
+ * bottlenose dolphin has not been assessed yet, so it has no status.
  *
- * Taxonomy follows the broad consensus (Committee on Taxonomy, Society for
- * Marine Mammalogy); statuses are indicative (many beaked whales are formally
+ * Species and scientific names follow the Committee on Taxonomy, Society for
+ * Marine Mammalogy; statuses are indicative (many beaked whales are formally
  * Data Deficient). This is a teaching tree, not a formal authority.
  */
 export interface CladeNode {
@@ -54,7 +57,7 @@ export const cladogram: CladeNode = {
           sp('Blue Whale', 'Balaenoptera musculus', 'EN', 'blue-whale'),
           sp('Fin Whale', 'Balaenoptera physalus', 'VU', 'fin-whale'),
           sp('Sei Whale', 'Balaenoptera borealis', 'EN', 'sei-whale'),
-          sp("Bryde's Whale", 'Balaenoptera brydei', 'LC', 'brydes-whale'),
+          sp("Bryde's Whale", 'Balaenoptera edeni', 'LC', 'brydes-whale'),
           sp("Rice's Whale", 'Balaenoptera ricei', 'CR'),
           sp("Omura's Whale", 'Balaenoptera omurai', 'DD'),
           sp('Common Minke Whale', 'Balaenoptera acutorostrata', 'LC', 'minke-whale'),
@@ -89,6 +92,7 @@ export const cladogram: CladeNode = {
           sp("Cuvier's Beaked Whale", 'Ziphius cavirostris', 'LC', 'cuviers-beaked-whale'),
           sp("Baird's Beaked Whale", 'Berardius bairdii', 'LC'),
           sp("Arnoux's Beaked Whale", 'Berardius arnuxii', 'LC'),
+          sp("Sato's Beaked Whale", 'Berardius minimus', 'NT'),
           sp('Northern Bottlenose Whale', 'Hyperoodon ampullatus', 'NT'),
           sp('Southern Bottlenose Whale', 'Hyperoodon planifrons', 'LC'),
           sp("Longman's Beaked Whale", 'Indopacetus pacificus', 'LC'),
@@ -97,12 +101,15 @@ export const cladogram: CladeNode = {
           sp("Sowerby's Beaked Whale", 'Mesoplodon bidens', 'LC'),
           sp("Gervais' Beaked Whale", 'Mesoplodon europaeus', 'LC'),
           sp("True's Beaked Whale", 'Mesoplodon mirus', 'LC'),
+          sp("Ramari's Beaked Whale", 'Mesoplodon eueu', 'DD'),
           sp("Gray's Beaked Whale", 'Mesoplodon grayi', 'LC'),
+          sp("Hector's Beaked Whale", 'Mesoplodon hectori', 'DD'),
           sp('Strap-toothed Whale', 'Mesoplodon layardii', 'LC'),
           sp("Stejneger's Beaked Whale", 'Mesoplodon stejnegeri', 'DD'),
           sp("Andrews' Beaked Whale", 'Mesoplodon bowdoini', 'DD'),
           sp("Hubbs' Beaked Whale", 'Mesoplodon carlhubbsi', 'DD'),
           sp('Ginkgo-toothed Beaked Whale', 'Mesoplodon ginkgodens', 'DD'),
+          sp("Deraniyagala's Beaked Whale", 'Mesoplodon hotaula', 'DD'),
           sp('Spade-toothed Whale', 'Mesoplodon traversii', 'DD'),
           sp("Perrin's Beaked Whale", 'Mesoplodon perrini', 'DD'),
           sp('Pygmy Beaked Whale', 'Mesoplodon peruvianus', 'LC'),
@@ -117,25 +124,35 @@ export const cladogram: CladeNode = {
           sp("Risso's Dolphin", 'Grampus griseus', 'LC'),
           sp('Common Bottlenose Dolphin', 'Tursiops truncatus', 'LC', 'common-bottlenose-dolphin'),
           sp('Indo-Pacific Bottlenose Dolphin', 'Tursiops aduncus', 'NT'),
-          sp('Short-beaked Common Dolphin', 'Delphinus delphis', 'LC'),
+          // Not yet assessed by the IUCN, so no status rather than an invented one.
+          { name: "Tamanend's Bottlenose Dolphin", scientificName: 'Tursiops erebennus', rank: 'species' },
+          sp('Common Dolphin', 'Delphinus delphis', 'LC'),
           sp('Striped Dolphin', 'Stenella coeruleoalba', 'LC'),
           sp('Spinner Dolphin', 'Stenella longirostris', 'LC'),
+          sp('Clymene Dolphin', 'Stenella clymene', 'LC'),
           sp('Pantropical Spotted Dolphin', 'Stenella attenuata', 'LC'),
           sp('Atlantic Spotted Dolphin', 'Stenella frontalis', 'LC'),
           sp('Rough-toothed Dolphin', 'Steno bredanensis', 'LC'),
           sp("Fraser's Dolphin", 'Lagenodelphis hosei', 'LC'),
           sp('White-beaked Dolphin', 'Lagenorhynchus albirostris', 'LC'),
-          sp('Atlantic White-sided Dolphin', 'Lagenorhynchus acutus', 'LC'),
-          sp('Pacific White-sided Dolphin', 'Lagenorhynchus obliquidens', 'LC'),
-          sp('Dusky Dolphin', 'Lagenorhynchus obscurus', 'LC'),
-          sp('Hourglass Dolphin', 'Lagenorhynchus cruciger', 'LC'),
+          sp('Atlantic White-sided Dolphin', 'Leucopleurus acutus', 'LC'),
+          sp('Pacific White-sided Dolphin', 'Aethalodelphis obliquidens', 'LC'),
+          sp('Dusky Dolphin', 'Aethalodelphis obscurus', 'LC'),
+          sp('Northern Right Whale Dolphin', 'Lissodelphis borealis', 'LC'),
+          sp('Southern Right Whale Dolphin', 'Lissodelphis peronii', 'LC'),
+          sp('Hourglass Dolphin', 'Cephalorhynchus cruciger', 'LC'),
+          sp("Peale's Dolphin", 'Cephalorhynchus australis', 'LC'),
           sp("Commerson's Dolphin", 'Cephalorhynchus commersonii', 'LC'),
+          sp('Chilean Dolphin', 'Cephalorhynchus eutropia', 'NT'),
+          sp("Heaviside's Dolphin", 'Cephalorhynchus heavisidii', 'NT'),
           sp("Hector's Dolphin", 'Cephalorhynchus hectori', 'EN'),
           sp('Irrawaddy Dolphin', 'Orcaella brevirostris', 'EN'),
           sp('Australian Snubfin Dolphin', 'Orcaella heinsohni', 'VU'),
           sp('Tucuxi', 'Sotalia fluviatilis', 'EN'),
           sp('Guiana Dolphin', 'Sotalia guianensis', 'NT'),
           sp('Indo-Pacific Humpback Dolphin', 'Sousa chinensis', 'VU'),
+          sp('Indian Ocean Humpback Dolphin', 'Sousa plumbea', 'EN'),
+          sp('Australian Humpback Dolphin', 'Sousa sahulensis', 'VU'),
           sp('Atlantic Humpback Dolphin', 'Sousa teuszii', 'CR'),
         ]),
         family('Porpoises', 'Phocoenidae', [
@@ -147,8 +164,9 @@ export const cladogram: CladeNode = {
           sp('Narrow-ridged Finless Porpoise', 'Neophocaena asiaeorientalis', 'EN'),
           sp('Indo-Pacific Finless Porpoise', 'Neophocaena phocaenoides', 'VU'),
         ]),
-        family('South Asian river dolphin', 'Platanistidae', [
-          sp('Ganges & Indus River Dolphin', 'Platanista gangetica', 'EN'),
+        family('South Asian river dolphins', 'Platanistidae', [
+          sp('Ganges River Dolphin', 'Platanista gangetica', 'EN'),
+          sp('Indus River Dolphin', 'Platanista minor', 'EN'),
         ]),
         family('Amazon river dolphins', 'Iniidae', [
           sp('Amazon River Dolphin (Boto)', 'Inia geoffrensis', 'EN'),

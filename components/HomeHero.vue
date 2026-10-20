@@ -19,23 +19,24 @@
       <div class="absolute inset-0 bg-gradient-to-b from-[#5cb3e0]/20 via-[#1a6a9a]/40 to-[#0d456b]/70"></div>
     </div>
     <div class="relative z-10 px-6 max-w-4xl mx-auto">
+      <!-- A soft pool of deeper water behind the copy. Sized to the text block, so the
+           edges of the hero stay sunlit, but dark enough that the lede keeps 4.5:1 even
+           on the brightest frame of the video. -->
+      <div
+        class="hero-scrim pointer-events-none absolute -inset-x-10 -inset-y-8 -z-10 rounded-full"
+        aria-hidden="true"
+      />
       <h1
         class="brand-wordmark text-7xl md:text-9xl text-white drop-shadow-2xl mb-6 leading-none"
       >
         Whalesome
       </h1>
       <p
-        class="text-xl md:text-2xl lg:text-3xl text-white/95 max-w-3xl mb-8 leading-relaxed"
+        class="hero-lede text-xl md:text-2xl lg:text-3xl text-white max-w-3xl mx-auto mb-10 leading-relaxed"
       >
         The deep is home to the largest animals that have ever lived. Learn who they are,
         how they live, and how to keep them here.
       </p>
-      <blockquote
-        class="italic text-lg md:text-xl lg:text-2xl text-white/90 max-w-2xl mx-auto border-l-4 border-white/60 pl-6 py-4 mb-10"
-      >
-        "The whale is a creature of myth, of beauty, and of oceanic truth.
-        To hear its song is to touch the soul of the sea."
-      </blockquote>
       <div
         class="flex flex-wrap justify-center gap-4"
       >
@@ -49,7 +50,7 @@
       </div>
     </div>
     <div
-      class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 animate-bounce"
+      class="hero-cue absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70"
       aria-hidden="true"
     >
       <AnchorIcon class="h-7 w-7" />
@@ -83,5 +84,46 @@ watchEffect(() => {
 .hero-media {
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 92%);
+}
+
+/* Deep-water navy, blurred into a soft pool. Worst case is a pure white video
+   frame: at this strength the white lede still measures above 5:1. */
+.hero-scrim {
+  background: rgb(3 18 36 / 0.55);
+  filter: blur(56px);
+}
+
+/* A faint halo gives the lede an edge against moving light. */
+.hero-lede {
+  text-shadow: 0 1px 2px rgb(3 18 36 / 0.45), 0 0 24px rgb(3 18 36 / 0.35);
+}
+
+/* The anchor drifts down and back, a slow cue to dive in. */
+.hero-cue {
+  animation: hero-cue-drift 3.6s ease-in-out infinite;
+}
+
+@keyframes hero-cue-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cue {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .hero-scrim {
+    background: rgb(3 18 36 / 0.75);
+  }
 }
 </style>

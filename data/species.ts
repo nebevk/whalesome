@@ -8,7 +8,7 @@ export const species: WhaleSpecies[] = [
     name: 'Blue Whale',
     scientificName: 'Balaenoptera musculus',
     description:
-      'The largest animal ever known to have lived. Reaches 30 metres and 180 tonnes, and sustains itself entirely on krill, filtering several tonnes of it a day through its baleen.',
+      'The largest animal ever known to have lived. Reaches 30 metres and 180 tonnes, and feeds almost entirely on krill, filtering several tonnes of it a day through its baleen.',
     adult: {
       size: 'Up to 30 m (100 ft)',
       weight: 'Up to 180 tonnes',
@@ -18,30 +18,30 @@ export const species: WhaleSpecies[] = [
         'Small dorsal fin set far back',
         'Broad U-shaped head',
       ],
-      image: unsplash.blueWhale,
+      image: wm('1/1c/Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg'),
       facts: [
-        'Heart is roughly the size of a small car.',
-        'Calls reach 188 dB, the loudest sound made by any animal.',
-        'Can consume around 4 tonnes of krill per day.',
+        'Its heart can slow to just 2 beats a minute on a dive.',
+        'Its calls reach about 188 dB, among the loudest of any animal.',
+        'Can eat around 16 tonnes of krill a day on its feeding grounds.',
       ],
     },
     baby: {
       size: '7-8 m (23-26 ft) at birth',
       weight: '2.5-3 tonnes',
       characteristics: [
-        'Born tail-first, swims within minutes',
+        'Births are rarely seen; only two have ever been recorded',
         'Nurses for 6-7 months',
-        'Gains around 90 kg per day in first year',
+        'Gains around 90 kg a day while nursing',
         'Stays close to mother through first migration',
       ],
-      image: unsplash.whaleUnderwater,
+      image: wm('e/ee/BlueWhaleWithCalf.jpg'),
       facts: [
-        'Drinks up to 220 litres of milk per day.',
+        'Drinks an estimated 200 litres of milk a day.',
         'Milk is roughly 40% fat, similar to double cream.',
         'Doubles its birth length before weaning.',
       ],
     },
-    habitat: 'All oceans, polar to tropical',
+    habitat: 'All oceans except the Arctic',
     conservationStatus: 'Endangered',
     group: 'baleen',
     family: 'Balaenopteridae',
@@ -55,14 +55,15 @@ export const species: WhaleSpecies[] = [
     ],
     audio: {
       path: '8/85/Blue_whale_atlantic1.ogg',
-      label: 'Atlantic blue whale song',
+      label: 'Atlantic blue whale song (10× speed)',
       source: 'NOAA / Wikimedia Commons',
     },
     habitatRegions: [
-      { lat: 50, lng: -30, label: 'North Atlantic feeding grounds' },
+      { lat: 49.6, lng: -66.0, label: 'Gulf of St Lawrence, Canada' },
+      { lat: 35.0, lng: -121.5, label: 'California coast (eastern North Pacific)' },
+      { lat: 5.6, lng: 80.6, label: 'Southern Sri Lanka (northern Indian Ocean)' },
+      { lat: -38.6, lng: 140.8, label: 'Bonney Upwelling, southern Australia' },
       { lat: -65, lng: 0, label: 'Antarctic feeding grounds' },
-      { lat: -25, lng: 70, label: 'Southern Indian Ocean' },
-      { lat: 45, lng: -150, label: 'North Pacific' },
     ],
   },
   {
@@ -70,7 +71,7 @@ export const species: WhaleSpecies[] = [
     name: 'Humpback Whale',
     scientificName: 'Megaptera novaeangliae',
     description:
-      'Famous for breaching, bubble-net feeding, and long, evolving songs that spread between populations. Migrates further than any other mammal, up to 8,000 km each way.',
+      'Famous for breaching, bubble-net feeding, and long, evolving songs that spread between populations. Makes one of the longest migrations of any mammal, up to 8,000 km each way.',
     adult: {
       size: '12-15 m (40-50 ft)',
       weight: '25-40 tonnes',
@@ -83,8 +84,8 @@ export const species: WhaleSpecies[] = [
       image: unsplash.humpback,
       facts: [
         'Songs can last 20+ minutes and repeat for hours.',
-        'Entire populations learn new songs each season.',
-        'Co-operative bubble-net feeding is taught, not instinctive.',
+        'All males in a population sing the same song, which changes year to year.',
+        'Some bubble-feeding techniques spread between whales by social learning.',
       ],
     },
     baby: {
@@ -92,9 +93,9 @@ export const species: WhaleSpecies[] = [
       weight: '0.9-1.8 tonnes',
       characteristics: [
         'Born in warm, shallow breeding grounds',
-        'Nurses 5-10 months',
+        'Nurses for up to about a year',
         'Stays with mother through first migration',
-        'Learns regional song variants from adults',
+        'Calls to its mother in faint "whispers"',
       ],
       image: unsplash.whaleTail,
       facts: [
@@ -118,15 +119,15 @@ export const species: WhaleSpecies[] = [
     ],
     audio: {
       path: 'd/d4/Humpback_whale_wheezeblow.ogg',
-      label: 'Humpback whale song',
-      source: 'NOAA / Wikimedia Commons',
+      label: 'Humpback whale sounds and wheeze blows, Glacier Bay',
+      source: 'US National Park Service / Wikimedia Commons',
     },
     habitatRegions: [
       { lat: 20, lng: -157, label: 'Hawaii (winter breeding)' },
       { lat: 58, lng: -150, label: 'Alaska (summer feeding)' },
       { lat: -20, lng: -175, label: 'Tonga (Southern breeding)' },
       { lat: -65, lng: -65, label: 'Antarctic Peninsula' },
-      { lat: 42, lng: -70, label: 'Stellwagen Bank, Cape Cod' },
+      { lat: 42.4, lng: -70.35, label: 'Stellwagen Bank, Cape Cod' },
     ],
   },
   {
@@ -134,12 +135,12 @@ export const species: WhaleSpecies[] = [
     name: 'Orca',
     scientificName: 'Orcinus orca',
     description:
-      'The ocean\'s apex predator. Lives in tight matrilineal pods with pod-specific dialects and hunting traditions, cultural behaviour in the full anthropological sense.',
+      'The ocean\'s apex predator. Lives in tight matrilineal pods with pod-specific dialects and hunting traditions, which many scientists regard as culture.',
     adult: {
-      size: '6-10 m (20-32 ft)',
-      weight: '6-10 tonnes',
+      size: 'Females 5-7 m (16-23 ft), males 6-8 m (20-26 ft), rarely to 9.8 m (32 ft)',
+      weight: 'Females 1.5-4 tonnes, males 3.5-6 tonnes, rarely to 10 tonnes',
       characteristics: [
-        'Black-and-white patterning unique to each pod',
+        'Black-and-white body with a grey saddle patch unique to each whale',
         'Tall dorsal fin (up to 1.8 m in males)',
         'Powerful tail flukes',
         'Complex echolocation',
@@ -148,23 +149,22 @@ export const species: WhaleSpecies[] = [
       facts: [
         'Different ecotypes specialise in fish, seals, or other whales.',
         'Grandmother orcas live decades past menopause and lead pods.',
-        'Called "killer of whales" by whalers, the name stuck backwards.',
+        'By 1725 New England whalers called them "killers" for attacking young whales in packs.',
       ],
     },
     baby: {
       size: '2-2.5 m (6.5-8 ft) at birth',
       weight: '140-180 kg',
       characteristics: [
-        'Born with orange-tinted skin',
+        'White patches tinged yellow-orange at birth',
         'Nurses for 1-2 years',
-        'Stays with natal pod for life',
+        'In resident pods, stays with its mother\'s group for life',
         'Learns pod-specific calls and hunting style',
       ],
-      image: unsplash.orca,
       facts: [
-        'Doesn\'t sleep for the first month, neither does its mother.',
-        'Inherits dialect exclusively from its mother\'s line.',
-        'Plays a role in pod coordination from a young age.',
+        'For its first month, neither calf nor mother stops to rest at the surface; both likely sleep on the move.',
+        'In resident pods, learns its family\'s dialect mainly from its mother.',
+        'Born after a pregnancy of 15 to 18 months.',
       ],
     },
     habitat: 'Every ocean, polar to tropical',
@@ -181,14 +181,14 @@ export const species: WhaleSpecies[] = [
     ],
     audio: {
       path: '7/79/Killer_whale.ogg',
-      label: 'Orca calls and echolocation',
-      source: 'NOAA / Wikimedia Commons',
+      label: 'Orca calls recorded in Glacier Bay, Alaska',
+      source: 'US National Park Service / Wikimedia Commons',
     },
     habitatRegions: [
-      { lat: 48, lng: -123, label: 'Pacific Northwest residents' },
-      { lat: 65, lng: -22, label: 'Iceland' },
+      { lat: 48.5, lng: -123.2, label: 'Pacific Northwest residents' },
+      { lat: 65.1, lng: -23.2, label: 'Iceland' },
       { lat: 68, lng: 14, label: 'Vestfjorden, Norway' },
-      { lat: -68, lng: 20, label: 'Antarctic peninsula' },
+      { lat: -65, lng: -64, label: 'Antarctic Peninsula' },
       { lat: -42, lng: -64, label: 'Patagonia' },
     ],
   },
@@ -199,7 +199,7 @@ export const species: WhaleSpecies[] = [
     description:
       'The Arctic\'s "canary of the sea." Pure white as adults, with a flexible neck and an unusually wide vocal range. Highly social, gathering in estuaries by the thousands each summer.',
     adult: {
-      size: '4-6 m (13-20 ft)',
+      size: '3.5-5.5 m (11-18 ft)',
       weight: '1-1.5 tonnes',
       characteristics: [
         'Pure white skin',
@@ -215,19 +215,18 @@ export const species: WhaleSpecies[] = [
       ],
     },
     baby: {
-      size: '1.2-1.5 m (4-5 ft) at birth',
-      weight: '45-70 kg',
+      size: 'About 1.5-1.6 m (5 ft) at birth',
+      weight: '54-80 kg',
       characteristics: [
-        'Born gray or brown, whitens over 5-7 years',
+        'Born brown or grey, turning fully white at about 12-18 years',
         'Nurses for 1.5-2 years',
         'Stays with mother up to 3 years',
         'Learns pod vocal repertoire gradually',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Born in warm, shallow estuary waters in summer.',
         'Practices vocalisations almost from birth.',
-        'Skin lightens in patches as it ages.',
+        'Darkens to blue-grey in its first month, then slowly pales to white.',
       ],
     },
     habitat: 'Arctic and sub-Arctic coastal waters',
@@ -260,10 +259,10 @@ export const species: WhaleSpecies[] = [
     name: 'Sperm Whale',
     scientificName: 'Physeter macrocephalus',
     description:
-      'The largest toothed predator on Earth and the deepest-diving mammal. Named for the waxy spermaceti organ in its massive head, which tunes its echolocation clicks, the loudest sound in the animal kingdom.',
+      'The largest toothed predator on Earth and one of the deepest-diving mammals. Named for the waxy spermaceti organ in its massive head, which helps focus its echolocation clicks, the loudest sound in the animal kingdom.',
     adult: {
-      size: '11-18 m (36-60 ft)',
-      weight: '35-45 tonnes',
+      size: 'Females to about 12 m (40 ft), males to about 16 m (52 ft)',
+      weight: 'Females about 15 tonnes, males up to 45 tonnes',
       characteristics: [
         'Enormous, block-shaped head (a third of body length)',
         'Single blowhole angled to the left',
@@ -272,8 +271,8 @@ export const species: WhaleSpecies[] = [
       ],
       image: unsplash.spermWhale,
       facts: [
-        'Regularly dives below 1,000 m to hunt giant squid.',
-        'Echolocation clicks reach 230 dB underwater.',
+        'Typical hunting dives reach 600-1,000 m and last about 45 minutes.',
+        'Echolocation clicks reach up to 236 dB underwater.',
         'Inspired Moby-Dick, the historical whale attacks were real.',
       ],
     },
@@ -286,34 +285,32 @@ export const species: WhaleSpecies[] = [
         'Stays near the surface while mother hunts deep',
         'Looked after by other females in the unit',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Babysitting shifts are shared among adult females.',
         'Learns codas, click patterns unique to its clan.',
-        'May not make its first deep dive until age 10.',
+        'Calves under a year old have been tracked diving to 662 m.',
       ],
     },
-    habitat: 'All deep-water oceans, absent only from high Arctic',
+    habitat: 'Deep waters of every ocean, from the equator to the edge of the polar pack ice',
     conservationStatus: 'Vulnerable',
     group: 'toothed',
     family: 'Physeteridae',
     featured: false,
     gallery: [
       { src: wm('b/b5/Kaskelot.jpg'), caption: 'Diving off New Zealand', source: 'wikimedia' },
-      { src: wm('6/61/Physeter_macrocephalus_jumping.jpg'), caption: 'Breach off the Azores', source: 'wikimedia' },
-      { src: wm('d/d4/Sperm_whale_and_ship.jpg'), caption: 'Surface encounter with a research vessel', source: 'wikimedia' },
+      { src: wm('d/d4/Sperm_whale_and_ship.jpg'), caption: 'Whale-watching boat beside a sperm whale off Kaikōura, New Zealand', source: 'wikimedia' },
       { src: wm('4/4c/Sperm_whale_fluke_2.jpg'), caption: 'Fluke before a deep dive', source: 'wikimedia' },
-      { src: wm('8/80/Sperm_whale_and_Bottlenose_whale.JPG'), caption: 'Sperm whale and a bottlenose whale together', source: 'wikimedia' },
+      { src: wm('8/80/Sperm_whale_and_Bottlenose_whale.JPG'), caption: 'Painting of a sperm whale and a bottlenose whale by Archibald Thorburn', source: 'wikimedia' },
     ],
     audio: {
       path: 'd/dd/Sperm_Whale_Rapid_Clicks_and_Coda.ogg',
-      label: 'Rapid clicks and a coda exchange',
-      source: 'Wikimedia Commons',
+      label: 'Rapid clicks and a coda',
+      source: 'NOAA / Wikimedia Commons',
     },
     habitatRegions: [
       { lat: 38, lng: -28, label: 'Azores' },
-      { lat: 7, lng: 80, label: 'Sri Lanka (Trincomalee Canyon)' },
-      { lat: -42, lng: 174, label: 'Kaikōura, New Zealand' },
+      { lat: 8.6, lng: 81.4, label: 'Sri Lanka (Trincomalee Canyon)' },
+      { lat: -42.5, lng: 173.8, label: 'Kaikōura, New Zealand' },
       { lat: 15, lng: -61, label: 'Dominica' },
     ],
   },
@@ -322,7 +319,7 @@ export const species: WhaleSpecies[] = [
     name: 'Narwhal',
     scientificName: 'Monodon monoceros',
     description:
-      'The "unicorn of the sea." Males grow a long, spiralled tusk, actually an overgrown tooth, threaded with millions of nerve endings. Lives year-round in Arctic waters, under the ice.',
+      'The "unicorn of the sea." Males grow a long, spiralled tusk, actually an overgrown tooth, riddled with millions of tiny channels that may let it sense the water. Lives year-round in Arctic waters, wintering in dense pack ice.',
     adult: {
       size: '4-5.5 m (13-18 ft), excluding tusk',
       weight: '0.8-1.6 tonnes',
@@ -332,10 +329,10 @@ export const species: WhaleSpecies[] = [
         'No dorsal fin',
         'Short, rounded flippers',
       ],
-      image: unsplash.narwhal,
+      image: wm('9/94/Monodon_monoceros_pod.jpg'),
       facts: [
         'Tusk is a left-canine tooth that grows through the upper lip.',
-        'Tusk is sensitive to salinity, pressure, and temperature.',
+        'Experiments suggest the tusk can sense changes in water saltiness.',
         'Can dive over 1,500 m under sea ice.',
       ],
     },
@@ -346,16 +343,15 @@ export const species: WhaleSpecies[] = [
         'Born dark gray, no tusk',
         'Nurses for about 20 months',
         'Stays with mother through first winters',
-        'Learns ice-navigation from the pod',
+        'Darkens and gains white mottling as a juvenile',
       ],
-      image: unsplash.whaleCalf,
       facts: [
-        'Males begin to grow tusks in their first year.',
+        'A male\'s tusk starts to erupt when he is two or three years old.',
         'Lightens in colour over decades.',
         'Survives winter in 5% open water between ice sheets.',
       ],
     },
-    habitat: 'Arctic waters around Greenland and Canada',
+    habitat: 'Atlantic Arctic, from Canada and Greenland to Svalbard and Russia',
     conservationStatus: 'Least Concern',
     group: 'toothed',
     family: 'Monodontidae',
@@ -369,8 +365,8 @@ export const species: WhaleSpecies[] = [
     habitatRegions: [
       { lat: 74, lng: -85, label: 'Lancaster Sound, Canada' },
       { lat: 75, lng: -65, label: 'Baffin Bay' },
-      { lat: 70, lng: -25, label: 'East Greenland' },
-      { lat: 78, lng: 16, label: 'Svalbard' },
+      { lat: 70.3, lng: -22, label: 'Scoresby Sound, East Greenland' },
+      { lat: 80.3, lng: 16.5, label: 'Northern Svalbard' },
     ],
   },
   {
@@ -392,27 +388,26 @@ export const species: WhaleSpecies[] = [
       facts: [
         'Feeds by rolling on its side and scooping sediment from the seafloor.',
         'One of the longest migrations of any mammal.',
-        'Nearly hunted to extinction twice, once recovered, once still recovering.',
+        'Hunted to the brink of extinction in the mid 1800s and again in the early 1900s.',
       ],
     },
     baby: {
       size: '4-5 m (13-16 ft) at birth',
       weight: '0.7-1 tonne',
       characteristics: [
-        'Born in warm Baja California lagoons',
+        'Born in winter, during migration or in Mexican lagoons',
         'Nurses for 7-8 months',
         'Completes first migration northward at a few months old',
         'Often curious and approaches boats',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Migrates over 8,000 km before its first birthday.',
         'Mothers are famously protective, hence whalers\' nickname "devil fish."',
         'Modern calves in the lagoons are known to seek out human contact.',
       ],
     },
-    habitat: 'Eastern North Pacific, coastal',
-    conservationStatus: 'Least Concern (Western population Critically Endangered)',
+    habitat: 'North Pacific, mostly coastal',
+    conservationStatus: 'Least Concern (western subpopulation Endangered)',
     group: 'baleen',
     family: 'Eschrichtiidae',
     featured: false,
@@ -424,8 +419,8 @@ export const species: WhaleSpecies[] = [
       { src: wm('5/5f/Whale_with_Laguna_Peak%2C_California%2C_in_background.jpg'), caption: 'Coastal migration past the Santa Monica Mountains', source: 'wikimedia' },
     ],
     habitatRegions: [
-      { lat: 27, lng: -113, label: 'Baja California (winter breeding)' },
-      { lat: 60, lng: -175, label: 'Bering Sea (summer feeding)' },
+      { lat: 28.0, lng: -114.6, label: 'Baja California lagoons (winter breeding)' },
+      { lat: 65.0, lng: -169.0, label: 'Northern Bering and Chukchi seas (summer feeding)' },
       { lat: 35, lng: -121, label: 'California migration corridor' },
       { lat: 55, lng: 144, label: 'Sakhalin, Russia (Western pop.)' },
     ],
@@ -435,7 +430,7 @@ export const species: WhaleSpecies[] = [
     name: 'Fin Whale',
     scientificName: 'Balaenoptera physalus',
     description:
-      'The second-largest animal on Earth, and the fastest large whale, nicknamed the "greyhound of the sea." Known for asymmetrical head colouring and remarkably low-frequency calls.',
+      'The second-largest animal on Earth, and one of the fastest large whales, nicknamed the "greyhound of the sea." Known for asymmetrical head colouring and remarkably low-frequency calls.',
     adult: {
       size: '20-25 m (66-82 ft)',
       weight: '40-80 tonnes',
@@ -443,12 +438,12 @@ export const species: WhaleSpecies[] = [
         'Sleek, streamlined body',
         'Asymmetrical jaw: right side white, left side dark',
         'Prominent dorsal fin, far back',
-        'Up to 85 pleated throat grooves',
+        '50-100 pleated throat grooves',
       ],
-      image: unsplash.finWhale,
+      image: wm('f/f7/Balaenoptera_physalus_Saint-Laurent_02.jpg'),
       facts: [
-        'Can sustain 30+ km/h over long distances.',
-        'Calls at 20 Hz, below the range of human hearing.',
+        'Cruises at 9-15 km/h and can sprint to about 37 km/h.',
+        'Its 20 Hz calls sit at the lower limit of human hearing.',
         'Forms loose, fast-moving groups rather than tight pods.',
       ],
     },
@@ -458,14 +453,13 @@ export const species: WhaleSpecies[] = [
       characteristics: [
         'Weaned at 6-7 months',
         'Keeps close to mother at cruising speed',
-        'Learns migration corridors quickly',
+        'Born in mid-winter after an 11-month pregnancy',
         'Grows rapidly in the first year',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Has the same asymmetric pigmentation as adults from birth.',
-        'Can keep pace with pods within weeks.',
-        'Reaches adult size later than blue whales despite rapid growth.',
+        'Is weaned at 10-12 m long, nearly twice its birth length.',
+        'Keeps growing until it is about 25 years old.',
       ],
     },
     habitat: 'All oceans, mostly offshore',
@@ -486,18 +480,18 @@ export const species: WhaleSpecies[] = [
       source: 'NOAA / Wikimedia Commons',
     },
     habitatRegions: [
-      { lat: 42, lng: 6, label: 'Mediterranean (Pelagos Sanctuary)' },
-      { lat: 64, lng: -22, label: 'Iceland' },
-      { lat: 28, lng: -111, label: 'Gulf of California' },
+      { lat: 43.5, lng: 8.5, label: 'Mediterranean (Pelagos Sanctuary)' },
+      { lat: 64.0, lng: -25.0, label: 'Iceland' },
+      { lat: 27.5, lng: -111.5, label: 'Gulf of California' },
       { lat: -60, lng: 0, label: 'Antarctic' },
     ],
   },
   {
     id: 'minke-whale',
-    name: 'Minke Whale',
+    name: 'Common Minke Whale',
     scientificName: 'Balaenoptera acutorostrata',
     description:
-      'The smallest of the rorquals, and one of the most widespread whales in the world. Sleek, fast, and often solitary, still hunted commercially in a handful of countries.',
+      'The smallest of the rorquals, and one of the most widespread whales in the world. Sleek, fast, and often solitary, still hunted commercially by Norway and Japan.',
     adult: {
       size: '7-10 m (23-33 ft)',
       weight: '5-10 tonnes',
@@ -507,27 +501,26 @@ export const species: WhaleSpecies[] = [
         'White band across each flipper',
         'Tall, curved dorsal fin',
       ],
-      image: unsplash.minkeWhale,
+      image: wm('a/a6/SBNMS_-_Minke_Whale_-_Breach_%2828670557361%29.jpg'),
       facts: [
         'Surfaces quickly with little visible blow.',
         'Often investigates stationary boats.',
-        'Produces low-frequency "boings" in parts of the Pacific.',
+        'Makes a twanging "boing" call in the North Pacific.',
       ],
     },
     baby: {
-      size: '2.4-2.8 m (8-9 ft) at birth',
-      weight: '300-350 kg',
+      size: '2.4-3.5 m (8-11.5 ft) at birth',
+      weight: '320-450 kg',
       characteristics: [
         'Born after a 10-month gestation',
         'Nurses 4-6 months',
         'Independent quickly compared to larger whales',
         'Often stays in coastal waters',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'One of the shortest nursing periods of any baleen whale.',
         'Reaches sexual maturity at around 6 years.',
-        'Calves are already proficient feeders by their first winter.',
+        'Born in winter in warmer, low-latitude waters.',
       ],
     },
     habitat: 'All oceans, especially temperate and polar',
@@ -538,21 +531,21 @@ export const species: WhaleSpecies[] = [
     gallery: [
       { src: wm('a/a6/SBNMS_-_Minke_Whale_-_Breach_%2828670557361%29.jpg'), caption: 'Breaching at Stellwagen Bank Marine Sanctuary', source: 'wikimedia' },
       { src: wm('7/70/Whale_watching_Tadoussac_04.jpg'), caption: 'Compared to a zodiac off Tadoussac', source: 'wikimedia' },
-      { src: wm('d/d9/Minke_Whale_%28NOAA%29.jpg'), caption: 'White flipper bands of a dwarf minke (NOAA)', source: 'wikimedia' },
+      { src: wm('d/d9/Minke_Whale_%28NOAA%29.jpg'), caption: 'White flipper bands (NOAA)', source: 'wikimedia' },
       { src: wm('d/dd/Bac_rp_002.jpg'), caption: 'Underwater shot showing the diagnostic flipper band', source: 'wikimedia' },
       { src: wm('e/e3/Uma_Baleia_An%C3%A3_nos_A%C3%A7ores%2C_version_2.jpg'), caption: 'Breaching off the Azores', source: 'wikimedia' },
       { src: wm('7/70/Balaenoptera_acutorostrata_Saint-Laurent_01a.jpg'), caption: 'Saguenay-St Lawrence Marine Park', source: 'wikimedia' },
     ],
     audio: {
       path: '2/27/Atlantic_minke_whale_call.ogg',
-      label: 'Atlantic minke whale call',
+      label: 'Atlantic minke whale call (10× speed)',
       source: 'NOAA / Wikimedia Commons',
     },
     habitatRegions: [
-      { lat: 42, lng: -70, label: 'Stellwagen Bank, Massachusetts' },
-      { lat: 65, lng: -22, label: 'Iceland' },
+      { lat: 42.4, lng: -70.35, label: 'Stellwagen Bank, Massachusetts' },
+      { lat: 64.3, lng: -22.7, label: 'Iceland' },
       { lat: 57, lng: -7, label: 'Inner Hebrides, Scotland' },
-      { lat: -67, lng: 20, label: 'Antarctic' },
+      { lat: -15.5, lng: 146.0, label: 'Great Barrier Reef (dwarf minke, winter)' },
     ],
   },
   {
@@ -560,7 +553,7 @@ export const species: WhaleSpecies[] = [
     name: 'Bowhead Whale',
     scientificName: 'Balaena mysticetus',
     description:
-      'The Arctic specialist. Bowheads live their entire lives in polar waters, use their massive skulls to break through sea ice, and are thought to be the longest-lived mammals on Earth.',
+      'The Arctic specialist. Bowheads live their entire lives in Arctic and subarctic waters, use their massive skulls to break through sea ice, and are thought to be the longest-lived mammals on Earth.',
     adult: {
       size: '14-18 m (46-60 ft)',
       weight: '75-100 tonnes',
@@ -570,10 +563,10 @@ export const species: WhaleSpecies[] = [
         'No dorsal fin',
         'Blubber layer up to 50 cm thick',
       ],
-      image: unsplash.bowhead,
+      image: wm('6/6f/Bowhead-1_Kate_Stafford_edit_%2816272151841%29.jpg'),
       facts: [
-        'Can break through sea ice 60 cm thick with its head.',
-        'Confirmed ages over 200 years from stone harpoon tips found in living animals.',
+        'Can break through sea ice at least 20 cm thick, and reportedly up to 60 cm.',
+        'Eye-lens dating suggests some bowheads live more than 200 years.',
         'Longest baleen of any whale, up to 4 m per plate.',
       ],
     },
@@ -581,12 +574,11 @@ export const species: WhaleSpecies[] = [
       size: '4-4.5 m (13-15 ft) at birth',
       weight: '0.9-1 tonne',
       characteristics: [
-        'Born in early spring at ice edges',
+        'Born between April and early June, during the spring migration',
         'Nurses 9-12 months',
-        'Learns ice navigation from mother immediately',
+        'Can swim from birth',
         'Grows slowly, reflects long lifespan',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Thickens blubber rapidly in first months.',
         'Stays with mother through at least one full Arctic winter.',
@@ -608,7 +600,7 @@ export const species: WhaleSpecies[] = [
       { lat: 71, lng: -150, label: 'Beaufort Sea' },
       { lat: 67, lng: -78, label: 'Foxe Basin' },
       { lat: 56, lng: 142, label: 'Sea of Okhotsk' },
-      { lat: 75, lng: -20, label: 'Northeast Greenland' },
+      { lat: 79.5, lng: -8.0, label: 'Fram Strait, off Northeast Greenland' },
     ],
   },
   {
@@ -616,7 +608,7 @@ export const species: WhaleSpecies[] = [
     name: 'Sei Whale',
     scientificName: 'Balaenoptera borealis',
     description:
-      'One of the largest and fastest rorquals, capable of short bursts up to roughly 50 km/h. It favours deep, open ocean far from coasts and is named after the Norwegian word for pollock, a fish that appeared off Norway in the same season as the whales. Despite its size it feeds mostly by skimming copepods and small schooling fish near the surface.',
+      'One of the largest and fastest rorquals, capable of short bursts up to roughly 50 km/h. It favours deep, open ocean far from coasts and is named after the Norwegian word for pollock, a fish that appeared off Norway in the same season as the whales. Unlike other rorquals it can switch between skimming copepods at the surface and gulping krill and small schooling fish.',
     adult: {
       size: '15 to 19.5 m (49 to 64 ft)',
       weight: '15 to 20 tonnes',
@@ -624,13 +616,13 @@ export const species: WhaleSpecies[] = [
         'Dark steel-grey body with pale markings on the underside',
         'Tall, strongly sickle-shaped dorsal fin set two thirds back',
         'The finest baleen bristles of any rorqual',
-        'Short throat pleats that reach only halfway to the navel',
+        'Short throat pleats that end well before the navel',
       ],
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Sei_whale_mother_and_calf_Christin_Khan_NOAA.jpg/960px-Sei_whale_mother_and_calf_Christin_Khan_NOAA.jpg',
       facts: [
         'Among the fastest great whales, reaching roughly 50 km/h in short sprints.',
         'Females are slightly larger than males, as in most baleen whales.',
-        'The oldest verified individual reached 74 years.',
+        'Sei whales can live 50 to 70 years.',
       ],
     },
     baby: {
@@ -641,14 +633,13 @@ export const species: WhaleSpecies[] = [
         'Nursed for about 6 to 9 months, reaching 8 to 9 m by weaning',
         'Relies on rich milk for fast early growth',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Gestation lasts about 11 months, with one calf every 2 to 3 years.',
         'A newborn nearly doubles in length in its first half year.',
-        'Calves are born in warmer winter waters before moving toward cooler feeding grounds.',
+        'Calves are thought to be born in warm waters in winter, but most breeding grounds remain unknown.',
       ],
     },
-    habitat: 'Deep, open offshore waters of temperate and subtropical oceans worldwide',
+    habitat: 'Deep, open offshore waters of subtropical, temperate, and subpolar oceans worldwide',
     conservationStatus: 'Endangered',
     group: 'baleen',
     family: 'Balaenopteridae',
@@ -656,8 +647,8 @@ export const species: WhaleSpecies[] = [
       { lat: 42.5, lng: -67, label: 'Gulf of Maine and Georges Bank' },
       { lat: 65, lng: -30, label: 'Denmark Strait off Greenland' },
       { lat: 40, lng: 145, label: 'Offshore northern Japan' },
-      { lat: -51.5, lng: -59, label: 'Falkland Islands shelf' },
-      { lat: -50, lng: -75, label: 'Southern Chilean coast' },
+      { lat: -51.6, lng: -61.0, label: 'West Falkland inner shelf' },
+      { lat: -47.4, lng: -75.3, label: 'Golfo de Penas, southern Chile' },
     ],
   },
   {
@@ -665,7 +656,7 @@ export const species: WhaleSpecies[] = [
     name: "Bryde's Whale",
     scientificName: 'Balaenoptera edeni',
     description:
-      "A warm-water rorqual that lives in tropical, subtropical, and warm temperate seas, often staying year round rather than migrating. It closely resembles the sei whale but is set apart by three ridges running along the top of its head. It is an agile lunge feeder that targets small schooling fish and krill, sometimes using bubble nets.",
+      "A warm-water rorqual that lives in tropical, subtropical, and warm temperate seas, often staying year round rather than migrating. It closely resembles the sei whale but is set apart by three ridges running along the top of its head. It is an agile lunge feeder that targets small schooling fish and krill, sometimes using bubble nets. Its classification is still debated: the Society for Marine Mammalogy lists one species with two subspecies, the widespread Bryde's whale and the smaller coastal Eden's whale. Gulf of Mexico animals were named a separate species, Rice's whale, in 2021.",
     adult: {
       size: '12 to 15.5 m (39 to 51 ft)',
       weight: '12 to 25 tonnes',
@@ -678,7 +669,7 @@ export const species: WhaleSpecies[] = [
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Balaenoptera_brydei.jpg/960px-Balaenoptera_brydei.jpg',
       facts: [
         'Many populations stay in warm water all year, unlike most baleen whales.',
-        'Pacific populations make a distinctive call nicknamed the biotwang.',
+        'Bryde\'s whales in the western North Pacific make a strange call nicknamed the biotwang.',
         'An adult can eat roughly 600 to 660 kg of food a day.',
       ],
     },
@@ -686,15 +677,14 @@ export const species: WhaleSpecies[] = [
       size: '3.95 to 4.15 m (about 13 ft) at birth',
       weight: 'About 1,000 kg',
       characteristics: [
-        'Born with the same three head ridges as the adults',
+        'Born at roughly a quarter to a third of adult length',
         'Smoky grey from birth',
         'Slender, streamlined body built for agile feeding',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Gestation lasts about 10 to 12 months, one calf every 2 to 3 years.',
         'Calves can be born in the same warm waters where adults feed year round.',
-        'Newborns nurse for around 6 months before taking solid prey.',
+        'Calves nurse for about 6 to 12 months.',
       ],
     },
     habitat: 'Tropical, subtropical, and warm temperate waters of the Atlantic, Pacific, and Indian Oceans',
@@ -702,11 +692,11 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenopteridae',
     habitatRegions: [
-      { lat: -34, lng: 23.5, label: 'South African south coast' },
+      { lat: -34.2, lng: 23.0, label: 'South African south coast' },
       { lat: -36.8, lng: 174.9, label: 'Hauraki Gulf, New Zealand' },
-      { lat: 33.7, lng: 135.5, label: 'Warm waters off southern Japan' },
-      { lat: 11.5, lng: 99, label: 'Gulf of Thailand' },
-      { lat: 24, lng: -81.5, label: 'Subtropical waters off the Florida Keys' },
+      { lat: 33.2, lng: 133.5, label: 'Tosa Bay, southern Japan' },
+      { lat: 13.2, lng: 100.3, label: 'Upper Gulf of Thailand' },
+      { lat: 25.5, lng: -110.5, label: 'Gulf of California, Mexico' },
     ],
   },
   {
@@ -714,7 +704,7 @@ export const species: WhaleSpecies[] = [
     name: 'Pygmy Right Whale',
     scientificName: 'Caperea marginata',
     description:
-      'The smallest of all baleen whales and the only living member of the family Neobalaenidae. Rarely seen at sea, it is one of the least known of all cetaceans, with most knowledge coming from stranded animals. Recent studies suggest it may be more closely related to gray whales and rorquals than to the true right whales.',
+      'The smallest of all baleen whales and the only living member of the family Neobalaenidae, although fossils suggest it may be the last surviving cetothere. Rarely seen at sea, it is one of the least known of all cetaceans, with most knowledge coming from stranded animals. Recent studies suggest it may be more closely related to gray whales and rorquals than to the true right whales.',
     adult: {
       size: '6 to 6.5 m (20 to 21 ft)',
       weight: '3,000 to 3,500 kg',
@@ -733,13 +723,12 @@ export const species: WhaleSpecies[] = [
     },
     baby: {
       size: '1.6 to 2.2 m (5 to 7 ft) at birth',
-      weight: 'Around 300 to 400 kg',
+      weight: 'Not recorded',
       characteristics: [
         'Born at a quarter to a third of adult length, already dark over pale',
         'Lacks fully developed baleen and depends on milk',
-        'Large flippers and a small dorsal fin that sharpens with age',
+        'Small, slender flippers and a small dorsal fin set far back',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Thought to be weaned at around 5 months.',
         'Very little is documented about calving, because the species is so rarely seen.',
@@ -751,10 +740,10 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Neobalaenidae',
     habitatRegions: [
-      { lat: -43.5, lng: 172.6, label: 'Canterbury coast, New Zealand' },
-      { lat: -34.9, lng: 138.6, label: 'South Australian coast' },
-      { lat: -34, lng: 18.5, label: 'Cape coast, South Africa' },
-      { lat: -41.4, lng: -73, label: 'Southern Chile coast' },
+      { lat: -43.5, lng: 173.1, label: 'Canterbury coast, New Zealand' },
+      { lat: -35.0, lng: 138.2, label: 'Gulf St Vincent, South Australia' },
+      { lat: -34.2, lng: 18.65, label: 'False Bay, South Africa' },
+      { lat: -38.6, lng: 141.3, label: 'Bonney Upwelling off Portland, Victoria' },
       { lat: -22.9, lng: 14.5, label: 'Namibian coast' },
     ],
   },
@@ -763,35 +752,34 @@ export const species: WhaleSpecies[] = [
     name: 'Long-finned Pilot Whale',
     scientificName: 'Globicephala melas',
     description:
-      'A large member of the oceanic dolphin family and, after the orca, one of the biggest dolphins. It is named for the bulbous melon on its forehead and lives in tight, highly social pods. Two populations exist, one in the cold North Atlantic and one across the Southern Hemisphere.',
+      'A large member of the oceanic dolphin family and, after the orca, one of the biggest dolphins. Its genus name, Globicephala, means "round head", after the bulbous melon on its forehead. It lives in tight, highly social pods. Two populations exist, one in the cold North Atlantic and one across the Southern Hemisphere.',
     adult: {
       size: 'Females to 6 m (20 ft), males to 7.6 m (25 ft)',
-      weight: 'Females to 2,500 kg, males to 4,500 kg',
+      weight: 'Females to about 1,300 kg, males to about 2,300 kg',
       characteristics: [
         'Black or dark grey body with a pale anchor-shaped patch on the throat',
         'Long, sickle-shaped flippers, up to a quarter of body length',
         'Bulbous forehead and a low, strongly curved dorsal fin set forward',
         'Males markedly larger than females',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Pilot_Whale_-_Flickr_-_gailhampshire.jpg/960px-Pilot_Whale_-_Flickr_-_gailhampshire.jpg',
+      image: wm('5/5d/Griend_-_long-finned_pilot_whale_-_Globicephala_melas_2.jpg'),
       facts: [
         'The second-largest dolphin after the orca.',
         'Its brain holds more neocortical neurons than any other mammal yet studied.',
-        'Intensely social, it gathers in groups of hundreds and is prone to mass strandings.',
+        'Usually lives in groups of 20 to 100, sometimes hundreds, and is prone to mass strandings.',
       ],
     },
     baby: {
       size: '1.6 to 2.0 m (5 to 6.6 ft) at birth',
       weight: 'About 75 kg',
       characteristics: [
-        'Born after a long gestation of 12 to 16 months, already dark',
+        'Born after a gestation of 12 to 16 months, paler than adults',
         'Short flippers that lengthen with age into the long adult fins',
         'Stays in close contact with its mother and the pod',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Females give birth only once every 3 to 6 years.',
-        'Post-reproductive females may keep nursing young, a rare trait among mammals.',
+        'Older females in the pod help care for calves that are not their own.',
         'Strong pod bonds are thought to drive the species toward mass strandings.',
       ],
     },
@@ -800,11 +788,11 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Delphinidae',
     habitatRegions: [
-      { lat: 62, lng: -6.8, label: 'Faroe Islands' },
+      { lat: 62, lng: -6.3, label: 'Faroe Islands' },
       { lat: 47.5, lng: -52, label: 'Newfoundland shelf' },
-      { lat: 58, lng: -5, label: 'Northwest Scotland' },
-      { lat: -43, lng: 147, label: 'Tasmanian waters' },
-      { lat: -54, lng: -38, label: 'South Georgia, Southern Ocean' },
+      { lat: 58, lng: -6, label: 'Northwest Scotland' },
+      { lat: -42.2, lng: 145, label: 'Western Tasmania (Macquarie Harbour)' },
+      { lat: -40.6, lng: 172.8, label: 'Golden Bay, New Zealand' },
     ],
   },
   {
@@ -815,7 +803,7 @@ export const species: WhaleSpecies[] = [
       'One of the most endangered large whales on Earth, a stocky, slow-moving filter feeder marked by rough white callosities on its head. It was hunted to the brink because it floats when killed and swims close to shore, the so-called right whale to take. Fewer than 400 remain, and most deaths now come from fishing-gear entanglement and ship strikes.',
     adult: {
       size: '13 to 16 m (43 to 52 ft)',
-      weight: '40 to 70 tonnes',
+      weight: 'Up to about 64 tonnes',
       characteristics: [
         'Rough white callosities on the head, unique to each whale',
         'No dorsal fin and a broad, smooth back',
@@ -824,20 +812,19 @@ export const species: WhaleSpecies[] = [
       ],
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/GRNMS_-_Right_Whales_%2831361234602%29.jpg/960px-GRNMS_-_Right_Whales_%2831361234602%29.jpg',
       facts: [
-        'Up to 45 percent of its body weight is blubber, so it floats after death.',
+        'Right whales can live at least 70 years, but females now live only to about 45.',
         'Females once calved every three years but now average every seven to ten.',
         'Only about 70 reproductively active females remain.',
       ],
     },
     baby: {
       size: '4 to 4.6 m (13 to 15 ft) at birth',
-      weight: 'About 1,400 kg',
+      weight: 'About 1,000 kg',
       characteristics: [
         'Born dark grey, with callosity patches still developing',
         'Lacks the heavy callosities of adults at first',
         'Stays close to its mother in shallow calving waters',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Calving happens in winter off Georgia and Florida.',
         'Gestation lasts more than a year, with a single calf.',
@@ -850,9 +837,10 @@ export const species: WhaleSpecies[] = [
     family: 'Balaenidae',
     habitatRegions: [
       { lat: 44.9, lng: -66.3, label: 'Bay of Fundy feeding grounds' },
-      { lat: 42.3, lng: -70.3, label: 'Cape Cod Bay' },
+      { lat: 41.9, lng: -70.3, label: 'Cape Cod Bay' },
       { lat: 47.5, lng: -63, label: 'Gulf of St. Lawrence' },
       { lat: 31, lng: -80.5, label: 'Georgia and Florida calving grounds' },
+      { lat: 40.8, lng: -70.5, label: 'Waters south of Martha\'s Vineyard and Nantucket' },
     ],
   },
   {
@@ -862,8 +850,8 @@ export const species: WhaleSpecies[] = [
     description:
       'A large, robust baleen whale of the Southern Hemisphere, easily known by the white callosities on its head and its lack of a dorsal fin. Heavily depleted by whaling, it has recovered strongly since protection and now numbers in the thousands. It is famous for tail sailing, holding its flukes up to catch the wind.',
     adult: {
-      size: '13 to 15 m (43 to 49 ft)',
-      weight: 'Up to about 47 tonnes',
+      size: '13 to 17 m (43 to 56 ft)',
+      weight: 'Up to about 80 tonnes',
       characteristics: [
         'White callosities on the head, forming a pattern unique to each whale',
         'No dorsal fin and a broad, dark back',
@@ -872,24 +860,23 @@ export const species: WhaleSpecies[] = [
       ],
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Southern_right_whale6.jpg/960px-Southern_right_whale6.jpg',
       facts: [
-        'Many populations have grown around 7 percent a year since whaling ceased.',
+        'Several populations grew about 7 percent a year after protection, but growth has slowed since the mid 2010s.',
         'It tail-sails, holding the flukes up to catch the wind.',
         'Some individuals carry rare white or partly white colouring.',
       ],
     },
     baby: {
-      size: '4 to 6 m (13 to 20 ft) at birth',
+      size: '4.5 to 6 m (15 to 20 ft) at birth',
       weight: 'About 1 tonne',
       characteristics: [
         'Born dark, with callosities still developing',
         'Stays in sheltered coastal bays with its mother',
         'Some show pale colouring that darkens with age',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Calves can double in length in their first year.',
         'Females first give birth at about 8 to 10 years old.',
-        'Calving happens in winter in warm, sheltered bays.',
+        'Calving happens in winter in sheltered, shallow coastal bays.',
       ],
     },
     habitat: 'Circumpolar in the Southern Hemisphere, breeding in temperate coastal waters',
@@ -897,11 +884,11 @@ export const species: WhaleSpecies[] = [
     group: 'baleen',
     family: 'Balaenidae',
     habitatRegions: [
-      { lat: -42.5, lng: -64.3, label: 'Peninsula Valdes, Argentina' },
-      { lat: -34.4, lng: 19.2, label: 'Hermanus, South Africa' },
-      { lat: -31.5, lng: 131.1, label: 'Head of Bight, South Australia' },
-      { lat: -50.8, lng: 166.1, label: 'Auckland Islands, New Zealand' },
-      { lat: -27.6, lng: -48.5, label: 'Santa Catarina coast, Brazil' },
+      { lat: -42.7, lng: -64.6, label: 'Golfo Nuevo, Peninsula Valdes, Argentina' },
+      { lat: -34.5, lng: 19.25, label: 'Walker Bay, Hermanus, South Africa' },
+      { lat: -31.6, lng: 131.1, label: 'Head of Bight, South Australia' },
+      { lat: -50.5, lng: 166.3, label: 'Auckland Islands, New Zealand' },
+      { lat: -28.2, lng: -48.5, label: 'Santa Catarina coast, Brazil' },
     ],
   },
   {
@@ -909,7 +896,7 @@ export const species: WhaleSpecies[] = [
     name: "Cuvier's Beaked Whale",
     scientificName: 'Ziphius cavirostris',
     description:
-      "The most widespread of all beaked whales, found in deep waters across nearly every ocean. It holds the records for the deepest and longest dives of any mammal, reaching nearly 3,000 metres and staying down for over three and a half hours. Its short, goose-like beak and pale, heavily scarred head make it recognisable on the rare occasions it surfaces.",
+      "The most widespread of all beaked whales, found in deep waters across nearly every ocean. It holds the records for the deepest and longest dives of any mammal, reaching nearly 3,000 metres and staying down for over three and a half hours. Its short, goose-like beak and pale, heavily scarred head make it recognisable during its brief visits to the surface.",
     adult: {
       size: '4.5 to 7 m (15 to 23 ft)',
       weight: '1,800 to 3,100 kg',
@@ -927,17 +914,16 @@ export const species: WhaleSpecies[] = [
       ],
     },
     baby: {
-      size: '2 to 3 m (6.5 to 9 ft) at birth',
+      size: '2 to 2.7 m (6.5 to 9 ft) at birth',
       weight: 'About 250 to 300 kg',
       characteristics: [
         'Born darker and more even-coloured than adults',
         'Lacks the heavy scarring of mature animals',
         'A rounder body with a less defined beak',
       ],
-      image: unsplash.whaleCalf,
       facts: [
-        'Calves stay close to the mother and nurse for about a year.',
-        'They learn deep foraging by following the mother on dives.',
+        'Females usually have one calf every two to three years.',
+        'Pregnancy lasts about a year, and births often peak in spring.',
         'The pale head colour develops slowly with age.',
       ],
     },
@@ -946,11 +932,11 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Ziphiidae',
     habitatRegions: [
-      { lat: 34.5, lng: -120.5, label: 'Southern California Bight' },
-      { lat: 40, lng: 7, label: 'Ligurian Sea, Mediterranean' },
+      { lat: 33, lng: -118.9, label: 'Southern California Bight' },
+      { lat: 43.7, lng: 8.3, label: 'Ligurian Sea, Mediterranean' },
       { lat: 19.5, lng: -156, label: 'Offshore Hawaii' },
       { lat: 36, lng: -75, label: 'Off Cape Hatteras' },
-      { lat: -37, lng: 175, label: 'New Zealand approaches' },
+      { lat: -36, lng: 176, label: 'Northern New Zealand' },
     ],
   },
   {
@@ -960,8 +946,8 @@ export const species: WhaleSpecies[] = [
     description:
       'A small, rarely seen deep-diving whale known mostly from strandings. It has a shark-like profile, with a blunt squarish head and a pale crescent behind each eye that looks like a gill. When threatened it can release a cloud of dark intestinal fluid to confuse a predator before slipping away.',
     adult: {
-      size: '3.5 to 3.8 m (11 to 12 ft)',
-      weight: '400 to 450 kg',
+      size: 'Up to 3.5-3.8 m (11.5-12.5 ft)',
+      weight: 'About 320-450 kg',
       characteristics: [
         'A large, squarish, shark-like head',
         'A small hooked dorsal fin set well back',
@@ -983,11 +969,10 @@ export const species: WhaleSpecies[] = [
         'A proportionally large head on a small body',
         'The pale false-gill mark already showing',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Born after a gestation of roughly 11 months.',
         'Nurses for about a year before weaning.',
-        'Newborns are easily mistaken for small sharks.',
+        'Females can give birth in consecutive years.',
       ],
     },
     habitat: 'Deep offshore waters along the continental slope in tropical and temperate oceans',
@@ -1009,8 +994,8 @@ export const species: WhaleSpecies[] = [
     description:
       'A robust, grey oceanic dolphin named for its short, stout snout. It is among the most intelligent and widely studied of all cetaceans, living in fluid social groups called pods. It is found in temperate and tropical seas worldwide, both close to shore and far offshore.',
     adult: {
-      size: '2.5 to 3.5 m (8 to 11.5 ft)',
-      weight: '200 to 500 kg',
+      size: '2 to 4 m (6.5 to 13 ft)',
+      weight: '150 to 650 kg',
       characteristics: [
         'Grey skin, darker on the back and paler below, with a short, clear beak',
         'A single blowhole and a tall, hooked dorsal fin near mid-back',
@@ -1020,7 +1005,7 @@ export const species: WhaleSpecies[] = [
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Tursiops_truncatus_01-cropped.jpg/960px-Tursiops_truncatus_01-cropped.jpg',
       facts: [
         'Uses signature whistles to identify individuals, recognising old companions after 20 years.',
-        'Some populations carry sponges on their beaks as tools while foraging.',
+        'Groups herd fish together, trapping schools against sandbars and seawalls.',
         'It hunts with echolocation, building a sound picture of the seafloor.',
       ],
     },
@@ -1032,7 +1017,6 @@ export const species: WhaleSpecies[] = [
         'Darker than adults, often with faint flank bands',
         'Born tail-first and helped to the surface for its first breath',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Nurses for roughly 18 to 20 months and stays with the mother for years.',
         'Swims in the mother\'s slipstream to save energy and keep pace.',
@@ -1045,10 +1029,10 @@ export const species: WhaleSpecies[] = [
     family: 'Delphinidae',
     habitatRegions: [
       { lat: 27.7, lng: -82.7, label: 'Gulf coast of Florida' },
-      { lat: 36.8, lng: -76, label: 'Chesapeake Bay' },
-      { lat: 24.7, lng: 53, label: 'Arabian Gulf' },
-      { lat: 40.6, lng: 18, label: 'Adriatic Sea' },
-      { lat: -32.5, lng: 152.5, label: 'Port Stephens, Australia' },
+      { lat: 57.7, lng: -3.8, label: 'Moray Firth, Scotland' },
+      { lat: -28.6, lng: -48.6, label: 'Laguna, southern Brazil' },
+      { lat: 42.8, lng: 15.5, label: 'Adriatic Sea' },
+      { lat: -45.3, lng: 166.6, label: 'Fiordland, New Zealand' },
     ],
   },
   {
@@ -1058,8 +1042,8 @@ export const species: WhaleSpecies[] = [
     description:
       'The smallest living cetacean and the most endangered marine mammal on Earth. This shy porpoise lives in a tiny patch of the northern Gulf of California in Mexico, recognised by the dark rings around its eyes and lips. With only a handful left, it stands on the edge of extinction, driven there almost entirely by entanglement in illegal gillnets.',
     adult: {
-      size: '1.4 to 1.5 m (4.6 to 4.9 ft)',
-      weight: '27 to 68 kg',
+      size: '1.2 to 1.5 m (4 to 5 ft)',
+      weight: '30 to 55 kg',
       characteristics: [
         'A small, stocky body with a rounded head and no beak',
         'A tall triangular dorsal fin, large for a porpoise',
@@ -1068,23 +1052,22 @@ export const species: WhaleSpecies[] = [
       ],
       image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Vaquita6_Olson_NOAA.jpg?width=960',
       facts: [
-        'The smallest of all cetaceans and the only porpoise in warm water.',
+        'The smallest of all cetaceans, it was only described by scientists in 1958.',
         'It has the smallest range of any marine mammal.',
         'Its decline is driven almost entirely by gillnets set illegally for the totoaba fish.',
       ],
     },
     baby: {
       size: '70 to 80 cm (2.3 to 2.6 ft) at birth',
-      weight: 'About 7 to 9 kg',
+      weight: 'About 7.5 kg',
       characteristics: [
         'Born large relative to the mother after a 10 to 11 month gestation',
-        'Carries the dark eye and lip marks from birth',
+        'Darker grey overall than adults',
         'Born in the spring calving season',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Nurses for roughly 6 to 8 months.',
-        'Females give birth only once every two years.',
+        'Females can calve every year or every other year.',
         'Calves are rarely seen, because the species is so shy and scarce.',
       ],
     },
@@ -1096,7 +1079,7 @@ export const species: WhaleSpecies[] = [
       { lat: 31.3, lng: -114.5, label: 'Upper Gulf near San Felipe' },
       { lat: 31.6, lng: -114.7, label: 'Colorado River Delta Reserve' },
       { lat: 31, lng: -114.4, label: 'Vaquita Refuge core zone' },
-      { lat: 31.2, lng: -113.9, label: 'Off Puerto Penasco, Sonora' },
+      { lat: 31.2, lng: -113.9, label: 'Off Puerto Peñasco, Sonora' },
     ],
   },
   {
@@ -1106,8 +1089,8 @@ export const species: WhaleSpecies[] = [
     description:
       'One of the smallest marine cetaceans, a stocky, shy animal of cool coastal waters across the Northern Hemisphere. It rarely leaps, usually showing only a slow roll of its back and a small triangular fin. Although abundant overall, some regional populations such as those in the Baltic and Black Seas are severely depleted.',
     adult: {
-      size: '1.4 to 1.9 m (4.6 to 6.3 ft)',
-      weight: '55 to 76 kg',
+      size: '1.4 to 1.9 m (4.6 to 6.2 ft)',
+      weight: '45 to 75 kg',
       characteristics: [
         'A small, stocky body, dark grey above fading to a white belly',
         'A low triangular dorsal fin near mid-back',
@@ -1129,7 +1112,6 @@ export const species: WhaleSpecies[] = [
         'Born tail-first after a 10 to 11 month gestation',
         'Swims in the mother\'s slipstream',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'Calves are usually born in late spring and summer.',
         'Nursing lasts roughly 8 to 12 months.',
@@ -1145,7 +1127,7 @@ export const species: WhaleSpecies[] = [
       { lat: 58, lng: 11, label: 'Kattegat and Skagerrak' },
       { lat: 44.5, lng: -66.5, label: 'Bay of Fundy' },
       { lat: 43, lng: 34, label: 'Black Sea' },
-      { lat: 48.3, lng: -124.5, label: 'Salish Sea' },
+      { lat: 48.3, lng: -123.3, label: 'Salish Sea' },
     ],
   },
   {
@@ -1172,16 +1154,15 @@ export const species: WhaleSpecies[] = [
     },
     baby: {
       size: 'About 1.0 m (3.3 ft) at birth',
-      weight: 'About 11 to 14 kg',
+      weight: 'About 25 kg',
       characteristics: [
         'Greyish, with no white frosting yet',
         'Born after an 11 to 12 month gestation, usually in summer',
         'Develops the bright adult contrast with age',
       ],
-      image: unsplash.whaleCalf,
       facts: [
         'A single calf is usually born in summer.',
-        'Young reach maturity at about 3 to 5 years.',
+        'Females mature at about 3 to 6 years, males at 5 to 8.',
         'The bright frosting fills in gradually as they grow.',
       ],
     },
@@ -1190,7 +1171,7 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Phocoenidae',
     habitatRegions: [
-      { lat: 48, lng: -125, label: 'Coast of British Columbia' },
+      { lat: 49.5, lng: -127, label: 'Coast of British Columbia' },
       { lat: 57, lng: -153, label: 'Gulf of Alaska' },
       { lat: 56, lng: -170, label: 'Bering Sea' },
       { lat: 53, lng: 150, label: 'Sea of Okhotsk' },

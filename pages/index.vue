@@ -12,9 +12,12 @@
       />
     </Transition>
 
-    <!-- Ambient bubbles + marine snow, faded in below the surface -->
+    <!-- Ambient bubbles, marine snow, and deep-water glow, faded in below the surface.
+         The depth gauge reads the same descent in metres. Both need the window, so
+         they render on the client only. -->
     <ClientOnly>
       <OceanParticles />
+      <DepthGauge />
     </ClientOnly>
 
     <div class="relative z-10">
@@ -54,7 +57,8 @@ const { timeTheme, gradient, phase } = useAmbient()
 
 <style scoped>
 /* One continuous descent: sunlit surface at the top, black abyss at the bottom.
-   Each homepage section sits transparently on top of this single gradient. */
+   Each homepage section sits transparently on top of this single gradient.
+   DepthGauge maps its zone boundaries to the 24%, 60% and 80% stops; move them together. */
 .ocean-page {
   background: linear-gradient(
     to bottom,

@@ -15,40 +15,43 @@
 
         <SpeciesAudio v-if="species.audio" :clip="species.audio" class="mb-6" />
 
-        <div class="diff aspect-[16/9] mb-6">
-          <div class="diff-item-1">
-            <div class="relative flex flex-col items-center justify-end h-full min-h-[200px]">
-              <img
-                :src="species.adult.image"
-                :alt="`Adult ${species.name}`"
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="relative z-10 w-full bg-base-300/90 backdrop-blur-sm p-4 text-left">
-                <h3 class="text-lg font-bold mb-2">Adult</h3>
-                <p class="text-sm"><strong>Size:</strong> {{ species.adult.size }}</p>
-                <p class="text-sm"><strong>Weight:</strong> {{ species.adult.weight }}</p>
+        <div class="rounded-box overflow-hidden bg-base-300 mb-6">
+          <!-- With a verified calf photo, a drag-to-compare slider. DaisyUI's diff positions
+               each half's direct child absolutely and stacks the adult half with z-index:1,
+               so the photos sit directly inside and the captions live below, outside it. -->
+          <div v-if="species.baby.image" class="relative">
+            <div class="diff aspect-[16/9]" tabindex="0">
+              <div class="diff-item-1" role="img" :aria-label="`Adult ${species.name}`" tabindex="0">
+                <NuxtImg :src="species.adult.image" alt="" sizes="sm:100vw md:80vw lg:60vw" />
               </div>
+              <div class="diff-item-2" role="img" :aria-label="`${species.name} calf`">
+                <NuxtImg :src="species.baby.image" alt="" sizes="sm:100vw md:80vw lg:60vw" />
+              </div>
+              <div class="diff-resizer" />
+            </div>
+            <span class="photo-tag left-3">Adult</span>
+            <span class="photo-tag right-3">Calf</span>
+          </div>
+          <!-- No verified calf photo: the adult alone. Never borrow another species' calf. -->
+          <NuxtImg
+            v-else
+            :src="species.adult.image"
+            :alt="`Adult ${species.name}`"
+            sizes="sm:100vw md:80vw lg:60vw"
+            class="block w-full aspect-[16/9] object-cover"
+          />
+
+          <!-- Stacked on phones: sourced sizes can be long ("Females 5-7 m…, males…"). -->
+          <div class="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-base-content/10">
+            <div v-for="stage in lifeStages" :key="stage.label" class="p-3 sm:p-4">
+              <h3 class="text-base sm:text-lg font-bold mb-1 sm:mb-2">{{ stage.label }}</h3>
+              <p class="text-xs sm:text-sm"><strong>Size:</strong> {{ stage.size }}</p>
+              <p class="text-xs sm:text-sm"><strong>Weight:</strong> {{ stage.weight }}</p>
             </div>
           </div>
-          <div class="diff-item-2">
-            <div class="relative flex flex-col items-center justify-end h-full min-h-[200px]">
-              <img
-                :src="species.baby.image"
-                :alt="`Calf ${species.name}`"
-                class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="relative z-10 w-full bg-base-300/90 backdrop-blur-sm p-4 text-left">
-                <h3 class="text-lg font-bold mb-2">Calf</h3>
-                <p class="text-sm"><strong>Size:</strong> {{ species.baby.size }}</p>
-                <p class="text-sm"><strong>Weight:</strong> {{ species.baby.weight }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="diff-resizer"></div>
+          <p v-if="species.baby.image" class="hidden sm:block px-4 pb-3 -mt-1 text-xs text-base-content/50">
+            Drag the divider on the photo to compare adult and calf.
+          </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
@@ -95,17 +98,21 @@
         </section>
 
         <section v-if="species.habitatRegions?.length" class="mt-10">
-          <div class="flex items-baseline justify-between mb-4">
+          <!-- grow-0 on the captions: DaisyUI gives every <p> inside .card-body flex-grow: 1,
+               which stretched them across the row so they sat flush against the heading. -->
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-4">
             <h3 class="text-xl font-semibold">Where they live</h3>
-            <p class="text-xs text-base-content/60">{{ species.habitatRegions.length }} hotspots</p>
+            <p class="grow-0 text-xs text-base-content/60">
+              {{ species.habitatRegions.length }} {{ species.habitatRegions.length === 1 ? 'hotspot' : 'hotspots' }}
+            </p>
           </div>
           <SpeciesMap :regions="species.habitatRegions" />
         </section>
 
         <section v-if="species.gallery?.length" class="mt-10">
-          <div class="flex items-baseline justify-between mb-4">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-4">
             <h3 class="text-xl font-semibold">Gallery</h3>
-            <p class="text-xs text-base-content/60">
+            <p class="grow-0 text-xs text-base-content/60">
               Photos from Wikimedia Commons. Click any image.
             </p>
           </div>
@@ -117,11 +124,10 @@
               class="group relative block aspect-[4/3] rounded-lg overflow-hidden bg-base-300 cursor-zoom-in"
               @click="openLightbox(i)"
             >
-              <img
+              <NuxtImg
                 :src="image.src"
                 :alt="image.caption"
-                loading="lazy"
-                decoding="async"
+                sizes="sm:50vw md:33vw"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -148,7 +154,14 @@ interface Props {
   species: WhaleSpecies | null
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const lifeStages = computed(() => props.species
+  ? [
+      { label: 'Adult', size: props.species.adult.size, weight: props.species.adult.weight },
+      { label: 'Calf', size: props.species.baby.size, weight: props.species.baby.weight },
+    ]
+  : [])
 
 const lightboxOpen = ref(false)
 const lightboxIndex = ref(0)
@@ -158,3 +171,18 @@ function openLightbox(index: number) {
   lightboxOpen.value = true
 }
 </script>
+
+<style scoped>
+.photo-tag {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 3;
+  pointer-events: none;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: color-mix(in oklab, var(--color-base-300) 80%, transparent);
+  backdrop-filter: blur(4px);
+}
+</style>

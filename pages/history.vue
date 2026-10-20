@@ -10,19 +10,14 @@
           industry killed nearly three million of them, then, at the edge of collapse, much of the
           world agreed to stop. This is how it unfolded.
         </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <div class="rounded-xl bg-base-100/40 border border-white/10 px-5 py-3">
-            <p class="text-2xl font-whale text-primary">~2.9 million</p>
-            <p class="text-xs text-white/70">whales killed in the 20th century</p>
-          </div>
-          <div class="rounded-xl bg-base-100/40 border border-white/10 px-5 py-3">
-            <p class="text-2xl font-whale text-primary">1986</p>
-            <p class="text-xs text-white/70">the commercial whaling moratorium</p>
-          </div>
-          <div class="rounded-xl bg-base-100/40 border border-white/10 px-5 py-3">
-            <p class="text-2xl font-whale text-primary">to ~1%</p>
-            <p class="text-xs text-white/70">how far Antarctic blue whales fell</p>
-          </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+          <StatTile
+            v-for="(stat, i) in heroStats"
+            :key="stat.label"
+            :value="stat.value"
+            :label="stat.label"
+            :class="i === heroStats.length - 1 ? 'col-span-2 sm:col-span-1' : ''"
+          />
         </div>
       </div>
     </section>
@@ -104,8 +99,16 @@
 import { ArrowRightIcon, ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline'
 import type { WhalingEra } from '~/types/species'
 import { whalingTimeline, whalingEras } from '~/data/whalingHistory'
+import { stats } from '~/data/population'
 
 defineOptions({ name: 'HistoryPage' })
+
+// Hero figures reuse the /populations wording, so the two pages never disagree.
+const heroStats = [
+  stats.killed,
+  { label: 'Commercial whaling moratorium takes effect', value: '1986' },
+  stats.antarcticBlue,
+]
 
 useSeoMeta({
   title: 'The Age of Whaling, a timeline',

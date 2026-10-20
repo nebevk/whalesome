@@ -1,95 +1,40 @@
 # Whalesome
 
-A modern web application dedicated to exploring and learning about whales. Built with Nuxt 3 and featuring a beautiful, responsive design.
+A static field guide to whales: species profiles, classification, population data, and the history of whaling. Dark “spirit” theme, built with Nuxt 3.
 
-## Live Demo
+Live: [whalesome.netlify.app](https://whalesome.netlify.app)
 
-Visit the live application at: [whalesome.netlify.app](https://whalesome.netlify.app)
+## Tech stack
 
-## Tech Stack
-
-- **Framework**: [Nuxt 3](https://nuxt.com/) (Vue.js 3)
-- **Language**: TypeScript
-- **Styling**:
-  - [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
-  - [Headless UI](https://headlessui.com/) for accessible UI components
-- **Animations**: [VueUse Motion](https://motion.vueuse.org/) for smooth animations
-- **Deployment**: [Netlify](https://www.netlify.com/)
+- **Framework**: [Nuxt 3](https://nuxt.com/) (Vue 3, TypeScript), statically prerendered
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + [DaisyUI v5](https://daisyui.com/) (`spirit` theme only)
+- **Images**: [`@nuxt/image`](https://image.nuxt.com/) (`<NuxtImg>`)
+- **Fonts**: [`@nuxt/fonts`](https://fonts.nuxt.com/) (Fredoka, Merriweather Sans, Rouge Script)
+- **Maps**: static Equal Earth SVGs from [Natural Earth](https://www.naturalearthdata.com/) land data, no tile server
+- **Icons**: [Heroicons](https://heroicons.com/) outline
+- **Deploy**: [Netlify](https://www.netlify.com/) via `npm run generate`
 
 ## Features
 
-- Responsive design
-- Modern UI components
-- Smooth animations
-- Server-side rendering
-- Type-safe development with TypeScript
-
-## Project Structure
-
-```
-├── assets/         # Static assets and global styles
-├── components/     # Vue components
-├── layouts/        # Page layouts
-├── pages/          # Application pages
-├── plugins/        # Vue plugins
-├── public/         # Public static files
-└── server/         # Server-side functionality
-```
+- 22 species profiles (adult / calf, gallery, habitat map, audio where available), fact-checked against IUCN, NOAA and the literature
+- Search and filter on `/species`, with shareable filtered views
+- Interactive classification tree of all 94 living cetacean species, and a whale of the day
+- `/history` sourced timeline, `/populations` estimates and recovery charts, `/compare` side-by-side with shareable links
+- Quick find (`/` or Ctrl/Cmd+K) for any page or species
+- Optional underwater ambience and a time-of-day ocean tint
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
 npm install
-```
-
-## Development
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-npm run dev
+npm run dev          # http://localhost:3000
 ```
 
 ## Production
 
-Build the application for production:
-
 ```bash
-npm run build
+npm run generate     # static HTML into dist/ (what Netlify runs)
+npm run preview      # preview the generated output
 ```
 
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Deployment
-
-This project is configured for automatic deployment on Netlify. The deployment process is handled automatically when changes are pushed to the main branch.
-
-### Netlify Configuration
-
-The project includes a `netlify.toml` file that configures:
-
-- Build settings
-- Redirect rules
-- Environment variables
-
-### Manual Deployment
-
-If you need to deploy manually:
-
-1. Build the project:
-
-   ```bash
-   npm run build
-   ```
-
-2. Deploy to Netlify using the Netlify CLI or by connecting your repository to Netlify.
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
+`netlify.toml` builds with `npm run generate`, publishes `dist/`, and uses a catch-all `/* → /index.html` SPA fallback for prerendered routes.

@@ -31,8 +31,7 @@ prerender) unless noted. Items already shipped in this pass are marked done.
    DaisyUI `diff` and `stat` components.
 5. **Size-comparison graphic**: a silhouette scale that puts a blue whale next to a human,
    a bus, and a vaquita. Pure SVG, very shareable.
-6. **Re-enable OG share images** (the `nuxt-og-image` work is half-done) so species and the
-   new history/populations pages get rich link previews.
+6. **OG share images** via a production-only pipeline (or a static card per route) so species, history, and populations pages get rich link previews. Species pages already fall back to the primary photo in `ogImage`.
 7. **Back-to-top button** and a reading-progress bar on the long history and species pages.
 
 ## Content and data
@@ -61,8 +60,7 @@ prerender) unless noted. Items already shipped in this pass are marked done.
 ## Visual and UX polish
 18. **Parallax depth** on the homepage: shift the particle layer and section art at slightly
     different scroll speeds to deepen the dive feeling.
-19. **Scroll-triggered reveals** for cards and timeline entries using the already-installed
-    `@vueuse/motion`.
+19. **Scroll-triggered reveals** for cards and timeline entries (VueUse Motion or CSS).
 20. **A light/surface theme** as an option (the project is dark-only today); the gradient and
     DaisyUI tokens make a second theme cheap.
 21. **Per-species accent colour** drawn from the hero photo, tinting that profile page.
@@ -79,26 +77,22 @@ prerender) unless noted. Items already shipped in this pass are marked done.
 ## Technical and infrastructure
 26. **Type-check and lint in CI**: no checks run today. Add `nuxi typecheck`, ESLint, and a
     build on every push so regressions surface before deploy.
-27. **Image pipeline**: route the new Wikimedia portraits through `<NuxtImg>` for WebP and
-    responsive `srcset` (a couple use full-resolution `Special:FilePath` today).
-28. **Sitemap and structured data**: `@nuxtjs/sitemap` plus `schema.org` markup for species
+27. **Sitemap and structured data**: `@nuxtjs/sitemap` plus `schema.org` markup for species
     (helps search and rich results).
-29. **Analytics, privacy-first** (Plausible or Umami) to learn which species and pages land.
-30. **Accessibility pass**: audit colour contrast on the neon-on-dark palette, focus states on
+28. **Accessibility pass**: audit colour contrast on the neon-on-dark palette, focus states on
     the glass nav, and `prefers-reduced-motion` coverage for every animation.
 
 ## Ambitious / stretch
-31. **A 3D whale viewer** (model-viewer or Three.js) for a couple of hero species.
-32. **An interactive "tree of life"** that replaces the static classification accordion with a
+29. **A 3D whale viewer** (model-viewer or Three.js) for a couple of hero species.
+30. **An interactive "tree of life"** that replaces the static classification accordion with a
     zoomable cladogram of all ~90 cetacean species.
-33. **Timeline scrubber** on the history page that animates a population line for a chosen
+31. **Timeline scrubber** on the history page that animates a population line for a chosen
     species as you drag through the decades.
-34. **Localisation** (i18n) so the field guide reaches non-English audiences.
+32. **Localisation** (i18n) so the field guide reaches non-English audiences.
 
 ---
 
 ## Suggested next three
-If I were picking what to do next: **(1) species filter and search**, since the catalogue is
-now big enough to need it; **(2) migration maps**, the single most "wow" addition for the
-effort; and **(3) re-enable OG images + sitemap**, so the new pages are shareable and
-discoverable. The rest can follow as the portal finds its audience.
+If I were picking what to do next: **(1) migration maps**, the single most "wow" addition for
+the effort; **(2) sitemap + structured data**, so the pages are discoverable; and **(3) type-check
+and lint in CI**. The rest can follow as the portal finds its audience.

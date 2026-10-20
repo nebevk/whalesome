@@ -41,9 +41,11 @@
           class="max-w-[90vw] max-h-[85vh] flex flex-col items-center"
           @click.stop
         >
-          <img
-            :src="current?.src"
-            :alt="current?.caption"
+          <NuxtImg
+            v-if="current"
+            :src="current.src"
+            :alt="current.caption"
+            sizes="lg:90vw"
             class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
           />
           <figcaption v-if="current?.caption" class="mt-4 text-white/80 text-sm text-center max-w-xl">
