@@ -4,7 +4,7 @@
 // file pages come from the Commons API; authors are the credited photographer or source.
 // Unsplash images need no entry.
 
-export interface PhotoCredit { author: string, license: string, page: string }
+import type { PhotoCredit } from '~/types/species'
 
 export const credits: Record<string, PhotoCredit> = {
   'Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg': { author: 'NOAA Photo Library', license: 'Public domain', page: 'https://commons.wikimedia.org/wiki/File:Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg' },

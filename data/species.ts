@@ -1,6 +1,7 @@
 import type { WhaleSpecies } from '~/types/species'
 import { unsplash } from '~/data/unsplash'
 import { wm } from '~/data/wikimedia'
+import { inat } from '~/data/inaturalist'
 
 export const species: WhaleSpecies[] = [
   {
@@ -364,7 +365,9 @@ export const species: WhaleSpecies[] = [
     gallery: [
       { src: wm('3/39/Narwhal_at_ice_edge.jpg'), caption: 'Surfacing at the ice edge off north Baffin Island', source: 'wikimedia' },
       { src: wm('9/94/Monodon_monoceros_pod.jpg'), caption: 'A pod from the air off Greenland, several with tusks', source: 'wikimedia' },
-      { src: wm('2/25/Narwhal_satellite.jpg'), caption: 'A male held alongside a boat for satellite tagging', source: 'wikimedia' },
+      { src: inat(565614005, 'jpg'), caption: 'Blowing at the surface with its tusk showing, north Baffin Island', source: 'inaturalist' },
+      { src: inat(565614141, 'jpg'), caption: 'Part of a large group surfacing together, north Baffin Island', source: 'inaturalist' },
+      { src: wm('2/25/Narwhal_satellite.jpg'), caption: 'A male held alongside a boat for satellite tagging', source: 'wikimedia', sensitive: 'Shows some blood from fitting a research tag.' },
     ],
     habitatRegions: [
       { lat: 74, lng: -85, label: 'Lancaster Sound, Canada' },
@@ -702,6 +705,8 @@ export const species: WhaleSpecies[] = [
     family: 'Balaenopteridae',
     gallery: [
       { src: wm('a/a1/Anim2619_%2834590655782%29.jpg'), caption: 'Surfacing in the Northwestern Hawaiian Islands (NOAA)', source: 'wikimedia' },
+      { src: inat(436623572, 'jpeg'), caption: 'Underwater view of the slender head, with ridges along the snout, Azores', source: 'inaturalist' },
+      { src: inat(245799020, 'jpeg'), caption: 'The head ridges in front of the blowholes on an Eden’s whale, Gulf of Thailand', source: 'inaturalist' },
       { src: wm('3/37/Brydes_whale.jpg'), caption: 'Back and dorsal fin in False Bay, South Africa', source: 'wikimedia' },
       { src: wm('5/51/Bryde%27s_whale_2.jpg'), caption: 'Eden’s whales feeding among terns in the Gulf of Thailand', source: 'wikimedia' },
       { src: wm('8/84/Bryde%27s_Whale_-_Hauraki_Gulf_Marine_Park%2C_New_Zealand.jpg'), caption: 'Beside a whale-watching boat in the Hauraki Gulf, New Zealand', source: 'wikimedia' },
@@ -1001,7 +1006,7 @@ export const species: WhaleSpecies[] = [
         'A pale false-gill mark behind each eye',
         'A narrow, underslung lower jaw with sharp teeth',
       ],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Pygmy_sperm_whale.jpg/960px-Pygmy_sperm_whale.jpg',
+      image: inat(540415640, 'jpg', 'original'),
       facts: [
         'When alarmed it ejects up to 12 litres of dark fluid as a smokescreen.',
         'It often floats still at the surface, which leaves it open to boat strikes.',
@@ -1027,8 +1032,11 @@ export const species: WhaleSpecies[] = [
     group: 'toothed',
     family: 'Kogiidae',
     gallery: [
+      { src: inat(540416162, 'jpg'), caption: 'Two surfacing in the Azores, showing the small hooked dorsal fin', source: 'inaturalist' },
+      { src: inat(540415586, 'jpg'), caption: 'Three resting still at the surface in the Azores', source: 'inaturalist' },
+      { src: wm('c/c9/Pygmy_sperm_whale.jpg'), caption: 'Dead on a beach on Florida’s Atlantic coast', source: 'wikimedia', sensitive: 'Shows a dead whale.' },
       { src: wm('c/c2/Zwergpottwal_Kogia_breviceps_DSC_0071.jpg'), caption: 'Head of a stranded whale, showing the underslung jaw, La Gomera', source: 'wikimedia' },
-      { src: wm('b/b0/Zwergpottwal_Kogia_breviceps_DSC_0058.jpg'), caption: 'A dead stranded whale towed ashore, La Gomera, Canary Islands', source: 'wikimedia' },
+      { src: wm('b/b0/Zwergpottwal_Kogia_breviceps_DSC_0058.jpg'), caption: 'A dead stranded whale towed ashore, La Gomera, Canary Islands', source: 'wikimedia', sensitive: 'Shows a dead whale with damaged skin.' },
       { src: wm('f/fb/Kogia_breviceps_%28Pigmy_Sperm_Whale%3B_Paraoa_Teoteo%29_%2848740079578%29.jpg'), caption: 'Skeleton in the Auckland Museum collection, New Zealand', source: 'wikimedia' },
     ],
     habitatRegions: [
@@ -1098,7 +1106,7 @@ export const species: WhaleSpecies[] = [
     name: 'Vaquita',
     scientificName: 'Phocoena sinus',
     description:
-      'The smallest living cetacean and the most endangered marine mammal on Earth. This shy porpoise lives in a tiny patch of the northern Gulf of California in Mexico, recognised by the dark rings around its eyes and lips. With only a handful left, it stands on the edge of extinction, driven there almost entirely by entanglement in illegal gillnets.',
+      'One of the smallest living cetaceans and the most endangered marine mammal on Earth. This shy porpoise lives in a tiny patch of the northern Gulf of California in Mexico, recognised by the dark rings around its eyes and lips. With only a handful left, it stands on the edge of extinction, driven there almost entirely by entanglement in illegal gillnets.',
     adult: {
       size: '1.2 to 1.5 m (4 to 5 ft)',
       weight: '30 to 55 kg',

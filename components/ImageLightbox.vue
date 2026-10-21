@@ -41,16 +41,33 @@
           class="max-w-[90vw] max-h-[85vh] flex flex-col items-center"
           @click.stop
         >
-          <NuxtImg
-            v-if="current"
-            :src="current.src"
-            :alt="current.caption"
-            sizes="lg:90vw"
-            class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
-          />
+          <div v-if="current" class="relative overflow-hidden rounded-lg shadow-2xl">
+            <NuxtImg
+              :src="current.src"
+              :alt="current.caption"
+              sizes="lg:90vw"
+              class="block max-w-full max-h-[80vh] object-contain transition-[filter] duration-500"
+              :class="hidden ? 'blur-2xl' : ''"
+            />
+            <!-- Arrowing onto a sensitive photo never reveals it by itself. -->
+            <div v-if="hidden" class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-black/40 p-6 text-center">
+              <EyeSlashIcon class="h-8 w-8 text-white/90" aria-hidden="true" />
+              <p class="max-w-xs text-sm text-white">{{ current.sensitive }}</p>
+              <button type="button" class="btn btn-sm rounded-full border-white/40 bg-transparent text-white hover:bg-white/15" @click="emit('reveal', current)">
+                Show photo
+              </button>
+            </div>
+          </div>
           <figcaption v-if="current?.caption" class="mt-4 text-white/80 text-sm text-center max-w-xl">
             {{ current.caption }}
-            <span v-if="credit" class="block text-white/60 text-xs mt-1">
+            <!-- iNaturalist photos say where they're from and link to the sighting itself. -->
+            <span v-if="credit?.source === 'iNaturalist'" class="block text-white/60 text-xs mt-1">
+              Photo by {{ credit.author }}, {{ credit.license }}, shared on iNaturalist.
+              <a :href="credit.page" class="inline-flex items-center gap-1 underline decoration-white/30 hover:text-white" target="_blank" rel="noopener noreferrer">
+                See this sighting on iNaturalist<ArrowTopRightOnSquareIcon class="h-3 w-3" aria-hidden="true" /><span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </span>
+            <span v-else-if="credit" class="block text-white/60 text-xs mt-1">
               Photo:
               <a :href="credit.page" class="underline decoration-white/30 hover:text-white" target="_blank" rel="noopener noreferrer">{{ credit.author }}<span class="sr-only"> (opens in a new tab)</span></a>,
               {{ credit.license }}
@@ -66,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
+import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon, EyeSlashIcon, ArrowTopRightOnSquareIcon } from '@heroicons/vue/24/outline'
 import type { GalleryImage } from '~/types/species'
 import { creditFor } from '~/data/imageCredits'
 
@@ -74,14 +91,18 @@ const props = defineProps<{
   images: GalleryImage[]
   index: number
   open: boolean
+  /** Srcs of sensitive photos the reader has chosen to see. */
+  revealed?: string[]
 }>()
 
 const emit = defineEmits<{
   'update:index': [n: number]
   'update:open': [v: boolean]
+  'reveal': [image: GalleryImage]
 }>()
 
 const current = computed(() => props.images[props.index])
+const hidden = computed(() => !!current.value?.sensitive && !(props.revealed ?? []).includes(current.value.src))
 const credit = computed(() => creditFor(current.value?.src))
 const hasPrev = computed(() => props.index > 0)
 const hasNext = computed(() => props.index < props.images.length - 1)

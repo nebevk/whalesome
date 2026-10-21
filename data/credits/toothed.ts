@@ -4,7 +4,7 @@
 // Licence short names and file pages come from the Commons API; authors are the credited
 // photographer or source. Unsplash images need no entry.
 
-export interface PhotoCredit { author: string, license: string, page: string }
+import type { PhotoCredit } from '~/types/species'
 
 export const credits: Record<string, PhotoCredit> = {
   // Orca

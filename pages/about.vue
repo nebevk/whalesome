@@ -81,10 +81,37 @@
         <div class="card-body">
           <h2 class="card-title text-2xl mb-2">Photo Credits</h2>
           <p class="grow-0 text-sm text-base-content/70 mb-4">
-            Species photos come from Wikimedia Commons, credited below with their authors and
-            licences, and from Unsplash, whose licence needs no attribution. Habitat maps use
-            Natural Earth data, which is in the public domain.
+            Species photos come from Wikimedia Commons<template v-if="inatCredits.length"> and iNaturalist</template>,
+            credited below with their authors and licences, and from Unsplash, whose licence
+            needs no attribution. Habitat maps use Natural Earth data, which is in the public domain.
           </p>
+
+          <section v-if="inatCredits.length" class="mb-8 rounded-lg bg-base-100 p-4 sm:p-5">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div class="max-w-2xl">
+                <h3 class="text-lg font-semibold">From iNaturalist</h3>
+                <span class="mt-1 block text-sm text-base-content/70">
+                  These photos were shared on iNaturalist, a free community science site where
+                  anyone can post a wildlife sighting, others help identify it, and researchers use
+                  the records. Each links to the sighting it belongs to. If you ever see a whale,
+                  you can add yours too.
+                </span>
+              </div>
+              <a href="https://www.inaturalist.org" class="btn btn-primary btn-sm flex-none rounded-full" target="_blank" rel="noopener noreferrer">
+                Visit iNaturalist
+                <ArrowTopRightOnSquareIcon class="h-4 w-4" aria-hidden="true" />
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </div>
+            <ul class="mt-4 grid gap-x-8 gap-y-1.5 text-sm md:grid-cols-2">
+              <li v-for="photo in inatCredits" :key="photo.src" class="min-w-0">
+                <a :href="photo.page" class="link link-hover block truncate" target="_blank" rel="noopener noreferrer" :title="`${photo.species}: ${photo.caption}`">{{ photo.species }}: {{ photo.caption }}<span class="sr-only"> (iNaturalist sighting, opens in a new tab)</span></a>
+                <span class="block text-xs text-base-content/60">{{ photo.author }} on iNaturalist, {{ photo.license }}</span>
+              </li>
+            </ul>
+          </section>
+
+          <h3 v-if="inatCredits.length" class="mb-3 text-lg font-semibold">From Wikimedia Commons</h3>
           <ul class="grid gap-x-8 gap-y-1.5 text-sm md:grid-cols-2">
             <li v-for="credit in allCredits" :key="credit.file" class="min-w-0">
               <a :href="credit.page" class="link link-hover block truncate" target="_blank" rel="noopener noreferrer" :title="credit.file">{{ credit.file.replace(/_/g, ' ').replace(/\.\w+$/, '') }}<span class="sr-only"> (opens in a new tab)</span></a>
@@ -118,8 +145,9 @@ import {
   ScaleIcon,
   LifebuoyIcon,
   CubeTransparentIcon,
+  ArrowTopRightOnSquareIcon,
 } from '@heroicons/vue/24/outline'
-import { allCredits } from '~/data/imageCredits'
+import { allCredits, inatCredits } from '~/data/imageCredits'
 
 useSeoMeta({
   title: 'About, Whalesome',

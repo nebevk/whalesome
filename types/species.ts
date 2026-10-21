@@ -49,10 +49,25 @@ export interface HabitatRegion {
   label: string;
 }
 
+/** Who to credit for a photo; see data/imageCredits.ts. */
+export interface PhotoCredit {
+  author: string;
+  license: string;
+  /** The Commons file page, or for iNaturalist photos the observation page. */
+  page: string;
+  /** Set for photos shared on iNaturalist, which pages credit and link differently. */
+  source?: 'iNaturalist';
+}
+
 export interface GalleryImage {
   src: string;
   caption: string;
-  source: 'unsplash' | 'wikimedia';
+  source: 'unsplash' | 'wikimedia' | 'inaturalist';
+  /**
+   * Set for photos some readers may not want to see (blood, injured or dead animals).
+   * The gallery and lightbox show them blurred, with this reason and a button to reveal.
+   */
+  sensitive?: string;
 }
 
 
