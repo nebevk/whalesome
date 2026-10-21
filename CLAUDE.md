@@ -26,7 +26,7 @@ No test runner, linter, or type-check script is configured. Type errors surface 
 
 There is no map library or tile server. [components/SpeciesMap.vue](components/SpeciesMap.vue) draws a static Equal Earth map: coastlines are pre-generated SVGs in [public/maps/](public/maps/) (Natural Earth 1:50m land via `world-atlas`, projected with d3-geo's `geoEqualEarth` at the scale and size the component hardcodes). There is an Atlantic-centred and a Pacific-centred file; the component picks whichever frames the hotspots tighter (by longitude span) and zooms the `viewBox` to fit them. Markers are HTML, numbered to match the text list under the map. If you regenerate the files, keep `W = 1000`, the scale, and `H = 486.7` in sync with the component. CARTO basemaps now require an API key, which is why the Leaflet + Dark Matter map was removed.
 
-Visitor stats come from Simple Analytics (cookie-free, no consent banner): `latest.js` plus `auto-events.js` with `data-collect="outbound"` for outbound link clicks, both in `app.head.script` in nuxt.config.ts. They count pages for the site added in the Simple Analytics dashboard (whalesome.netlify.app); a new domain must be added there too. /about lists it under Built With.
+Visitor stats come from Simple Analytics (cookie-free, no consent banner). Netlify injects its `latest.js` and `auto-events.js` into every page at deploy time, so the scripts are not in the repo; adding them in code would count every visit twice. The dashboard tracks whalesome.netlify.app; a new domain must be added there too. /about lists it under Built With.
 
 Share cards use each page's `useSeoMeta` tags. Species detail pages set `ogImage` / `twitterImage` to the species' primary photo. There is no `nuxt-og-image` pipeline.
 

@@ -30,13 +30,8 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32.png' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
-      // Simple Analytics: cookie-free visitor stats, so no consent banner. latest.js also
-      // counts client-side route changes; auto-events.js counts clicks on outbound links
-      // (Ko-fi, iNaturalist, photo credits). Both skip localhost.
-      script: [
-        { src: 'https://scripts.simpleanalyticscdn.com/latest.js', async: true, tagPosition: 'bodyClose' },
-        { src: 'https://scripts.simpleanalyticscdn.com/auto-events.js', async: true, 'data-collect': 'outbound', tagPosition: 'bodyClose' },
-      ],
+      // No analytics script here: Netlify injects Simple Analytics into every page at deploy
+      // time, and a second copy would count every visit twice.
     },
   },
 
