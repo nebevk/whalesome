@@ -116,16 +116,32 @@
             sandbox.
           </p>
           <p class="mt-6 text-xs text-gray-400">Enjoying the site?</p>
-          <a
-            href="https://ko-fi.com/nejcbevk"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-2 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 px-4 text-sm text-gray-200 transition-colors hover:border-secondary/60 hover:bg-secondary/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary md:min-h-9"
-          >
-            <HeartIcon class="h-4 w-4 text-secondary" />
-            Support Whalesome on Ko-fi
-            <span class="sr-only">(opens in a new tab)</span>
-          </a>
+          <div class="mt-2 flex flex-col items-center gap-2 md:items-start">
+            <a
+              href="https://ko-fi.com/nejcbevk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 px-4 text-sm text-gray-200 transition-colors hover:border-secondary/60 hover:bg-secondary/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary md:min-h-9"
+            >
+              <HeartIcon class="h-4 w-4 text-secondary" />
+              Support Whalesome on Ko-fi
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <!-- iNaturalist's own donation page; it's a nonprofit and some of our photos come from it. -->
+            <a
+              href="https://www.inaturalist.org/donate"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 px-4 text-sm text-gray-200 transition-colors hover:border-primary/60 hover:bg-primary/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:min-h-9"
+            >
+              <GlobeAmericasIcon class="h-4 w-4 text-primary" />
+              Support iNaturalist
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <p class="max-w-xs text-xs text-gray-400">
+              The nonprofit community science site that shares some of our photos.
+            </p>
+          </div>
         </div>
         <nav class="text-center md:text-left" aria-label="Footer">
           <h2 class="footer-title text-gray-400 opacity-100">Explore</h2>
@@ -176,6 +192,7 @@ import {
   BookOpenIcon,
   ChartBarIcon,
   CubeTransparentIcon,
+  GlobeAmericasIcon,
   HeartIcon,
   HomeIcon,
   IdentificationIcon,
@@ -199,6 +216,7 @@ const links = [
 const credits = [
   { label: 'Photography via Unsplash', href: 'https://unsplash.com' },
   { label: 'Galleries via Wikimedia Commons', href: 'https://commons.wikimedia.org' },
+  { label: 'Photos and sightings via iNaturalist', href: 'https://www.inaturalist.org' },
   { label: 'Figures built with the Anatomy kit', href: 'https://github.com/wheresryan22/anatomy' },
   { label: 'Logo by VectorStock / SeptionDigital', href: 'https://www.vectorstock.com/royalty-free-vector/abstract-whale-tattoo-silhouette-with-wave-accent-vector-47585302' },
   { label: 'Built by Nejc Bevk', href: 'https://nejcbevk.com' },

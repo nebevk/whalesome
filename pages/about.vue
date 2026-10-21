@@ -233,5 +233,6 @@ const stack = [
   { name: 'Heroicons', role: 'Outline icons throughout' },
   { name: 'Natural Earth', role: 'Coastlines for the habitat maps, drawn as static SVG' },
   { name: 'Anatomy kit', role: 'Interactive isometric figures on the Anatomy page' },
+  { name: 'Simple Analytics', role: 'Visitor counts with no cookies and no personal data' },
 ]
 </script>
